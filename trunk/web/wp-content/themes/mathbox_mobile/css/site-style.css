@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+/* 以下部分为覆盖 style.css 中定义的部分 */
+html {
+	margin-top: 0 !important;
+}
+		
+.home {
+	/*max-width:480px;*/
+	}
+
+.site-header {
+	position: fixed;
+	width: 100%;
+    height: 36px;
+    background:none;
+    background-color: #fff;
+    z-index: 1000;
+    margin-top: -36px;
+}
+
+
+.site-header .home-link {
+	color: #141412;
+	display: block;
+	margin: 0 auto;
+	max-width: none;
+	min-height: 0;
+	padding: 0; 
+}
+
+.site-title {
+	font-size: 16px;
+	padding: 0;
+}
+
+.site-main {
+	margin-top: 36px;
+}
+
+.home-link {
+	
+}
+
+.hentry {
+	padding: 0;
+}
+
+/* 日志样式 */
+.format-aside {
+	background-color: none;
+}
+
+/* swipe style */
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+  height:auto;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+  height:auto;
+}
+.swipe-wrap > div {
+  float:left;
+  width:100%;
+  position: relative;
+}
