@@ -42,4 +42,8 @@
 			<?php endwhile; ?>
 		</div><!-- #content -->
 	</div><!-- #primary -->
+	<?php if (function_exists('wpfp_link')) { wpfp_link(); } ?>
+	
+	<?php wpfp_list_favorite_posts(); ?>
+	
 <?php endif; ?>

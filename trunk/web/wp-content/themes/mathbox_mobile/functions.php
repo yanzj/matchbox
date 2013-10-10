@@ -524,3 +524,17 @@ function twentythirteen_customize_preview_js() {
 	wp_enqueue_script( 'twentythirteen-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
 }
 add_action( 'customize_preview_init', 'twentythirteen_customize_preview_js' );
+
+function wpfp_get_current_count() {
+    global $wpdb;
+	$current_post = get_the_ID();
+    $query = "SELECT post_id, meta_value, post_status FROM $wpdb->postmeta";
+    $query .= " LEFT JOIN $wpdb->posts ON post_id=$wpdb->posts.ID";
+    $query .= " WHERE post_status='publish' AND meta_key='wpfp_favorites' AND post_id = '".$current_post."'";
+    $results = $wpdb->get_results($query);
+    if ($results) {
+        foreach ($results as $o):
+            echo $o->meta_value;
+        endforeach;
+    }else {echo( '0' );}
+}
