@@ -36,6 +36,7 @@ $ajax_mode = 1;
 
 function wp_favorite_posts() {
     if (isset($_REQUEST['wpfpaction'])):
+		//print $_REQUEST['wpfpaction'];
         global $ajax_mode;
         $ajax_mode = $_REQUEST['ajax'];
         if ($_REQUEST['wpfpaction'] == 'add') {
@@ -45,7 +46,11 @@ function wp_favorite_posts() {
         } else if ($_REQUEST['wpfpaction'] == 'clear') {
             if (wpfp_clear_favorites()) wpfp_die_or_go(wpfp_get_option('cleared'));
             else wpfp_die_or_go("ERROR");
-        }
+        } else if ($_REQUEST['wpfpaction'] == 'exists') {
+            wpfp_exists_favorite();
+        } else if ($_REQUEST['wpfpaction'] == 'list') {
+            wpfp_list_favorite();
+        } 
     endif;
 }
 add_action('template_redirect', 'wp_favorite_posts');
@@ -95,6 +100,46 @@ function wpfp_remove_favorite($post_id = "") {
         }
     }
     else return false;
+}
+
+function wpfp_exists_favorite($post_id = "") {
+    if (empty($post_id)) 
+    	$post_id = $_REQUEST['postid'];
+    if (wpfp_check_favorited($post_id))
+        wpfp_die_or_go("true");
+    else 
+    	wpfp_die_or_go("false");
+}
+
+function wpfp_list_favorite() {
+	$strHtml = '';
+	
+	$user = $_REQUEST['user'];
+    $collection_post_ids;
+    if (!empty($user)):
+        if (!wpfp_is_user_favlist_public($user)):
+            $collection_post_ids = wpfp_get_users_favorites($user);
+        endif;
+    else:
+        $collection_post_ids = wpfp_get_users_favorites();
+    endif;
+
+	global $wpdb;
+    $query = "SELECT post_id, meta_value, post_status FROM $wpdb->postmeta";
+    $query .= " LEFT JOIN $wpdb->posts ON post_id=$wpdb->posts.ID";
+    $query .= " WHERE post_status='publish' AND meta_key='".WPFP_META_KEY."' AND meta_value > 0 ORDER BY ROUND(meta_value) DESC";
+    $results = $wpdb->get_results($query);
+    if ($results) {
+        $strHtml .= '<ul>';
+        foreach ($results as $o):
+            $p = get_post($o->post_id);
+            $strHtml .= '<li>';
+            $strHtml .= '<a href="' . get_permalink($o->post_id) . '&single=true" title="'. $p->post_title . '">' . $p->post_title . '</a>';
+            $strHtml .= '</li>';
+        endforeach;
+        $strHtml .= '</ul>';
+    }
+	wpfp_die_or_go($strHtml);
 }
 
 function wpfp_die_or_go($str) {

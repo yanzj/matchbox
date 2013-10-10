@@ -26,7 +26,7 @@ function bshare($content){
         }
     } else if(is_feed() && get_option("bshare_inFeed") != "false") {
         global $post;
-        $bshare_feed_code = '<p><a href="http://www.bshare.cn/share?url='.urlencode(get_permalink($post->ID)).'&title='.urlencode($post->post_title).'" title="用bShare分享或收藏本文"><img src="http://static.bshare.cn/frame/images/button_custom1-zh.gif" alt="用bShare分享或收藏本文" /></a></p>';
+        $bshare_feed_code = '<p><a href="http://www.bshare.cn/share?url='.urlencode(get_permalink($post->ID)).'&title='.urlencode($post->post_title).'" title="分享本文"><img src="http://static.bshare.cn/frame/images/button_custom1-zh.gif" alt="分享本文" /></a></p>';
         $content = $content.$bshare_feed_code;
     }
     return $content;
