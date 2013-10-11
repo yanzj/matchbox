@@ -134,7 +134,7 @@ function wpfp_list_favorite() {
         foreach ($results as $o):
             $p = get_post($o->post_id);
             $strHtml .= '<li>';
-            $strHtml .= '<a href="' . get_permalink($o->post_id) . '&single=true" title="'. $p->post_title . '">' . $p->post_title . '</a>';
+            $strHtml .= '<a href="' . get_permalink($o->post_id) . '" title="'. $p->post_title . '">' . $p->post_title . '</a>';
             $strHtml .= '</li>';
         endforeach;
         $strHtml .= '</ul>';

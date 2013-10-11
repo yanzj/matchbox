@@ -69,7 +69,7 @@
 		  // scroll(0,0); // 返回顶部
 		// });
 		content_id = 'mathbox_content_' + id;
-		jQuery('#' + content_id).load( url, function() {
+		jQuery('#' + content_id).load( url + '&single=true', function() {
 		  //alert( "Load was performed." );
 		  scroll(0,0); // 返回顶部
 		  //jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
@@ -89,10 +89,10 @@
 		});
 		
 		// 分享连接
-		var shareUrl = '<?php echo esc_url( home_url( '/' ) ); ?>' + url + '&single=true';
+		var shareUrl = '<?php echo esc_url( home_url( '/' ) ); ?>' + url;
 		jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
 		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
-		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + escape(shareUrl));
+		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 	};
 	
 	var _hidefavorite = function() {
@@ -107,42 +107,27 @@
 		jQuery("#footer_favorite").hide();
 		
 	 	var elem = document.getElementById('mySwipe');
-		// window.mySwipe = Swipe(elem, {});
-		
-		window.mySwipe = Swipe(elem, {
-		  startSlide: 0,
-		  //speed: 400,
-		  //auto: 3000,
-		  continuous: false,
-		  //disableScroll: false,
-		  //stopPropagation: false,
-		  callback: function(index, elem) {
-		  	//alert('callback');
-		  	_load_post(my_array[index], my_array_title[index]);
-		  },
-		  transitionEnd: function(index, elem) {
-		  	//alert('transitionEnd');
-		  }
-		});
+		if (elem) {
+			window.mySwipe = Swipe(elem, {
+			  startSlide: 0,
+			  //speed: 400,
+			  //auto: 3000,
+			  continuous: false,
+			  //disableScroll: false,
+			  //stopPropagation: false,
+			  callback: function(index, elem) {
+			  	//alert('callback');
+			  	_load_post(my_array[index], my_array_title[index]);
+			  },
+			  transitionEnd: function(index, elem) {
+			  	//alert('transitionEnd');
+			  }
+			});
 
-		<?php echo $_pushscripts; ?>
-		//alert(my_array);
-		/*
-		jQuery('#btn_prev').click(function() {
-			// alert('btn perv click');
-			if (current_post > 0) {
-				current_post = current_post - 1;
-				_load_post(my_array[current_post]);
-			}
-		});
-		jQuery('#btn_next').click(function() {
-			//alert('btn next click');
-			if (current_post < posts_count - 1) {
-				current_post = current_post + 1;
-				_load_post(my_array[current_post]);
-			}
-		});
-		*/
+			<?php echo $_pushscripts; ?>
+			//alert(my_array);
+		}
+
 		// 打开收藏与分享菜单
 		jQuery('#btn_favorite').click(function() {
 			jQuery('#footer_favorite').show();	
@@ -155,7 +140,7 @@
 		jQuery('#link_add_favorite').click(function() {
 			var post_id	= jQuery('#favorite_current_post_id').val();
 			jQuery.get('?wpfpaction=add&postid=' + post_id + '&ajax=1', function(data){
-			  alert(data);
+			  //alert(data);
 			  jQuery('#link_add_favorite').hide();
 			  jQuery('#link_remove_favorite').show();
 		  	  
@@ -165,7 +150,7 @@
 		jQuery('#link_remove_favorite').click(function() {
 			var post_id	= jQuery('#favorite_current_post_id').val();
 			jQuery.get('?wpfpaction=remove&postid=' + post_id + '&ajax=1', function(data){
-			  alert(data);
+			  //alert(data);
 			  jQuery('#link_remove_favorite').hide();
 		  	  jQuery('#link_add_favorite').show();
 			});

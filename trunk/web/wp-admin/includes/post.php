@@ -1075,9 +1075,9 @@ function get_sample_permalink_html( $id, $new_title = null, $new_slug = null ) {
 		if ( '' == get_option( 'permalink_structure' ) && current_user_can( 'manage_options' ) && !( 'page' == get_option('show_on_front') && $id == get_option('page_on_front') ) )
 			$return .= '<span id="change-permalinks"><a href="options-permalink.php" class="button button-small" target="_blank">' . __('Change Permalinks') . "</a></span>\n";
 			
-			$qrcode_src = '../phpqrcode/codeview.php?level=H&size=6&data=' . $permalink . '%26audit%3Dtrue';
+			$qrcode_src = '../phpqrcode/codeview.php?level=H&size=6&data=' . $permalink;
 			//$display_link = str_replace(array('%pagename%','%postname%'), $post_name_html, $permalink);
-			$return .= '<span id="change-permalinks"><a href="javascript:jQuery(\'#qrcode_dialog\').dialog(\'open\');" href2="../phpqrcode/codeview.php?level=H&size=6&data=' . $permalink . '%26audit%3Dtrue" class="button button-small" target="_blank">' . '二维码' . "</a></span>\n";
+			$return .= '<span id="change-permalinks"><a href="javascript:jQuery(\'#qrcode_dialog\').dialog(\'open\');" class="button button-small" target="_blank">' . '二维码' . "</a></span>\n";
 			$return .= '<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />';
 			$return .= '<div style="display:none;"><div id="qrcode_dialog" title="扫描二维码 --> 预览文章" style="overflow:hidden;">';
   			$return .= '<iframe src="'.$qrcode_src.'" width="100%" height="360" frameborder="no" border="0" marginwidth="0" marginheight="0"></iframe>';
