@@ -134,7 +134,7 @@
 		});
 		// 打开反馈菜单
 		jQuery('#btn_feedback').click(function() {
-				
+			jQuery('#footer_freeback').show();		
 		});	
 		// 收藏文章
 		jQuery('#link_add_favorite').click(function() {
@@ -165,6 +165,11 @@
 		// 关闭收藏列表
 		jQuery('#btn_cancel_list_favorite').click(function() {
 			  jQuery('#favorite_list').css({'display':'none'});
+		});
+		
+		// 关闭关于页面
+		jQuery('#btn_cancel_freeback').click(function() {
+			  jQuery('#footer_freeback').css({'display':'none'});
 		});
 			
 		_load_post(my_array[current_post], my_array_title[current_post]);
