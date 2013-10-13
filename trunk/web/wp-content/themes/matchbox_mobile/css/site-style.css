@@ -125,6 +125,18 @@ html {
 #favorite_content ul li {margin: 20px 5px 5px 0;}
 #favorite_content ul li a {color:#fff;}
 
+#footer_freeback {
+	position:fixed;
+	width:100%;
+	height:100%;
+	background: rgba(0,0,0,0.8);
+	z-index:9999;
+	top:0;
+	left:0;
+	text-align: center;
+	display:none;
+}
+
 /* 文章元素 */
 
 .entry-title-date {

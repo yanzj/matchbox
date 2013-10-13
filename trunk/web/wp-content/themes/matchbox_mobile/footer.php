@@ -43,6 +43,25 @@
 		<button class="awesome" style="margin-bottom:20px;" onclick="javascript:_hidefavorite();">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
 		
 	</div>
+	
+	<div id="footer_freeback">
+		<div>
+			<a href="#" class="medium awesome">关于火柴盒</a>
+		</div>
+		<div>
+			<a href="#" class="medium awesome">投稿给我们</a>
+		</div>
+		<div>
+			<a href="#" class="medium awesome">去APP STORE评价我们</a>
+		</div>
+		<div>
+			<a href="#" class="medium awesome">意见反馈</a>
+		</div>
+		<div>
+			<a href="#" class="medium awesome">商业合作</a>
+		</div>
+		<button id="btn_cancel_freeback" class="awesome" style="margin-bottom:20px;">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+	</div>
 
 </body>
 </html>
