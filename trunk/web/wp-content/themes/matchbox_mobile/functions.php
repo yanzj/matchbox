@@ -538,3 +538,5 @@ function wpfp_get_current_count() {
         endforeach;
     }else {echo( '0' );}
 }
+
+

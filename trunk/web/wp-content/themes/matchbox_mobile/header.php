@@ -13,6 +13,31 @@
 	<?php wp_head(); ?>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.ez-pinned-footer.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/swipe.js"></script>
+	<script type="text/javascript">
+	function toggleSound(audioid) {
+		var music = document.getElementById(audioid);
+		jQuery("#matchbox_play_button");
+		if (music.paused) {
+			music.play();
+			jQuery("#matchbox_play_button").attr('src', '<?php echo get_template_directory_uri(); ?>/images/pause.png');
+		} else {
+			music.pause();
+			jQuery("#matchbox_play_button").attr('src', '<?php echo get_template_directory_uri(); ?>/images/play.png');
+		}
+	}
+	var _hidefavorite = function() {
+		jQuery('#footer_favorite').hide();
+	}
+	var _showfavorite = function() {
+		jQuery('#footer_favorite').show();	
+	}
+	var _showfreeback = function() {
+		jQuery('#footer_freeback').show();	
+	}
+	var _hidefreeback = function() {
+		jQuery('#footer_freeback').hide();	
+	}
+	</script>
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
 </head>
 

@@ -53,6 +53,12 @@
 
 
 <script type="text/javascript">
+	var hashMap = {  
+		Set : function(key,value){this[key] = value},  
+		Get : function(key){return this[key]},  
+		Contains : function(key){return this.Get(key) == null?false:true},  
+		Remove : function(key){delete this[key]}  
+	}
 	var my_array = new Array();
 	var my_array_title = new Array();
 	var current_post = 0;
@@ -60,20 +66,26 @@
 	var posts_count = <?php echo $_postscount; ?>;
 	var urltemplate = '?p=';
 	
-	var _load_post = function(id, title) {
+	var _load_post = function(idx) {
+		var id = my_array[idx];
+		var title = my_array_title[idx];
 		current_post_id = id;
 		var url = urltemplate + id;
-		//alert(url);
-		// jQuery('#d_content').load( url, function() {
-		  // //alert( "Load was performed." );
-		  // scroll(0,0); // 返回顶部
-		// });
-		content_id = 'mathbox_content_' + id;
-		jQuery('#' + content_id).load( url + '&single=true', function() {
-		  //alert( "Load was performed." );
-		  scroll(0,0); // 返回顶部
-		  //jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
-		});
+		var content_id = 'mathbox_content_' + id;
+		
+		if (hashMap.Contains(id)) {
+			//alert('coontains ' + id);
+			//FIXME:继续调整到屏幕剩余高度
+			jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
+		} else {
+			//alert('load ' + id);
+			jQuery('#' + content_id).load( url + '&single=true', function() {
+			  scroll(0,0); // 返回顶部
+			  //FIXME:继续调整到屏幕剩余高度
+			  jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
+			  hashMap.Set(id, '');
+			});
+		}
 		
 		// 判断是否已经收藏 
 		jQuery.get('?wpfpaction=exists&postid=' + id + '&ajax=1', function(data){
@@ -94,11 +106,7 @@
 		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
 		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 	};
-	
-	var _hidefavorite = function() {
-		jQuery('#footer_favorite').hide();
-	}
-		
+
 	jQuery(function() {
 		jQuery("#footer_favorite").pinFooter();
 		jQuery(window).resize(function() {
@@ -117,7 +125,7 @@
 			  //stopPropagation: false,
 			  callback: function(index, elem) {
 			  	//alert('callback');
-			  	_load_post(my_array[index], my_array_title[index]);
+			  	_load_post(index);
 			  },
 			  transitionEnd: function(index, elem) {
 			  	//alert('transitionEnd');
@@ -130,11 +138,12 @@
 
 		// 打开收藏与分享菜单
 		jQuery('#btn_favorite').click(function() {
-			jQuery('#footer_favorite').show();	
+			_showfavorite();	
 		});
+		
 		// 打开反馈菜单
 		jQuery('#btn_feedback').click(function() {
-			jQuery('#footer_freeback').show();		
+			_showfreeback();	
 		});	
 		// 收藏文章
 		jQuery('#link_add_favorite').click(function() {
@@ -172,7 +181,7 @@
 			  jQuery('#footer_freeback').css({'display':'none'});
 		});
 			
-		_load_post(my_array[current_post], my_array_title[current_post]);
+		_load_post(current_post);
 	});
 
 </script>
