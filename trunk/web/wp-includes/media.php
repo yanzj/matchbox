@@ -652,8 +652,11 @@ function img_caption_shortcode($attr, $content = null) {
 
 	if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
 
+	// return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
+	// . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
+	
 	return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
-	. do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
+	  . do_shortcode( $content ) . '</div>';
 }
 
 add_shortcode('gallery', 'gallery_shortcode');

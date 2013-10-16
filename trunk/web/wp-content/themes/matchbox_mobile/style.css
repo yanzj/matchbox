@@ -1126,7 +1126,7 @@ ul.nav-menu li:hover > ul,
 }
 
 footer.entry-meta {
-	margin-top: 24px;
+	margin-top: 2px;
 }
 
 .format-standard footer.entry-meta {
@@ -1369,50 +1369,6 @@ footer.entry-meta {
 	margin-right: 5px;
 }
 
-/* Audio */
-.format-audio {
-	background-color: #db572f;
-}
-
-.format-audio .entry-title {
-	font-size: 28px;
-	font-weight: bold;
-}
-
-.format-audio .entry-content:before {
-	content: "\f109";
-	float: left;
-	font-size: 64px;
-	position: relative;
-	top: 4px;
-}
-
-.format-audio .entry-content a,
-.format-audio .entry-meta a,
-.format-audio .entry-content a:hover,
-.format-audio .entry-meta a:hover {
-	color: #fbfaf3;
-}
-
-.format-audio .audio-content {
-	background: url(images/dotted-line.png) repeat-y left top;
-	background-size: 4px 4px;
-	float: right;
-	padding-left: 35px;
-	width: 80%;
-	width: -webkit-calc(100% - 85px);
-	width:         calc(100% - 85px);
-}
-
-.format-audio .wp-audio-shortcode {
-	height: 30px !important; /* Override mediaelement.js style */
-	margin: 20px 0;
-	max-width: 400px !important; /* Override mediaelement.js style */
-}
-
-.format-audio audio {
-	max-width: 100% !important; /* Avoid player width overflow. */
-}
 
 /* Chat */
 .format-chat {
@@ -2763,8 +2719,8 @@ footer.entry-meta {
 	.comment-respond,
 	.sidebar .site-info,
 	.sidebar .paging-navigation .nav-links {
-		padding-left: 20px;
-		padding-right: 20px;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 
 	#content .format-status .entry-content,
