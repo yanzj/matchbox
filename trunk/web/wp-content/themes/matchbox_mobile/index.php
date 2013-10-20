@@ -76,21 +76,13 @@
 		if (hashMap.Contains(id)) {
 			//alert('coontains ' + id);
 			//FIXME:继续调整到屏幕剩余高度
-<<<<<<< HEAD
-			//jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
-=======
 			jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
->>>>>>> 2ffc1c181600181b0fa5d46358ab630fc6ab5cfe
 		} else {
 			//alert('load ' + id);
 			jQuery('#' + content_id).load( url + '&single=true', function() {
 			  scroll(0,0); // 返回顶部
 			  //FIXME:继续调整到屏幕剩余高度
-<<<<<<< HEAD
-			  //jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
-=======
 			  jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
->>>>>>> 2ffc1c181600181b0fa5d46358ab630fc6ab5cfe
 			  hashMap.Set(id, '');
 			});
 		}

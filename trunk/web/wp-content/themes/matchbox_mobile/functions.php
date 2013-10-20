@@ -544,10 +544,7 @@ function wpfp_get_current_count() {
     }else {echo( '0' );}
 }
 
-<<<<<<< HEAD
 remove_filter (  'the_content' ,  'wpautop'  );
 remove_filter (  'the_excerpt' ,  'wpautop'  );
 
-=======
->>>>>>> 2ffc1c181600181b0fa5d46358ab630fc6ab5cfe
 
