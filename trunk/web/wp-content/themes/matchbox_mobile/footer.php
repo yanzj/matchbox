@@ -45,6 +45,7 @@
 	</div>
 	
 	<div id="footer_freeback">
+<<<<<<< HEAD
 		<div class="matchbox_freeback_title">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2" class="medium awesome">关于火柴盒</a>
 		</div>
@@ -99,6 +100,24 @@
 				</div>
 				</form>
 			</div>
+=======
+		<div>
+			<a href="#" class="medium awesome">关于火柴盒</a>
+		</div>
+		<div>
+			<a href="#" class="medium awesome">投稿给我们</a>
+		</div>
+		<div>
+			<a href="#" class="medium awesome">去APP STORE评价我们</a>
+		</div>
+		<div>
+			<a href="#" class="medium awesome">意见反馈</a>
+		</div>
+		<div>
+			<a href="#" class="medium awesome">商业合作</a>
+		</div>
+		<button id="btn_cancel_freeback" class="awesome" style="margin-bottom:20px;">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+>>>>>>> 2ffc1c181600181b0fa5d46358ab630fc6ab5cfe
 	</div>
 
 </body>

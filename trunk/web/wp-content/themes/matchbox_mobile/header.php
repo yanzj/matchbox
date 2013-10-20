@@ -39,6 +39,7 @@
 	var _hidefreeback = function() {
 		jQuery('#footer_freeback').hide();	
 	}
+<<<<<<< HEAD
 	var _showcomment = function() {
 		jQuery('#matchbox_comment_loading_circle').hide();
 		jQuery('#matchbox_comment_status').empty();
@@ -68,6 +69,8 @@
 				jQuery('#matchbox_comment_loading_circle').hide();
 			});
 	}
+=======
+>>>>>>> 2ffc1c181600181b0fa5d46358ab630fc6ab5cfe
 	</script>
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
 </head>

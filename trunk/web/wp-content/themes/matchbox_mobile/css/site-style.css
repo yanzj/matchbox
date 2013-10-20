@@ -138,6 +138,7 @@ html {
 	display:none;
 }
 
+<<<<<<< HEAD
 #footer_freeback .matchbox_freeback_title {
 	text-align:center;
 	font-size: 24px;
@@ -210,6 +211,8 @@ html {
 	font-weight: bold;
 }
 
+=======
+>>>>>>> 2ffc1c181600181b0fa5d46358ab630fc6ab5cfe
 /* 文章元素 */
 
 .entry-title-date {
