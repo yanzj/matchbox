@@ -91,6 +91,6 @@ require_once(ABSPATH . 'wp-settings.php');
 
 
 # 调试使用，覆盖 WordPress Site URL
-$deubg_url = 'http://192.168.16.2:8080';
-define('WP_HOME', $deubg_url);
-define('WP_SITEURL','$deubg_url);
+// $deubg_url = 'http://192.168.16.2:8080';
+// define('WP_HOME', $deubg_url);
+// define('WP_SITEURL','$deubg_url);

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>autoIMG demo</title>
+<script src="wp-includes/js/jquery/jquery.js"></script>
+<script src="wp-includes/js/jquery/jquery.autoIMG.min.js"></script>
+<style>
+#splash { 
+	width:100%; 
+	height:100%; 
+	margin-top:0; 
+	overflow:hidden; 
+	border:1px solid #CCC; 
+}
+#splash .content p { padding: 2px; }
+#splash .content img { border:0 none; }
+</style>
+<script>
+jQuery(function ($) {
+	$('#demo p').autoIMG();
+});
+</script>
+</head>
+<body>
+
+<div id="splash">
+  <div class="content">
+    <p><img src="splash.jpg" /></p>
+  </div>
+</div>
+</body>
+</html>

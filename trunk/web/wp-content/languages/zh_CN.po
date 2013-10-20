@@ -6326,7 +6326,7 @@ msgstr "日志"
 #: wp-includes/post-formats.php:94
 msgctxt "Post format"
 msgid "Chat"
-msgstr "聊天"
+msgstr "广告"
 
 #: wp-includes/post-formats.php:95
 msgctxt "Post format"

@@ -66,7 +66,7 @@ function twentythirteen_setup() {
 	 * replace to change 'twentythirteen' to the name of your theme in all
 	 * template files.
 	 */
-	load_theme_textdomain( 'twentythirteen', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'matchbox_mobile', get_template_directory() . '/languages' );
 
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
@@ -85,8 +85,11 @@ function twentythirteen_setup() {
 	 * This theme supports all available post formats by default.
 	 * See http://codex.wordpress.org/Post_Formats
 	 */
+	// add_theme_support( 'post-formats', array(
+		// 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
+	// ) );
 	add_theme_support( 'post-formats', array(
-		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
+		'aside', 'image', 'audio', 'chat', 'quote'
 	) );
 
 	// This theme uses wp_nav_menu() in one location.
@@ -168,12 +171,14 @@ function twentythirteen_scripts_styles() {
 	// Loads JavaScript file with functionality specific to Twenty Thirteen.
 	wp_enqueue_script( 'twentythirteen-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
 
+	/*
 	// Add Open Sans and Bitter fonts, used in the main stylesheet.
 	wp_enqueue_style( 'twentythirteen-fonts', twentythirteen_fonts_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
 	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
-
+	*/
+	
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'twentythirteen-style', get_stylesheet_uri(), array(), '2013-07-18' );
 
@@ -538,5 +543,8 @@ function wpfp_get_current_count() {
         endforeach;
     }else {echo( '0' );}
 }
+
+remove_filter (  'the_content' ,  'wpautop'  );
+remove_filter (  'the_excerpt' ,  'wpautop'  );
 
 

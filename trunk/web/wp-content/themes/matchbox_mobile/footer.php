@@ -45,22 +45,60 @@
 	</div>
 	
 	<div id="footer_freeback">
-		<div>
-			<a href="#" class="medium awesome">关于火柴盒</a>
+		<div class="matchbox_freeback_title">
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2" class="medium awesome">关于火柴盒</a>
 		</div>
-		<div>
+		<div class="matchbox_freeback_title">
 			<a href="#" class="medium awesome">投稿给我们</a>
 		</div>
-		<div>
+		<div class="matchbox_freeback_title">
 			<a href="#" class="medium awesome">去APP STORE评价我们</a>
 		</div>
-		<div>
-			<a href="#" class="medium awesome">意见反馈</a>
+		<div class="matchbox_freeback_title">
+			<a onclick="_showcomment()" class="medium awesome">意见反馈</a>
 		</div>
-		<div>
+		<div class="matchbox_freeback_title">
 			<a href="#" class="medium awesome">商业合作</a>
 		</div>
-		<button id="btn_cancel_freeback" class="awesome" style="margin-bottom:20px;">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+		<div class="matchbox_comment_buttongroup">
+			<button id="btn_cancel_freeback" class="awesome" style="margin-bottom:20px;">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+		</div>
+	</div>
+	
+	<div id="footer_comment">
+		
+			<div class="matchbox_comment_title">
+				<div class="backicon">
+					<img src="<?php echo get_template_directory_uri(); ?>/images/back.png" onclick="_hidecomment()"/>
+				</div>
+				<div style="margin-left:40px; margin-right:40px; text-align: center;">
+					用户反馈
+				</div>
+			</div>
+			<div class="matchbox_comment_body">
+				<form method="post" id="matchbox_commentform" onsubmit="javascript:return false;" novalidate>
+				<div class="matchbox_comment_label"><label for="email">EMAIL:</label></div>
+				<div><input id="email" name="email" type="email" value="" size="30" style="width:100%" aria-required='true' /></div>
+				<div class="matchbox_comment_label"><label for="url">手机:</label></div>
+				<div><input id="url" name="url" type="url" value="" size="30" style="width:100%"/></div>
+				<div class="matchbox_comment_label"><label for="comment">反馈内容</label></div>
+				<div><textarea id="comment" name="comment" rows="8" style="width:100%"></textarea></div>
+				<div class="matchbox_comment_loading">
+					<div id='matchbox_comment_loading_circle' style='margin-right: 30px;'>
+					<div id='matchbox_comment_loading_circle_1' class='matchbox_comment_loading_circle'></div>
+					<div id='matchbox_comment_loading_circle_2' class='matchbox_comment_loading_circle'></div>
+					<div id='matchbox_comment_loading_circle_3' class='matchbox_comment_loading_circle'></div>
+					<div style='clear: both; float: none;'></div>
+				</div>
+				</div>
+					<span id="matchbox_comment_status"></span>
+					<button id="matchbox_submit_comment" onclick="_commentsubmit()">提交反馈</button>
+					<input type='hidden' name='comment_post_ID' value='2' id='comment_post_ID' />
+					<input id="author" name="author" type="hidden" value="访客" />
+					<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+				</div>
+				</form>
+			</div>
 	</div>
 
 </body>

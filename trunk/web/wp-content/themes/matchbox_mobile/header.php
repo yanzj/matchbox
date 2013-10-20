@@ -8,8 +8,10 @@
 	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
 	<meta name="format-detection" content="telephone=no">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<?php /*
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+	 */?>
 	<?php wp_head(); ?>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.ez-pinned-footer.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/swipe.js"></script>
@@ -37,6 +39,35 @@
 	var _hidefreeback = function() {
 		jQuery('#footer_freeback').hide();	
 	}
+	var _showcomment = function() {
+		jQuery('#matchbox_comment_loading_circle').hide();
+		jQuery('#matchbox_comment_status').empty();
+		jQuery('#matchbox_submit_comment').show();
+		jQuery('#footer_comment').show();
+		_hidefreeback();
+	}
+	var _hidecomment = function() {
+		jQuery('#footer_comment').hide();	
+	}
+	var _commentsubmit = function() {
+		jQuery('#matchbox_comment_status').hide();
+		jQuery('#matchbox_comment_loading_circle').show();
+		jQuery('#matchbox_submit_comment').hide();
+		jQuery.post( "<?php echo esc_url( home_url( '/' ) ); ?>wp-comments-post.php", 
+			jQuery( "#matchbox_commentform" ).serialize() )
+			.done(function( data ) {
+				alert("您的评价已经提交，谢谢！");
+		    	jQuery('#matchbox_comment_status').html('<span><?php echo "您的评价已经提交，谢谢！" ?></span>');
+		    })
+		    .fail(function() {
+		    	alert("对不起，你的评价提交失败了！")
+			    jQuery('#matchbox_submit_comment').show();
+		    	jQuery('#matchbox_comment_status').html('<span><?php echo "对不起，你的评价提交失败了！" ?></span>');
+			})
+			.always(function() {
+				jQuery('#matchbox_comment_loading_circle').hide();
+			});
+	}
 	</script>
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
 </head>
@@ -59,4 +90,4 @@
 	</div><!-- #masthead -->
 
 	<div id="main" class="site-main">
-		<hr/>
+		

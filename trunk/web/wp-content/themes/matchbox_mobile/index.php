@@ -76,13 +76,13 @@
 		if (hashMap.Contains(id)) {
 			//alert('coontains ' + id);
 			//FIXME:继续调整到屏幕剩余高度
-			jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
+			//jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
 		} else {
 			//alert('load ' + id);
 			jQuery('#' + content_id).load( url + '&single=true', function() {
 			  scroll(0,0); // 返回顶部
 			  //FIXME:继续调整到屏幕剩余高度
-			  jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
+			  //jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
 			  hashMap.Set(id, '');
 			});
 		}

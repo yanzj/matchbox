@@ -1,0 +1,13 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Matchbox Mobile 1.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: wp-includes/post-formats.php:94
+msgctxt "Post format"
+msgid "Chat"
+msgstr "广告"
+
+
