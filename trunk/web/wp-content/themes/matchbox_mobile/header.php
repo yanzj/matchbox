@@ -56,16 +56,15 @@
 		jQuery.post( "<?php echo esc_url( home_url( '/' ) ); ?>wp-comments-post.php", 
 			jQuery( "#matchbox_commentform" ).serialize() )
 			.done(function( data ) {
-				alert("您的评价已经提交，谢谢！");
 		    	jQuery('#matchbox_comment_status').html('<span><?php echo "您的评价已经提交，谢谢！" ?></span>');
 		    })
 		    .fail(function() {
-		    	alert("对不起，你的评价提交失败了！")
 			    jQuery('#matchbox_submit_comment').show();
 		    	jQuery('#matchbox_comment_status').html('<span><?php echo "对不起，你的评价提交失败了！" ?></span>');
 			})
 			.always(function() {
 				jQuery('#matchbox_comment_loading_circle').hide();
+				jQuery('#matchbox_comment_status').show();
 			});
 	}
 	</script>

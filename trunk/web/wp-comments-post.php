@@ -73,7 +73,6 @@ if ( $user->exists() ) {
 
 $comment_type = '';
 
-/*
 if ( get_option('require_name_email') && !$user->exists() ) {
 	if ( 6 > strlen($comment_author_email) || '' == $comment_author )
 		wp_die( __('<strong>ERROR</strong>: please fill the required fields (name, email).') );
@@ -82,8 +81,9 @@ if ( get_option('require_name_email') && !$user->exists() ) {
 }
 
 if ( '' == $comment_content )
-	wp_die( __('<strong>ERROR</strong>: please type a comment.') );
-*/
+	$comment_content = '无内容';
+	#wp_die( __('<strong>ERROR</strong>: please type a comment.') );
+
 $comment_parent = isset($_POST['comment_parent']) ? absint($_POST['comment_parent']) : 0;
 
 $commentdata = compact('comment_post_ID', 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_type', 'comment_parent', 'user_ID');

@@ -24,7 +24,7 @@
 		<button id="btn_cancel_list_favorite" class="awesome" style="margin-bottom:20px;">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
 	</div>
 	
-	<div id="footer_favorite">
+	<div id="footer_favorite" style="display:none;">
 		<input type="hidden" id="favorite_current_post_id" value=""/>
 		<div>
 			<a id="link_add_favorite" href="#" class="medium awesome" style="display:none">&nbsp;收&nbsp;藏&nbsp;本&nbsp;文&nbsp;</a>
@@ -44,8 +44,7 @@
 		
 	</div>
 	
-	<div id="footer_freeback">
-<<<<<<< HEAD
+	<div id="footer_freeback" style="display:none;">
 		<div class="matchbox_freeback_title">
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2" class="medium awesome">关于火柴盒</a>
 		</div>
@@ -66,7 +65,7 @@
 		</div>
 	</div>
 	
-	<div id="footer_comment">
+	<div id="footer_comment" style="display:none;">
 		
 			<div class="matchbox_comment_title">
 				<div class="backicon">
@@ -100,22 +99,8 @@
 				</div>
 				</form>
 			</div>
-		<div>
-			<a href="#" class="medium awesome">关于火柴盒</a>
 		</div>
-		<div>
-			<a href="#" class="medium awesome">投稿给我们</a>
-		</div>
-		<div>
-			<a href="#" class="medium awesome">去APP STORE评价我们</a>
-		</div>
-		<div>
-			<a href="#" class="medium awesome">意见反馈</a>
-		</div>
-		<div>
-			<a href="#" class="medium awesome">商业合作</a>
-		</div>
-		<button id="btn_cancel_freeback" class="awesome" style="margin-bottom:20px;">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+	
 	</div>
 
 </body>

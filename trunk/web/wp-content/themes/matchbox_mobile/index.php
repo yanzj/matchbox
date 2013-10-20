@@ -37,14 +37,15 @@
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
-			<div id='mySwipe' class='swipe' style="">
-	  			<div id='mySwipe-wrap' class='swipe-wrap' style="">
+			<div id="mySwipe" class="swipe">
+	  			<div id="mySwipe-wrap" class="swipe-wrap">
 		  			<?php while ( have_posts() ) : the_post(); ?>
-					<div id="mathbox_content_<?php echo $post->ID;?>" style="width:100%;">
+					<div id="mathbox_content_<?php echo $post->ID;?>">
 					<!--
 					<b>mathbox_content_<?php echo $post->ID;?></b>
 					-->
 					</div>
+					
 					<?php endwhile; ?>
 				</div>
 			</div>
@@ -73,19 +74,49 @@
 		var url = urltemplate + id;
 		var content_id = 'mathbox_content_' + id;
 		
+		var a = '<div style="width:100%;margin:0 auto;text-align:center;"><div id="circular" style="display:inline-block;margin-top:50px;">' 
+					+ '<div id="circular_1" class="circular"></div>'
+					+ '<div id="circular_2" class="circular"></div>'
+					+ '<div id="circular_3" class="circular"></div>'
+					+ '<div id="circular_4" class="circular"></div>'
+					+ '<div id="circular_5" class="circular"></div>'
+					+ '<div id="circular_6" class="circular"></div>'
+					+ '<div id="circular_7" class="circular"></div>'
+					+ '<div id="circular_8" class="circular"></div>'
+					+ '<div class="clearfix"></div>'
+				+ '</div></div>';	 
+		//alert(jQuery(window).height()); //浏览器当前窗口文档的高度
+		//alert(jQuery(window).width()); //浏览器当前窗口文档的高度
+		//切换特效
+		
 		if (hashMap.Contains(id)) {
 			//alert('coontains ' + id);
 			//FIXME:继续调整到屏幕剩余高度
-			jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
+			//jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
+			  if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
+			  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
+				jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
+			  } else {
+			  	jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
+			  }
 		} else {
+			jQuery('#' + content_id).html(jQuery(a));
 			//alert('load ' + id);
 			jQuery('#' + content_id).load( url + '&single=true', function() {
 			  scroll(0,0); // 返回顶部
 			  //FIXME:继续调整到屏幕剩余高度
-			  jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
+			  //jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
 			  hashMap.Set(id, '');
+			  
+			  if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
+			  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
+				jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
+			  } else {
+			  	jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
+			  }
 			});
 		}
+		
 		
 		// 判断是否已经收藏 
 		jQuery.get('?wpfpaction=exists&postid=' + id + '&ajax=1', function(data){
