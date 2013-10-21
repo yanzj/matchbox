@@ -71,7 +71,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
 </head>
 
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> style="margin-top:36px;">
 	<div id="masthead" class="site-header">
 		<div style="float:left; width:40px;height:32px; padding-top:3px;">
 			<img id="btn_favorite" src="<?php echo get_template_directory_uri(); ?>/images/fun_left.png"/></div>	

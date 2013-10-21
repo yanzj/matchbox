@@ -90,24 +90,20 @@
 		//切换特效
 		
 		if (hashMap.Contains(id)) {
-			//alert('coontains ' + id);
-			//FIXME:继续调整到屏幕剩余高度
-			//jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
+			scroll(0,0); // 返回顶部
 			  if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
 			  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
 				jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
 			  } else {
 			  	jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
 			  }
+			  //alert(jQuery('#mySwipe-wrap').height());
 		} else {
 			jQuery('#' + content_id).html(jQuery(a));
 			//alert('load ' + id);
 			jQuery('#' + content_id).load( url + '&single=true', function() {
 			  scroll(0,0); // 返回顶部
-			  //FIXME:继续调整到屏幕剩余高度
-			  //jQuery('#mySwipe-wrap').css('height', jQuery('#' + content_id).css('height'));
 			  hashMap.Set(id, '');
-			  
 			  if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
 			  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
 				jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
@@ -116,7 +112,6 @@
 			  }
 			});
 		}
-		
 		
 		// 判断是否已经收藏 
 		jQuery.get('?wpfpaction=exists&postid=' + id + '&ajax=1', function(data){

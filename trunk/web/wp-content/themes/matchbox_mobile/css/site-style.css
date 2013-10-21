@@ -10,15 +10,16 @@ html {
 	}
 
 .site-header {
-	position: fixed;
-	width: 100%;
-    height: 36px;
-    background:none;
+    position: fixed;
+    top: 0;
+	right: 0;
+	left: 0;
+	z-index: 1030;
+	margin-bottom: 0;
+	background:none;
     background-color: #fff;
-    z-index: 1000;
-    margin-top: -36px;
+    display:block;
 }
-
 
 .site-header .home-link {
 	color: #141412;
@@ -35,10 +36,18 @@ html {
 }
 
 .site-main {
+	/*
 	margin-top: 36px;
 	padding-top: 5px;
+	*/
+	margin-left: auto;
+	margin-right: auto;
 }
 
+.site-main:before, .site-main:after {
+	display: table;
+	content: "";
+}
 .home-link {
 	
 }
