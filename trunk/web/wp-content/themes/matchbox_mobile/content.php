@@ -18,22 +18,18 @@
 	<div class="entry-content">
 		<?php the_content(); ?>
 	</div>
-	
-	<footer class="entry-meta" style="">
-		<div style="text-align:center;width:100%;">
-			<div style="width:80px; margin-right:auto; margin-left:auto;">
-				<a href="javascript:void(0)" onclick="_showfavorite()">
-					<div style="height:30px;float:left;"><img width="24px" height="24px" 
-					src="<?php echo get_template_directory_uri(); ?>/images/star.png" /></div>
-					<div style="height:30px;padding-top:1px;color:black;font-size:16px;font-weight:bold;float:left;">&nbsp;&nbsp;收藏</div>
+
+	<footer class="favorites_link_group">
+		<hr style="margin: 0;"/>
+		<div class="favorites_link_group_wrap">
+			<div class="favorites_link_button">
+				<a href="javascript:void(0)" onclick="_showfavorite('f')">
+					<img width="80px" height="30px" src="<?php echo get_template_directory_uri(); ?>/images/favorites-text.png" />
 				</a>
 			</div>
-			
-			<div style="width:80px; margin-right:auto; margin-left:auto;">
-				<a href="javascript:void(0)" onclick="_showfavorite()">
-					<div style="height:30px;float:left;"><img width="24px" height="24px" 
-					src="<?php echo get_template_directory_uri(); ?>/images/star.png" /></div>
-					<div style="height:30px;padding-top:1px;color:black;font-size:16px;font-weight:bold;float:left;">&nbsp;&nbsp;收藏</div>
+			<div class="favorites_link_button" style="margin-left:60px;">
+				<a href="javascript:void(0)" onclick="_showfavorite('s')">
+					<img width="80px" height="30px" src="<?php echo get_template_directory_uri(); ?>/images/share-text.png" />
 				</a>
 			</div>
 		</div>

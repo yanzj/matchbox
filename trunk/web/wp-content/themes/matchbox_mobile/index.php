@@ -40,12 +40,11 @@
 			<div id="mySwipe" class="swipe">
 	  			<div id="mySwipe-wrap" class="swipe-wrap">
 		  			<?php while ( have_posts() ) : the_post(); ?>
-					<div id="mathbox_content_<?php echo $post->ID;?>">
+					<div id="mathbox_content_<?php echo $post->ID;?>" class="doc_content">
 					<!--
 					<b>mathbox_content_<?php echo $post->ID;?></b>
 					-->
 					</div>
-					
 					<?php endwhile; ?>
 				</div>
 			</div>
@@ -67,6 +66,20 @@
 	var posts_count = <?php echo $_postscount; ?>;
 	var urltemplate = '?p=';
 	
+	var _resize_height = function (content_id) { 
+		
+		jQuery('#' + content_id).scrollTop(0); // 返回顶部
+		//return;
+		if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
+		  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
+			//jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
+		} else {
+		  	//jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
+		}
+		
+		jQuery('body').height(jQuery('#mySwipe-wrap').height());
+	}	
+	
 	var _load_post = function(idx) {
 		var id = my_array[idx];
 		var title = my_array_title[idx];
@@ -84,35 +97,23 @@
 					+ '<div id="circular_7" class="circular"></div>'
 					+ '<div id="circular_8" class="circular"></div>'
 					+ '<div class="clearfix"></div>'
-				+ '</div></div>';	 
-		//alert(jQuery(window).height()); //浏览器当前窗口文档的高度
-		//alert(jQuery(window).width()); //浏览器当前窗口文档的高度
+				+ '</div></div>';
 		//切换特效
 		
 		if (hashMap.Contains(id)) {
-			scroll(0,0); // 返回顶部
-			  if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
-			  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
-				jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
-			  } else {
-			  	jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
-			  }
-			  //alert(jQuery('#mySwipe-wrap').height());
+			_resize_height(content_id);
 		} else {
 			jQuery('#' + content_id).html(jQuery(a));
 			//alert('load ' + id);
+			
 			jQuery('#' + content_id).load( url + '&single=true', function() {
-			  scroll(0,0); // 返回顶部
 			  hashMap.Set(id, '');
-			  if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
-			  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
-				jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
-			  } else {
-			  	jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
-			  }
+			  _resize_height(content_id);
 			});
-		}
+			
 		
+		}
+
 		// 判断是否已经收藏 
 		jQuery.get('?wpfpaction=exists&postid=' + id + '&ajax=1', function(data){
 		  //alert("Data Loaded: " + data);
@@ -154,7 +155,7 @@
 			  	_load_post(index);
 			  },
 			  transitionEnd: function(index, elem) {
-			  	//alert('transitionEnd');
+			  	
 			  }
 			});
 
@@ -207,6 +208,7 @@
 			  jQuery('#footer_freeback').css({'display':'none'});
 		});
 			
+		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
 		_load_post(current_post);
 	});
 

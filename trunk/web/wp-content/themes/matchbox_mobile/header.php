@@ -30,7 +30,17 @@
 	var _hidefavorite = function() {
 		jQuery('#footer_favorite').hide();
 	}
-	var _showfavorite = function() {
+	var _showfavorite = function(kind) {
+		if ('f' == kind) {
+			jQuery('#footer_favorite_share_wrap').hide();
+			jQuery('#footer_favorite_favorite_wrap').show();
+		} else if ('s' == kind) {
+			jQuery('#footer_favorite_favorite_wrap').hide();
+			jQuery('#footer_favorite_share_wrap').show();
+		} else {
+			jQuery('#footer_favorite_favorite_wrap').show();
+			jQuery('#footer_favorite_share_wrap').show();
+		}
 		jQuery('#footer_favorite').show();	
 	}
 	var _showfreeback = function() {
