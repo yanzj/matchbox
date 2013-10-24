@@ -27,6 +27,7 @@
 			jQuery("#matchbox_play_button").attr('src', '<?php echo get_template_directory_uri(); ?>/images/play.png');
 		}
 	}
+	
 	var _hidefavorite = function() {
 		jQuery('#footer_favorite').hide();
 	}
@@ -81,7 +82,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
 </head>
 
-<body <?php body_class(); ?> style="margin-top:36px;">
+<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;">
 	<div id="masthead" class="site-header">
 		<div style="float:left; width:40px;height:32px; padding-top:3px;">
 			<img id="btn_favorite" src="<?php echo get_template_directory_uri(); ?>/images/fun_left.png"/></div>	
@@ -97,6 +98,63 @@
 		</div>
 		<hr style="margin: 0;"/>
 	</div><!-- #masthead -->
+	<style>
+	.adframe {
+		position: fixed;
+	    top: 0;
+		right: 0;
+		left: 0;
+		width:100%;
+		height:100%;
+		z-index:9999;
+	}
+		
+	</style>
+	<div class="adframe" style="display:none;">
+		<a href="#" target="_blank">
+			<img src="http://192.168.16.2:8080/wp-content/uploads/2013/10/20095121364651126.jpg" 
+				style="width:100%;height:100%;"/></a>
+		<a class="ad_close">关闭</a>
+	</div>
+	<script>
+	jQuery(function(){
+		/*
+		if(window.localStorage){
+		 alert('This browser supports localStorage');
+		}else{
+		 alert('This browser does NOT support localStorage');
+		}
+		*/
+		var getDateStr = function () { 
+			var dd = new Date(); 
+			var y = dd.getYear(); 
+			var m = dd.getMonth() + 1;//获取当前月 
+			var d = dd.getDate(); 
+			return y+"-"+m+"-"+d; 
+		} 
+		var firstUsing = function () {
+			var name = 'lastdate';
+			var today = getDateStr();
+			var ret = false;
+			lastdate = localStorage.getItem(name);
+			//alert(lastdate);
+			if (!lastdate || lastdate != today) {
+				//alert('is Today First Use');
+				ret = true;
+			} 
+			localStorage.setItem(name,today);
+	        return ret;
+		}
+		if (firstUsing()) {
+			setTimeout('jQuery(".adframe").fadeIn("slow")',100);
+			setTimeout('jQuery(".adframe").fadeOut("slow")',4000);
+				jQuery(".ad_close").click(function(){
+				jQuery(".adframe").hide("slow");
+			});
+		}
+	});
+	</script>
+
 
 	<div id="main" class="site-main">
 		

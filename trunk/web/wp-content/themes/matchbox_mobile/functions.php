@@ -544,6 +544,40 @@ function wpfp_get_current_count() {
     }else {echo( '0' );}
 }
 
+add_shortcode('adlink', 'adlink_shortcode');
+
+
+function adlink_shortcode($attr, $content = null) {
+	// New-style shortcode with the caption inside the shortcode with the link and image tags.
+	if ( ! isset( $attr['adlink'] ) ) {
+		if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
+			$content = $matches[1];
+			//$attr['caption'] = trim( $matches[2] );
+		}
+	}
+
+	$output = apply_filters('adlink_shortcode', '', $attr, $content);
+	if ( $output != '' )
+		return $output;
+
+	// extract(shortcode_atts(array(
+		// 'id'	=> '',
+		// 'align'	=> 'alignnone',
+		// 'width'	=> '',
+		// 'caption' => ''
+	// ), $attr, 'caption'));
+// 
+	// if ( 1 > (int) $width || empty($caption) )
+		// return $content;
+// 
+	// if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
+
+	// return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
+	// . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
+	
+	return '<div ' . $id . 'class="mathbox_ad_link" >' . do_shortcode( $content ) . '</div>'; 
+}
+
 remove_filter (  'the_content' ,  'wpautop'  );
 remove_filter (  'the_excerpt' ,  'wpautop'  );
 

@@ -364,3 +364,63 @@ html {
 	0%{-webkit-transform:scale(1);}
 	100%{-webkit-transform:scale(.3);}
 }
+
+.matchbox_ad_wrap {
+	position: relative;
+	width:100%;
+	height:auto;
+	text-align: center;
+}
+
+.matchbox_ad_wrap .mathbox_ad_link {
+	position: relative;
+	display: block;
+	width: 100%;
+	bottom: 68px;
+	clear: both;
+}
+
+
+
+/* 覆盖原始样式 */
+/* 标准文章 */
+.entry-content p{
+	text-indent:2em;
+}
+
+.format-standard, 
+.format-aside {
+	font-size: 20px;
+	font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+}
+.format-standard .entry-content, 
+.format-aside .entry-content {
+	font-size: 20px;
+	font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+	line-height: 28px;
+	color: #2b5470;
+	text-align: justify;
+}
+
+.format-standard .entry-header, 
+.format-aside .entry-header {
+	color: #2b5470;
+	font-size: 20px;
+	
+}
+
+.format-standard .entry-header .entry-title-date,
+.format-aside .entry-header .entry-title-date{
+	
+}
+
+.format-standard .entry-header .entry-title, 
+.format-aside .entry-header .entry-title {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.format-standard .entry-header .entry-title-author,
+.format-aside .entry-header .entry-title-author {
+	
+}
