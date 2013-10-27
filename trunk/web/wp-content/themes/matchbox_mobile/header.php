@@ -19,6 +19,7 @@
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/swipe.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/audio.js"></script>
 	<script type="text/javascript">
+	
 	function toggleSound(audioid) {
 		var music = document.getElementById(audioid);
 		jQuery("#matchbox_play_button");
@@ -85,7 +86,9 @@
 				jQuery('#matchbox_comment_status').show();
 			});
 	};
+
 	jQuery(function(){
+		
 		/*
 		if(window.localStorage){
 		 alert('This browser supports localStorage');
@@ -181,7 +184,7 @@
 </head>
 
 <body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;">
-	<div id="masthead" class="mb_header">
+	<div id="masthead" class="mb_header" data-role="header" data-position="fixed" data-theme="m">
 		<div class="mb_header_left">
 			<img id="btn_feedback" src="<?php echo get_template_directory_uri(); ?>/images/fun_left.png"/></div>	
 		<div class="mb_header_right">
@@ -204,5 +207,5 @@
 		<a class="ad_close">关闭</a>
 	</div>
 
-	<div id="main" class="mb_content">
+	<div id="main" class="mb_content" data-role="content">
 		

@@ -474,3 +474,12 @@ html {
 .format-aside .entry-header .entry-title-author {
 	
 }
+
+.ui-content {
+	border-width: 0;
+	padding: 2px;
+}
+
+.ui-bar-m {
+	clear:both;
+}

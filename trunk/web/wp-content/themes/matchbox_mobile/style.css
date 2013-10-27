@@ -2693,6 +2693,7 @@ footer.entry-meta {
 		font-size: 30px;
 	}
 
+	/*
 	#content .entry-header,
 	#content .entry-content,
 	#content .entry-summary,
@@ -2712,6 +2713,7 @@ footer.entry-meta {
 		padding-left: 10px;
 		padding-right: 10px;
 	}
+	*/
 
 	#content .format-status .entry-content,
 	#content .format-status .entry-met {
