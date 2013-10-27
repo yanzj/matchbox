@@ -21,7 +21,7 @@
 		<div id="favorite_content">
 			
 		</div>
-		<button id="btn_cancel_list_favorite" class="awesome" style="margin-bottom:20px;">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+		<button id="btn_cancel_list_favorite" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
 	</div>
 	
 	<div id="footer_favorite" style="display:none;">
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		<hr/>
-		<button class="awesome" style="margin-bottom:20px;" onclick="javascript:_hidefavorite();">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+		<button class="cancel_button" onclick="javascript:_hidefavorite();">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
 		
 	</div>
 	
@@ -65,7 +65,7 @@
 			<a href="#" class="medium awesome">商业合作</a>
 		</div>
 		<div class="matchbox_comment_buttongroup">
-			<button id="btn_cancel_freeback" class="awesome" style="margin-bottom:20px;">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+			<button id="btn_cancel_freeback" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
 		</div>
 	</div>
 	
@@ -81,12 +81,14 @@
 			</div>
 			<div class="matchbox_comment_body">
 				<form method="post" id="matchbox_commentform" onsubmit="javascript:return false;" novalidate>
+				<div style="display:none">
 				<div class="matchbox_comment_label"><label for="email">EMAIL:</label></div>
 				<div><input id="email" name="email" type="email" value="" size="30" style="width:100%" aria-required='true' /></div>
 				<div class="matchbox_comment_label"><label for="url">手机:</label></div>
 				<div><input id="url" name="url" type="url" value="" size="30" style="width:100%"/></div>
+				</div>
 				<div class="matchbox_comment_label"><label for="comment">反馈内容</label></div>
-				<div><textarea id="comment" name="comment" rows="8" style="width:100%"></textarea></div>
+				<div><textarea id="comment" name="comment" rows="15" style="width:100%;height:200px;"></textarea></div>
 				<div class="matchbox_comment_loading">
 					<div id='matchbox_comment_loading_circle' style='margin-right: 30px;'>
 					<div id='matchbox_comment_loading_circle_1' class='matchbox_comment_loading_circle'></div>
@@ -96,7 +98,7 @@
 				</div>
 				</div>
 					<span id="matchbox_comment_status"></span>
-					<button id="matchbox_submit_comment" onclick="_commentsubmit()">提交反馈</button>
+					<button id="matchbox_submit_comment" style="width:80%;" onclick="_commentsubmit()">提交反馈</button>
 					<input type='hidden' name='comment_post_ID' value='2' id='comment_post_ID' />
 					<input id="author" name="author" type="hidden" value="访客" />
 					<input type='hidden' name='comment_parent' id='comment_parent' value='0' />

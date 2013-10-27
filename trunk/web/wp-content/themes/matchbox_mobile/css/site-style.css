@@ -7,62 +7,58 @@ html {
 		
 .home {
 	/*max-width:480px;*/
-	}
+}
 
-.site-header {
+/***********************/
+/* 标题栏                                   */
+/***********************/
+.mb_header {
     position: fixed;
     top: 0;
 	right: 0;
 	left: 0;
 	z-index: 1030;
 	margin-bottom: 0;
-	background:none;
-    background-color: #fff;
     display:block;
+    background-color: #FFFFFF;
+}
+.mb_header .mb_header_left, .mb_header .mb_header_right{
+	width:40px; 
+	height:32px; 
+	padding-top:3px;
+}
+.mb_header .mb_header_left { 
+	float:left; 
+}
+.mb_header .mb_header_right { 
+	float:right; 
+}
+.mb_header .mb_header_center {
+	margin-left:40px; 
+	margin-right:40px; 
+	text-align: center;
+}
+.mb_header .mb_header_center .mb_header_title {
+	width:110px;
+	height:36px
 }
 
-.site-header .home-link {
-	color: #141412;
-	display: block;
-	margin: 0 auto;
-	max-width: none;
-	min-height: 0;
-	padding: 0; 
-}
-
-.site-title {
-	font-size: 16px;
-	padding: 0;
-}
-
-.site-main {
-	/*
-	margin-top: 36px;
-	padding-top: 5px;
-	*/
+/***********************/
+/* 正文部分                               */
+/***********************/
+.mb_content {
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.site-main:before, .site-main:after {
+.mb_content:before, .mb_content:after {
 	display: table;
 	content: "";
 }
-.home-link {
-	
-}
 
-
-.hentry {
-	padding: 0;
-}
-
-/* 日志样式 */
-.format-aside {
-	background-color: none;
-}
-
-/* swipe style */
+/***********************/
+/* Swipe               */
+/***********************/
 .swipe {
   overflow: hidden;
   visibility: hidden;
@@ -83,6 +79,9 @@ html {
   overflow-y:auto;
 }
 
+/***********************/
+/* 按钮                                       */
+/***********************/
 .awesome, .awesome:visited {
 	display: inline-block; 
 	padding: 5px 10px 6px; 
@@ -101,11 +100,13 @@ html {
 }
 
 /* 收藏分享 */
+/*
 .awesome:hover { color: #fff; }
 .awesome:active { top: 1px; }
 .awesome, .awesome:visited,	.medium.awesome, .medium.awesome:visited { 
 	font-weight: bold; line-height: 1; text-shadow: 0 -1px 1px rgba(0,0,0,0.25); 
 }
+*/
 #footer_favorite {
 	padding: 20px;
 	background: rgba(0,0,0,0.8);
@@ -156,6 +157,12 @@ html {
 	font-weight: bold;
 	margin-top:15px;
 	margin-bottom:15px;
+}
+
+#footer_freeback .matchbox_freeback_title a,  
+#footer_freeback .matchbox_freeback_title a:hover { 
+	color: #fff; 
+	text-decoration:none;
 }
 
 #footer_freeback .matchbox_comment_buttongroup {
@@ -216,6 +223,11 @@ html {
 	line-height:20px;
 }
 
+.cancel_botton {
+	
+}
+
+
 #matchbox_comment_status {
 	color: #FFFFFF;
 	font-size: 18px;
@@ -272,6 +284,9 @@ html {
 	display:inline;
 }
 
+/***********************/
+/* 评价提交动画                       */
+/***********************/
 #matchbox_comment_loading_circle{
 	margin-top:8px;
 	float:left;
@@ -304,7 +319,9 @@ html {
 	100%{opacity:0.3;}
 }
 
-/***************************** circular **********************************/
+/***********************/
+/* 加载动画                              */
+/***********************/
 #circular{
 	margin-top:15px;
 	width:64px;
@@ -365,6 +382,9 @@ html {
 	100%{-webkit-transform:scale(.3);}
 }
 
+/***********************/
+/* 广告选项弹层                       */
+/***********************/
 .matchbox_ad_wrap {
 	position: relative;
 	width:100%;
@@ -380,8 +400,38 @@ html {
 	clear: both;
 }
 
+/***********************/
+/* 4秒广告样式                        */
+/***********************/
+.md_ad {
+	position: fixed;
+    top: 0;
+	right: 0;
+	left: 0;
+	width:100%;
+	height:100%;
+	z-index:9999;
+}
 
-
+.matchbox_play_button_wrap {
+	position:absolute;
+	height:48px;
+	width:48px;
+	left:20px;
+	bottom:20px;
+	clear:both;
+} 
+.matchbox_favorite_button_wrap {
+	position:absolute;
+	height:48px;
+	width:48px;
+	left:80px;
+	bottom:20px;
+	clear:both;
+}
+/*
+.wp-audio-shortcode {display:none;}
+*/
 /* 覆盖原始样式 */
 /* 标准文章 */
 .entry-content p{

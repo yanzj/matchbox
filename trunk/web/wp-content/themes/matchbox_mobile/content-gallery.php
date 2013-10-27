@@ -17,5 +17,7 @@
 			<?php echo get_post_gallery(); ?>
 		<?php endif; ?>
 	</div>
+	
+	<?php include "popfuns.php"; ?>
 
 </article>

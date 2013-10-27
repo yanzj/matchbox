@@ -13,8 +13,11 @@
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	 */?>
 	<?php wp_head(); ?>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.mobile-1.3.2.min.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.nicescroll.min.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.ez-pinned-footer.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/swipe.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/audio.js"></script>
 	<script type="text/javascript">
 	function toggleSound(audioid) {
 		var music = document.getElementById(audioid);
@@ -30,7 +33,7 @@
 	
 	var _hidefavorite = function() {
 		jQuery('#footer_favorite').hide();
-	}
+	};
 	var _showfavorite = function(kind) {
 		if ('f' == kind) {
 			jQuery('#footer_favorite_share_wrap').hide();
@@ -43,23 +46,27 @@
 			jQuery('#footer_favorite_share_wrap').show();
 		}
 		jQuery('#footer_favorite').show();	
-	}
+	};
 	var _showfreeback = function() {
-		jQuery('#footer_freeback').show();	
-	}
+		jQuery('#footer_freeback').css('margin-top', '36px');
+		jQuery('#footer_freeback').height(jQuery(window).height() - 36);	
+		jQuery('#footer_freeback').fadeIn(2500);	
+	};
 	var _hidefreeback = function() {
 		jQuery('#footer_freeback').hide();	
-	}
+	};
 	var _showcomment = function() {
 		jQuery('#matchbox_comment_loading_circle').hide();
 		jQuery('#matchbox_comment_status').empty();
 		jQuery('#matchbox_submit_comment').show();
-		jQuery('#footer_comment').show();
+		jQuery('#footer_comment').css('margin-top', '36px');	
+		jQuery('#footer_comment').height(jQuery(window).height() - 36);	
+		jQuery('#footer_comment').fadeIn(2500);
 		_hidefreeback();
-	}
+	};
 	var _hidecomment = function() {
 		jQuery('#footer_comment').hide();	
-	}
+	};
 	var _commentsubmit = function() {
 		jQuery('#matchbox_comment_status').hide();
 		jQuery('#matchbox_comment_loading_circle').show();
@@ -77,46 +84,7 @@
 				jQuery('#matchbox_comment_loading_circle').hide();
 				jQuery('#matchbox_comment_status').show();
 			});
-	}
-	</script>
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
-</head>
-
-<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;">
-	<div id="masthead" class="site-header">
-		<div style="float:left; width:40px;height:32px; padding-top:3px;">
-			<img id="btn_favorite" src="<?php echo get_template_directory_uri(); ?>/images/fun_left.png"/></div>	
-		<div style="float:right; width:40px; height:32px; padding-top:3px;">
-			<img id="btn_feedback" src="<?php echo get_template_directory_uri(); ?>/images/fun_right.png"/></div>
-		<div style="margin-left:40px; margin-right:40px; text-align: center;">
-			<!--
-			<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-				<span class="site-title"><?php bloginfo( 'name' ); ?></span>
-			</a>
-			-->
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/title.png" style="width:110px;height:36px"/></a>
-		</div>
-		<hr style="margin: 0;"/>
-	</div><!-- #masthead -->
-	<style>
-	.adframe {
-		position: fixed;
-	    top: 0;
-		right: 0;
-		left: 0;
-		width:100%;
-		height:100%;
-		z-index:9999;
-	}
-		
-	</style>
-	<div class="adframe" style="display:none;">
-		<a href="#" target="_blank">
-			<img src="http://192.168.16.2:8080/wp-content/uploads/2013/10/20095121364651126.jpg" 
-				style="width:100%;height:100%;"/></a>
-		<a class="ad_close">关闭</a>
-	</div>
-	<script>
+	};
 	jQuery(function(){
 		/*
 		if(window.localStorage){
@@ -146,15 +114,95 @@
 	        return ret;
 		}
 		if (firstUsing()) {
-			setTimeout('jQuery(".adframe").fadeIn("slow")',100);
-			setTimeout('jQuery(".adframe").fadeOut("slow")',4000);
+			setTimeout('jQuery(".md_ad").fadeIn("slow")',100);
+			setTimeout('jQuery(".md_ad").fadeOut("slow")',4000);
 				jQuery(".ad_close").click(function(){
-				jQuery(".adframe").hide("slow");
+				jQuery(".md_ad").hide("slow");
 			});
 		}
+		
+		// 打开收藏与分享菜单
+		jQuery('#btn_favorite').bind("click", function(event) {
+			_showfavorite();	
+		});
+		
+		// 打开反馈菜单
+		jQuery('#btn_feedback').bind("click", function(event) {
+			_showfreeback();	
+		});	
+		// 收藏文章
+		jQuery('#link_add_favorite').bind("click", function(event) {
+			var post_id	= jQuery('#favorite_current_post_id').val();
+			jQuery.get('?wpfpaction=add&postid=' + post_id + '&ajax=1', function(data){
+			  //alert(data);
+			  jQuery('#link_add_favorite').hide();
+			  jQuery('#link_remove_favorite').show();
+		  	  
+			});
+		});
+		// 取消文章收藏
+		jQuery('#link_remove_favorite').bind("click", function(event) {
+			var post_id	= jQuery('#favorite_current_post_id').val();
+			jQuery.get('?wpfpaction=remove&postid=' + post_id + '&ajax=1', function(data){
+			  //alert(data);
+			  jQuery('#link_remove_favorite').hide();
+		  	  jQuery('#link_add_favorite').show();
+			});
+		});
+		// 打开收藏列表
+		jQuery('#link_list_favorite').bind("click", function(event) {
+			jQuery('#favorite_content').load("?wpfpaction=list&ajax=1'", function(){
+			  _hidefavorite();
+			  jQuery('#favorite_list').css({'display':'block'});
+			});
+		});
+		// 关闭收藏列表
+		jQuery('#btn_cancel_list_favorite').bind("click", function(event) {
+			  jQuery('#favorite_list').css({'display':'none'});
+		});
+		
+		// 关闭关于页面
+		jQuery('#btn_cancel_freeback').bind("click", function(event) {
+			  jQuery('#footer_freeback').css({'display':'none'});
+		});
+			
+		//jQuery("#mySwipe-wrap").niceScroll("#mySwipe-wrap .doc_content");
+		/*
+		jQuery(".doc_content").bind("touchend", function(event) {
+			  //alert('');
+		});*/
+		
+		
 	});
+	
 	</script>
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.mobile-1.3.2.min.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
+</head>
 
+<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;">
+	<div id="masthead" class="mb_header">
+		<div class="mb_header_left">
+			<img id="btn_feedback" src="<?php echo get_template_directory_uri(); ?>/images/fun_left.png"/></div>	
+		<div class="mb_header_right">
+			<img id="btn_favorite" src="<?php echo get_template_directory_uri(); ?>/images/fun_right.png"/></div>
+		<div class="mb_header_center">
+			<!--
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+			-->
+				<img class="mb_header_title" src="<?php echo get_template_directory_uri(); ?>/images/title.png"/>
+			<!--
+			</a>
+			-->
+		</div>
+		<hr style="margin: 0;"/>
+	</div>
+	<div class="md_ad" style="display:none;">
+		<a href="#" target="_blank">
+			<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2013/10/20095121364651126.jpg" 
+				style="width:100%;height:100%;"/></a>
+		<a class="ad_close">关闭</a>
+	</div>
 
-	<div id="main" class="site-main">
+	<div id="main" class="mb_content">
 		

@@ -4,30 +4,25 @@
 
 <?php 
 	$_pushscripts = '';  // 保持代码块
-	$_postcount = 0;    // 保存Post数量
+	$_postcount = 0;     // 保存Post数量
 	$_lasttime = NULL;
 	$_postdates = array();
 ?>
+	<!--
 	<div id="primary" class="content-area">
-		
 		<div id="content" class="site-content" role="main">
+		-->
 		<?php if ( have_posts() ) : ?>
-			<?php /* The loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>		
+			<?php while ( have_posts() ) : the_post(); /*LOOP*/ ?>		
 				<?php 
-					// 循环中构建  Array.push(obj) javascript 代码块
 					$_pushscripts .= "my_array.push('" . $post->ID . "');"; 
 					$_pushscripts .= "my_array_title.push('" . $post->post_title . "');"; 
-					
 					if ($_postcount == 0):
 						$_lasttime = $post->post_date;
 					endif;
-					
 					$_strdate = date('Ymd', $post->post_date);
 					$_postdates[$_strdate] = $_strdate;
-					
 					$_postscount++;
-					
 					if (count($_postdates) >= 10):
 						break;
 					endif;
@@ -39,7 +34,7 @@
 		<?php endif; ?>
 			<div id="mySwipe" class="swipe">
 	  			<div id="mySwipe-wrap" class="swipe-wrap">
-		  			<?php while ( have_posts() ) : the_post(); ?>
+		  			<?php while ( have_posts() ) : the_post(); /*LOOP*/ ?>
 					<div id="mathbox_content_<?php echo $post->ID;?>" class="doc_content">
 					<!--
 					<b>mathbox_content_<?php echo $post->ID;?></b>
@@ -48,8 +43,10 @@
 					<?php endwhile; ?>
 				</div>
 			</div>
-		</div><!-- #content -->
-	</div><!-- #primary -->
+			<!--
+		</div>
+	</div>
+	-->
 
 
 <script type="text/javascript">
@@ -108,10 +105,9 @@
 			
 			jQuery('#' + content_id).load( url + '&single=true', function() {
 			  hashMap.Set(id, '');
+			  var as = audiojs.createAll();
 			  _resize_height(content_id);
 			});
-			
-		
 		}
 
 		// 判断是否已经收藏 
@@ -132,6 +128,10 @@
 		jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
 		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
 		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
+		
+	  
+        
+     
 	};
 
 	jQuery(function() {
@@ -163,51 +163,7 @@
 			//alert(my_array);
 		}
 
-		// 打开收藏与分享菜单
-		jQuery('#btn_favorite').click(function() {
-			_showfavorite();	
-		});
 		
-		// 打开反馈菜单
-		jQuery('#btn_feedback').click(function() {
-			_showfreeback();	
-		});	
-		// 收藏文章
-		jQuery('#link_add_favorite').click(function() {
-			var post_id	= jQuery('#favorite_current_post_id').val();
-			jQuery.get('?wpfpaction=add&postid=' + post_id + '&ajax=1', function(data){
-			  //alert(data);
-			  jQuery('#link_add_favorite').hide();
-			  jQuery('#link_remove_favorite').show();
-		  	  
-			});
-		});
-		// 取消文章收藏
-		jQuery('#link_remove_favorite').click(function() {
-			var post_id	= jQuery('#favorite_current_post_id').val();
-			jQuery.get('?wpfpaction=remove&postid=' + post_id + '&ajax=1', function(data){
-			  //alert(data);
-			  jQuery('#link_remove_favorite').hide();
-		  	  jQuery('#link_add_favorite').show();
-			});
-		});
-		// 打开收藏列表
-		jQuery('#link_list_favorite').click(function() {
-			jQuery('#favorite_content').load("?wpfpaction=list&ajax=1'", function(){
-			  _hidefavorite();
-			  jQuery('#favorite_list').css({'display':'block'});
-			});
-		});
-		// 关闭收藏列表
-		jQuery('#btn_cancel_list_favorite').click(function() {
-			  jQuery('#favorite_list').css({'display':'none'});
-		});
-		
-		// 关闭关于页面
-		jQuery('#btn_cancel_freeback').click(function() {
-			  jQuery('#footer_freeback').css({'display':'none'});
-		});
-			
 		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
 		_load_post(current_post);
 	});
