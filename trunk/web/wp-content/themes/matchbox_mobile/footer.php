@@ -53,19 +53,19 @@
 		<!--
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2" class="medium awesome">关于火柴盒</a>
 			-->
-			<a onclick="_showabout()">关于火柴盒</a>
+			<a id="btn_show_about">关于火柴盒</a>
 		</div>
 		<div class="matchbox_freeback_title">
-			<a href="#" class="medium awesome">投稿给我们</a>
+			<a href="#">投稿给我们</a>
 		</div>
 		<div class="matchbox_freeback_title">
-			<a href="#" class="medium awesome">去APP STORE评价我们</a>
+			<a href="#">去APP STORE评价我们</a>
 		</div>
 		<div class="matchbox_freeback_title">
 			<a onclick="_showcomment()">意见反馈</a>
 		</div>
 		<div class="matchbox_freeback_title">
-			<a href="#" class="medium awesome">商业合作</a>
+			<a href="#">商业合作</a>
 		</div>
 		<div class="matchbox_comment_buttongroup">
 			<button id="btn_cancel_freeback" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>

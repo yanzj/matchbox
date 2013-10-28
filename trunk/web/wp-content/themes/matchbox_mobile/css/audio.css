@@ -148,3 +148,20 @@ audio:not([controls]) {
 	color: #4D617E;
 	font-family: "Microsoft YaHei";
 }
+
+#footer_freeback .matchbox_freeback_title {
+	text-align:center;
+	font-size: 20px;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 60px;
+	border-bottom: 1px;
+	border-bottom-color: #FFFFFF;
+	border-bottom-style: solid;
+	font-weight:100;
+}
+#footer_freeback .matchbox_freeback_title a {
+	font-weight:200;
+	font-style: normal;
+	text-shadow: 0 0 0 #fff;
+}

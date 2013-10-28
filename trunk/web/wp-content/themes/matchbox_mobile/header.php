@@ -37,12 +37,12 @@
 	var _showfavorite = function(kind) {
 		if ('f' == kind) {
 			jQuery('#footer_favorite_share_wrap').hide();
-			jQuery('#footer_favorite_favorite_wrap').fadeIn(2500);
+			jQuery('#footer_favorite_favorite_wrap').fadeIn(1200);
 		} else if ('s' == kind) {
 			jQuery('#footer_favorite_favorite_wrap').hide();
-			jQuery('#footer_favorite_share_wrap').fadeIn(2500);
+			jQuery('#footer_favorite_share_wrap').fadeIn(1200);
 		} else {
-			jQuery('#footer_favorite_favorite_wrap').fadeIn(2500);
+			jQuery('#footer_favorite_favorite_wrap').fadeIn(1200);
 			jQuery('#footer_favorite_share_wrap').show();
 		}
 		jQuery('#footer_favorite').show();	
@@ -50,17 +50,23 @@
 	var _showfreeback = function() {
 		jQuery('#footer_freeback').css('margin-top', '36px');
 		jQuery('#footer_freeback').height(jQuery(window).height() - 36);	
-		jQuery('#footer_freeback').fadeIn(2500);	
+		jQuery('#footer_freeback').fadeIn(1200);	
 	};
 	var _hidefreeback = function() {
 		jQuery('#footer_freeback').hide();	
 	};
-	var _showabout = function() {
-		
+	var _show_about = function() {
 		jQuery('#footer_about').css('margin-top', '36px');
 		jQuery('#footer_about').height(jQuery(window).height() - 36);	
 		_hidefreeback();
-		jQuery('#footer_about').fadeIn(2500);		
+		jQuery('#mb_header_right').hide();
+		jQuery('#mb_header_back').show();
+		jQuery('#footer_about').fadeIn(1200);		
+	};
+	var _close_about = function() {
+		jQuery('#footer_about').fadeOut(1200);	
+		jQuery('#mb_header_back').hide();	
+		jQuery('#mb_header_right').show();
 	};
 	var _showcomment = function() {
 		jQuery('#matchbox_comment_loading_circle').hide();
@@ -68,7 +74,7 @@
 		jQuery('#matchbox_submit_comment').show();
 		jQuery('#footer_comment').css('margin-top', '36px');	
 		jQuery('#footer_comment').height(jQuery(window).height() - 36);	
-		jQuery('#footer_comment').fadeIn(2500);
+		jQuery('#footer_comment').fadeIn(1200);
 		_hidefreeback();
 	};
 	var _hidecomment = function() {
@@ -174,6 +180,13 @@
 		jQuery('#btn_cancel_freeback').bind("click", function(event) {
 			  jQuery('#footer_freeback').css({'display':'none'});
 		});
+		
+		jQuery('#btn_header_back').bind("click", function(event) {
+			  _close_about();
+		});
+		jQuery('#btn_show_about').bind("click", function(event) {
+			  _show_about();
+		});
 			
 		//jQuery("#mySwipe-wrap").niceScroll("#mySwipe-wrap .doc_content");
 		/*
@@ -194,8 +207,10 @@
 	<div id="masthead" class="mb_header" data-role="header" data-position="fixed" data-theme="m">
 		<div class="mb_header_left">
 			<img id="btn_feedback" src="<?php echo get_template_directory_uri(); ?>/images/fun_left.png"/></div>	
-		<div class="mb_header_right">
+		<div id="mb_header_right" class="mb_header_right">
 			<img id="btn_favorite" src="<?php echo get_template_directory_uri(); ?>/images/fun_right.png"/></div>
+		<div id="mb_header_back" class="mb_header_right" style="display:none;">
+			<img id="btn_header_back" src="<?php echo get_template_directory_uri(); ?>/images/fun_right_back.png"/></div>
 		<div class="mb_header_center">
 		
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -214,5 +229,5 @@
 		<a class="ad_close">关闭</a>
 	</div>
 
-	<div id="main" class="mb_content" data-role="content">
+	<div id="main" class="mb_content" data-role="content" data-theme="m">
 		
