@@ -50,7 +50,10 @@
 	
 	<div id="footer_freeback" style="display:none;">
 		<div class="matchbox_freeback_title">
+		<!--
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2" class="medium awesome">关于火柴盒</a>
+			-->
+			<a onclick="_showabout()">关于火柴盒</a>
 		</div>
 		<div class="matchbox_freeback_title">
 			<a href="#" class="medium awesome">投稿给我们</a>
@@ -59,13 +62,23 @@
 			<a href="#" class="medium awesome">去APP STORE评价我们</a>
 		</div>
 		<div class="matchbox_freeback_title">
-			<a onclick="_showcomment()" class="medium awesome">意见反馈</a>
+			<a onclick="_showcomment()">意见反馈</a>
 		</div>
 		<div class="matchbox_freeback_title">
 			<a href="#" class="medium awesome">商业合作</a>
 		</div>
 		<div class="matchbox_comment_buttongroup">
 			<button id="btn_cancel_freeback" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+		</div>
+	</div>
+				
+	<div id="footer_about" style="display:none;">
+		<div>
+			<p class="title_area">关于火柴盒</p>
+			<span class="text_area">　　是什么使眼睛发潮？为什么会想起你？窗外黑黝黝的屋脊，像几条卧鲸。深深浅浅的灯光，似乎要从万千人生故事中，泄露一点什么消息。好比一本书的封面，引诱你去翻阅。不料记忆所及的那一页，竟是老朋友你。<br/>
+
+　　			学生时代你的外号叫蚂蚱。你长得尤其高又非常瘦，不是林黛玉类型的纤细较弱，而是真正的皮包骨头。你有必定要叫女孩子们伤心不已的凸额头，又粗又硬的头发编成结结实实两条辫子，撅在耳后。
+			</span>
 		</div>
 	</div>
 	

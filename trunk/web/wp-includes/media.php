@@ -928,9 +928,13 @@ function wp_audio_shortcode( $attr ) {
 	}
 
 	$html = '';
+	/*
 	if ( 'mediaelement' === $library && 1 === $instances )
 		$html .= "<!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->\n";
-	$html .= sprintf( '<audio %s controls="controls">', join( ' ', $attr_strings ) );
+	*/
+	//$html .= sprintf( '<audio %s controls="controls">', join( ' ', $attr_strings ) );
+	$html .= sprintf( '<audio %s>', join( ' ', $attr_strings ));
+
 
 	$fileurl = '';
 	$source = '<source type="%s" src="%s" />';
@@ -945,7 +949,15 @@ function wp_audio_shortcode( $attr ) {
 
 	if ( 'mediaelement' === $library )
 		$html .= wp_mediaelement_fallback( $fileurl );
+	
+	
 	$html .= '</audio>';
+	
+	$html .= '<div class="audiojsZ">';
+	$html .= '<div class="play-pauseZ"><p class="playZ"></p><p class="pauseZ"></p><p class="loadingZ"></p><p class="errorZ"></p></div>';
+    $html .= '<div class="scrubberZ"><div class="progressZ"></div><div class="loadedZ"></div></div>';
+    $html .= '<div class="timeZ"><em class="playedZ">00:00</em>/<strong class="durationZ">00:00</strong></div><div class="error-messageZ"></div>';
+	$html .= '</div>';
 
 	return apply_filters( 'wp_audio_shortcode', $html, $atts, $audio, $post_id, $library );
 }

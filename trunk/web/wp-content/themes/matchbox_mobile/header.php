@@ -15,7 +15,6 @@
 	<?php wp_head(); ?>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.mobile-1.3.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.nicescroll.min.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.ez-pinned-footer.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/swipe.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/audio.js"></script>
 	<script type="text/javascript">
@@ -38,12 +37,12 @@
 	var _showfavorite = function(kind) {
 		if ('f' == kind) {
 			jQuery('#footer_favorite_share_wrap').hide();
-			jQuery('#footer_favorite_favorite_wrap').show();
+			jQuery('#footer_favorite_favorite_wrap').fadeIn(2500);
 		} else if ('s' == kind) {
 			jQuery('#footer_favorite_favorite_wrap').hide();
-			jQuery('#footer_favorite_share_wrap').show();
+			jQuery('#footer_favorite_share_wrap').fadeIn(2500);
 		} else {
-			jQuery('#footer_favorite_favorite_wrap').show();
+			jQuery('#footer_favorite_favorite_wrap').fadeIn(2500);
 			jQuery('#footer_favorite_share_wrap').show();
 		}
 		jQuery('#footer_favorite').show();	
@@ -55,6 +54,13 @@
 	};
 	var _hidefreeback = function() {
 		jQuery('#footer_freeback').hide();	
+	};
+	var _showabout = function() {
+		
+		jQuery('#footer_about').css('margin-top', '36px');
+		jQuery('#footer_about').height(jQuery(window).height() - 36);	
+		_hidefreeback();
+		jQuery('#footer_about').fadeIn(2500);		
 	};
 	var _showcomment = function() {
 		jQuery('#matchbox_comment_loading_circle').hide();
@@ -181,6 +187,7 @@
 	</script>
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/audio.css" />
 </head>
 
 <body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;">
@@ -190,13 +197,13 @@
 		<div class="mb_header_right">
 			<img id="btn_favorite" src="<?php echo get_template_directory_uri(); ?>/images/fun_right.png"/></div>
 		<div class="mb_header_center">
-			<!--
+		
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-			-->
+		
 				<img class="mb_header_title" src="<?php echo get_template_directory_uri(); ?>/images/title.png"/>
-			<!--
+
 			</a>
-			-->
+
 		</div>
 		<hr style="margin: 0;"/>
 	</div>

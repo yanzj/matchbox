@@ -105,7 +105,25 @@
 			
 			jQuery('#' + content_id).load( url + '&single=true', function() {
 			  hashMap.Set(id, '');
-			  var as = audiojs.createAll();
+			  var as = audiojs.create(jQuery('#audio-144-1')[0],
+			  	 {
+		          css: false,
+		          createPlayer: {
+		            markup: false,
+		            playPauseClass: 'play-pauseZ',
+		            scrubberClass: 'scrubberZ',
+		            progressClass: 'progressZ',
+		            loaderClass: 'loadedZ',
+		            timeClass: 'timeZ',
+		            durationClass: 'durationZ',
+		            playedClass: 'playedZ',
+		            errorMessageClass: 'error-messageZ',
+		            playingClass: 'playingZ',
+		            loadingClass: 'loadingZ',
+		            errorClass: 'errorZ'
+		          }
+		        }
+			  );
 			  _resize_height(content_id);
 			});
 		}
@@ -128,19 +146,17 @@
 		jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
 		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
 		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
-		
-	  
-        
-     
+
 	};
 
 	jQuery(function() {
+		/*
 		jQuery("#footer_favorite").pinFooter();
 		jQuery(window).resize(function() {
 		    jQuery("#footer_favorite").pinFooter();
 		});
 		jQuery("#footer_favorite").hide();
-		
+		*/
 	 	var elem = document.getElementById('mySwipe');
 		if (elem) {
 			window.mySwipe = Swipe(elem, {
@@ -169,7 +185,6 @@
 	});
 
 </script>
-
 <?php 
 get_footer(); 
 ?>
