@@ -28,15 +28,15 @@
 		<div id="footer_favorite_favorite_wrap">
 			<input type="hidden" id="favorite_current_post_id" value=""/>
 			<div>
-				<a id="link_add_favorite" href="#" class="medium awesome" style="display:none">&nbsp;收&nbsp;藏&nbsp;本&nbsp;文&nbsp;</a>
-				<a id="link_remove_favorite" href="#" class="medium awesome" style="display:none">&nbsp;取&nbsp;消&nbsp;收&nbsp;藏&nbsp;</a>
+				<a id="link_add_favorite" href="#" style="display:none">&nbsp;收&nbsp;藏&nbsp;本&nbsp;文&nbsp;</a>
+				<a id="link_remove_favorite" href="#" style="display:none">&nbsp;取&nbsp;消&nbsp;收&nbsp;藏&nbsp;</a>
 			</div>
 			<hr/>
-			<div><a id="link_list_favorite" href="#" class="medium awesome">&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
+			<div><a id="link_list_favorite" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
 		</div>
 		<div id="footer_favorite_share_wrap">
 			<hr/>
-			<div><a id="title_share" class="medium awesome">&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
+			<div><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 			<div>
 				<a id="share_weixin" href="" title="分享到微信" class="share_icon"><img src="<?php echo get_template_directory_uri(); ?>/images/weixin32.png"/></a> 
 				<a id="share_sina" href="" title="分享到新浪微博" class="share_icon" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/weibo32.png"/></a>
@@ -51,7 +51,7 @@
 	<div id="footer_freeback" style="display:none;">
 		<div class="matchbox_freeback_title">
 		<!--
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2" class="medium awesome">关于火柴盒</a>
+			<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2" >关于火柴盒</a>
 			-->
 			<a id="btn_show_about">关于火柴盒</a>
 		</div>

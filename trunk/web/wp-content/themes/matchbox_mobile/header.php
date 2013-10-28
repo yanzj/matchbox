@@ -168,6 +168,7 @@
 		jQuery('#link_list_favorite').bind("click", function(event) {
 			jQuery('#favorite_content').load("?wpfpaction=list&ajax=1'", function(){
 			  _hidefavorite();
+			  jQuery('#favorite_list').height(jQuery(window).height() - 36);	
 			  jQuery('#favorite_list').css({'display':'block'});
 			});
 		});

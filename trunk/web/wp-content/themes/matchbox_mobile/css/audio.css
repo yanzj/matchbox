@@ -112,7 +112,7 @@ audio:not([controls]) {
 	height: auto;
 }
 
-#footer_favorite {
+#footer_favorite{
 	position:fixed;
 	width:100%;
 	height:320px;
@@ -123,6 +123,17 @@ audio:not([controls]) {
 	text-align: center;
 	display:none;
 	padding:0
+}
+#favorite_list{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.8);
+	z-index: 9999;
+	top: 0;
+	left: 0;
+	text-align: center;
+	display: none;
 }
 #footer_about {
 	position:fixed;
@@ -135,8 +146,8 @@ audio:not([controls]) {
 	left:0;
 	text-align: left;
 	display:none;
-	
 }
+
 #footer_about .title_area{
 	font-size: 22px;
 	color: #4D617E;
