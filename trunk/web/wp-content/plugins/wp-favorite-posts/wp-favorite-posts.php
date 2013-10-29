@@ -57,9 +57,10 @@ add_action('template_redirect', 'wp_favorite_posts');
 
 function wpfp_add_favorite($post_id = "") {
     if ( empty($post_id) ) $post_id = $_REQUEST['postid'];
+	/*
     if (wpfp_get_option('opt_only_registered') && !is_user_logged_in() )
         wpfp_die_or_go(wpfp_get_option('text_only_registered') );
-
+	*/
     if (wpfp_do_add_to_list($post_id)) {
         // added, now?
         do_action('wpfp_after_add', $post_id);
@@ -75,11 +76,14 @@ function wpfp_add_favorite($post_id = "") {
 function wpfp_do_add_to_list($post_id) {
     if (wpfp_check_favorited($post_id))
         return false;
+	/*
     if (is_user_logged_in()) {
         return wpfp_add_to_usermeta($post_id);
     } else {
         return wpfp_set_cookie($post_id, "added");
     }
+	*/
+	return wpfp_add_to_usermeta($post_id);
 }
 
 function wpfp_remove_favorite($post_id = "") {
@@ -127,14 +131,14 @@ function wpfp_list_favorite() {
 	global $wpdb;
     $query = "SELECT post_id, meta_value, post_status FROM $wpdb->postmeta";
     $query .= " LEFT JOIN $wpdb->posts ON post_id=$wpdb->posts.ID";
-    $query .= " WHERE post_status='publish' AND meta_key='".WPFP_META_KEY."' AND meta_value > 0 ORDER BY ROUND(meta_value) DESC";
+    $query .= " WHERE post_id in (" . implode(',', $collection_post_ids) . ") and post_status='publish' AND meta_key='".WPFP_META_KEY."' AND meta_value > 0 ORDER BY ROUND(meta_value) DESC";
     $results = $wpdb->get_results($query);
     if ($results) {
         $strHtml .= '<ul>';
         foreach ($results as $o):
             $p = get_post($o->post_id);
             $strHtml .= '<li>';
-            $strHtml .= '<a href="' . get_permalink($o->post_id) . '" title="'. $p->post_title . '">' . $p->post_title . '</a>';
+            $strHtml .= '<a onclick="_show_favorite_page(' . $o->post_id . ')" title="'. $p->post_title . '">' . $p->post_title . '</a>';
             $strHtml .= '</li>';
         endforeach;
         $strHtml .= '</ul>';
@@ -159,17 +163,21 @@ function wpfp_add_to_usermeta($post_id) {
 }
 
 function wpfp_check_favorited($cid) {
+	/*
     if (is_user_logged_in()) {
-        $favorite_post_ids = wpfp_get_user_meta();
-        if ($favorite_post_ids)
-            foreach ($favorite_post_ids as $fpost_id)
-                if ($fpost_id == $cid) return true;
+        
 	} else {
 	    if (wpfp_get_cookie()):
 	        foreach (wpfp_get_cookie() as $fpost_id => $val)
 	            if ($fpost_id == $cid) return true;
 	    endif;
-	}
+	} 
+	*/
+	
+	$favorite_post_ids = wpfp_get_user_meta();
+        if ($favorite_post_ids)
+            foreach ($favorite_post_ids as $fpost_id)
+                if ($fpost_id == $cid) return true;
     return false;
 }
 
@@ -205,6 +213,7 @@ function wpfp_link_html($post_id, $opt, $action) {
 function wpfp_get_users_favorites($user = "") {
     $favorite_post_ids = array();
 
+    /*
     if (!empty($user)):
         return wpfp_get_user_meta($user);
     endif;
@@ -219,6 +228,8 @@ function wpfp_get_users_favorites($user = "") {
 	        }
 	    endif;
 	endif;
+	*/
+	$favorite_post_ids = wpfp_get_user_meta();
     return $favorite_post_ids;
 }
 
@@ -282,13 +293,15 @@ function wpfp_before_link_img() {
 }
 
 function wpfp_clear_favorites() {
+	/*
     if (wpfp_get_cookie()):
         foreach (wpfp_get_cookie() as $post_id => $val) {
             wpfp_set_cookie($post_id, "");
             wpfp_update_post_meta($post_id, -1);
         }
     endif;
-    if (is_user_logged_in()) {
+	*/
+    //if (is_user_logged_in()) {
         $favorite_post_ids = wpfp_get_user_meta();
         if ($favorite_post_ids):
             foreach ($favorite_post_ids as $post_id) {
@@ -298,7 +311,7 @@ function wpfp_clear_favorites() {
         if (!delete_user_meta(wpfp_get_user_id(), WPFP_META_KEY)) {
             return false;
         }
-    }
+    //}
     return true;
 }
 function wpfp_do_remove_favorite($post_id) {
@@ -306,12 +319,12 @@ function wpfp_do_remove_favorite($post_id) {
         return true;
 
     $a = true;
-    if (is_user_logged_in()) {
+    //if (is_user_logged_in()) {
         $user_favorites = wpfp_get_user_meta();
         $user_favorites = array_diff($user_favorites, array($post_id));
         $user_favorites = array_values($user_favorites);
         $a = wpfp_update_user_meta($user_favorites);
-    }
+    //}
     if ($a) $a = wpfp_set_cookie($_REQUEST['postid'], "");
     return $a;
 }
@@ -415,12 +428,14 @@ function wpfp_get_options() {
 }
 
 function wpfp_get_user_id() {
-    global $current_user;
-    get_currentuserinfo();
-    return $current_user->ID;
+    // global $current_user;
+    // get_currentuserinfo();
+    // return $current_user->ID;
+	return $_REQUEST['user'];
 }
 
 function wpfp_get_user_meta($user = "") {
+	/*
     if (!empty($user)):
         $userdata = get_userdatabylogin($user);
         $user_id = $userdata->ID;
@@ -428,6 +443,9 @@ function wpfp_get_user_meta($user = "") {
     else:
         return get_usermeta(wpfp_get_user_id(), WPFP_META_KEY);
     endif;
+	*/
+	
+	return get_usermeta(wpfp_get_user_id(), WPFP_META_KEY);
 }
 
 function wpfp_get_post_meta($post_id) {

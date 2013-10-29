@@ -13,7 +13,9 @@
  * 2. 预览页面，输出完整的 Html;
  */ 
  ?> 
-<?php $_single = $_GET['single']; ?>
+<?php 
+	$_single = $_GET['single']; 
+?>
 <?php if ('true' != $_single ): ?>
 	<?php get_header(); ?>
 	<div id="primary" class="content-area">
