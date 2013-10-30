@@ -32,6 +32,9 @@
 		<?php else : ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
+		
+		<div id="scroller">
+		
 			<div id="mySwipe" class="swipe">
 	  			<div id="mySwipe-wrap" class="swipe-wrap">
 		  			<?php while ( have_posts() ) : the_post(); /*LOOP*/ ?>
@@ -43,6 +46,7 @@
 					<?php endwhile; ?>
 				</div>
 			</div>
+		</div>
 			<!--
 		</div>
 	</div>
@@ -62,6 +66,7 @@
 	var current_post_id;
 	var posts_count = <?php echo $_postscount; ?>;
 	var urltemplate = '?p=';
+	var myScroll;
 	
 	var _resize_height = function (content_id) { 
 		
@@ -78,6 +83,11 @@
 	}	
 	
 	var _load_post = function(idx) {
+		
+		if (myScroll) {
+			//myScroll.destroy();
+		}
+		
 		var id = my_array[idx];
 		var title = my_array_title[idx];
 		current_post_id = id;
@@ -147,6 +157,7 @@
 		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
 		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 
+		myScroll = new iScroll('scroller');
 	};
 
 	jQuery(function() {
@@ -179,9 +190,10 @@
 			//alert(my_array);
 		}
 
-		
 		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
 		_load_post(current_post);
+		
+		
 	});
 
 </script>
