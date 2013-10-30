@@ -41,13 +41,14 @@
 			jQuery("#matchbox_play_button").attr('src', '<?php echo get_template_directory_uri(); ?>/images/play.png');
 		}
 	}
-	
+	var _close_pop_all = function() {
+		jQuery('.pop_page').hide();
+	}
 	var _hidefavorite = function() {
 		jQuery('#footer_favorite').hide();
 	};
 	var _showfavorite = function(kind) {
-		jQuery('.pop_page').hide();
-		
+		_close_pop_all();
 		/*
 		if ('f' == kind) {
 			jQuery('#footer_favorite_share_wrap').hide();
@@ -65,7 +66,7 @@
 		jQuery('#footer_favorite').fadeIn(1200);	
 	};
 	var _showfreeback = function() {
-		jQuery('.pop_page').hide();
+		_close_pop_all();
 		jQuery('#footer_freeback').css('margin-top', '36px');
 		jQuery('#footer_freeback').height(jQuery(window).height() - 36);	
 		jQuery('#footer_freeback').fadeIn(1200);	
@@ -154,7 +155,7 @@
 		var getDateStr = function () { 
 			var dd = new Date(); 
 			var y = dd.getYear(); 
-			var m = dd.getMonth() + 1;//获取当前月 
+			var m = dd.getMonth() + 1;
 			var d = dd.getDate(); 
 			return y+"-"+m+"-"+d; 
 		} 
@@ -163,9 +164,7 @@
 			var today = getDateStr();
 			var ret = false;
 			lastdate = localStorage.getItem(name);
-			//alert(lastdate);
 			if (!lastdate || lastdate != today) {
-				//alert('is Today First Use');
 				ret = true;
 			} 
 			localStorage.setItem(name,today);
@@ -243,14 +242,11 @@
 		jQuery('#btn_open_business').bind("click", function(event) {
 			_open_info_page('business');
 		});
-			
-		//jQuery("#mySwipe-wrap").niceScroll("#mySwipe-wrap .doc_content");
-		/*
-		jQuery(".doc_content").bind("touchend", function(event) {
-			  //alert('');
-		});*/
-		
-		
+		/* 空白点击退出层 
+		jQuery('#main').bind("click", function(event) {
+			_close_pop_all();
+		});
+		*/
 	});
 	
 	</script>
