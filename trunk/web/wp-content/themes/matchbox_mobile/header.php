@@ -275,7 +275,9 @@
 			</a>
 
 		</div>
+		<!--
 		<hr style="margin: 0;"/>
+		-->
 	</div>
 	<div class="md_ad" style="display:none;">
 		<a href="#" target="_blank">

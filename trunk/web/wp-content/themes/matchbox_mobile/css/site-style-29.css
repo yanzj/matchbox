@@ -122,3 +122,14 @@
 	bottom: 40px;
 }
 
+.ui-content {
+	padding: 0px;
+}
+.ui-header-fixed {
+	top: 0;
+	padding-top: 0;
+}
+.doc_content {
+	padding:2px;
+}
+
