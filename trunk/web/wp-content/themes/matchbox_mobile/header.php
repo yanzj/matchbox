@@ -46,6 +46,8 @@
 		jQuery('#footer_favorite').hide();
 	};
 	var _showfavorite = function(kind) {
+		jQuery('.pop_page').hide();
+		
 		/*
 		if ('f' == kind) {
 			jQuery('#footer_favorite_share_wrap').hide();
@@ -63,6 +65,7 @@
 		jQuery('#footer_favorite').fadeIn(1200);	
 	};
 	var _showfreeback = function() {
+		jQuery('.pop_page').hide();
 		jQuery('#footer_freeback').css('margin-top', '36px');
 		jQuery('#footer_freeback').height(jQuery(window).height() - 36);	
 		jQuery('#footer_freeback').fadeIn(1200);	

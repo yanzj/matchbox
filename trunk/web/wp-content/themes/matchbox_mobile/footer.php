@@ -18,8 +18,9 @@
 		</footer>
 		-->
 	<!-- </div>#page -->
-
-	<div id="favorite_list" style="overflow-y:scroll">
+	
+	<!-- 查看收藏列表 -->
+	<div id="favorite_list" class="pop_page" style="overflow-y:scroll">
 		<div id="favorite_content">
 			
 		</div>
@@ -28,17 +29,16 @@
 			<button id="btn_cancel_list_favorite" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
 			-->
 			<img id="btn_cancel_list_favorite" class="btn_cancel_list_favorite" src="<?php echo get_template_directory_uri(); ?>/images/btn_cancel.png"/>
-
 		</div>
 	</div>
-	
-	<div id="mb_favorite_page" style="overflow-y:scroll">
+	<!-- 查看收藏正文 -->
+	<div id="mb_favorite_page" class="pop_page" style="overflow-y:scroll">
 		<div id="mb_favorite_page_content">
 			
 		</div>
 	</div>
-	
-	<div id="footer_favorite" style="display:none;">
+	<!-- 分享与收藏 -->
+	<div id="footer_favorite" class="pop_page" style="display:none;">
 		<div id="footer_favorite_favorite_wrap">
 			<input type="hidden" id="favorite_current_post_id" value=""/>
 			<div class="mb_favorite_title">
@@ -56,16 +56,16 @@
 				<a id="share_mail" href="#" title="发送邮件给朋友" class="share_icon"><img src="<?php echo get_template_directory_uri(); ?>/images/mail32.png"/></a>
 			</div>
 		</div>
-		
-		
-		<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo get_template_directory_uri(); ?>/images/btn_cancel.png" onclick="javascript:_hidefavorite();"/>
-		<!--
-		<button class="cancel_button" onclick="javascript:_hidefavorite();">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
-		-->
+		<div class="mb_favorite_share_bottom">
+			<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo get_template_directory_uri(); ?>/images/btn_cancel.png" onclick="javascript:_hidefavorite();"/>
+			<!--
+			<button class="cancel_button" onclick="javascript:_hidefavorite();">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
+			-->
+		</div>
 		
 	</div>
-	
-	<div id="footer_freeback" class="mb_info_page" style="display:none;">
+	<!-- 关于与评价 -->
+	<div id="footer_freeback" class="mb_info_page pop_page" style="display:none;">
 		<div class="matchbox_freeback_title">
 		<!--
 			<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2" >关于火柴盒</a>
@@ -92,8 +92,8 @@
 			<img id="btn_cancel_freeback" class="btn_cancel_freeback" src="<?php echo get_template_directory_uri(); ?>/images/btn_cancel.png" />
 		</div>
 	</div>
-
-	<div id="mb_info_page" class="mb_info_page" style="display:none;">
+	<!-- 信息页面 -->
+	<div id="mb_info_page" class="mb_info_page pop_page" style="display:none;">
 		<!-- 关于火柴盒 -->
 		<div id="mb_info_page_about" class="mb_info_page_sub" style="display:none">
 			<p class="title_area">关于火柴盒</p>
@@ -119,8 +119,8 @@
 			</span>
 		</div>
 	</div>
-	
-	<div id="footer_comment" style="display:none;">
+	<!-- 评价页面 -->
+	<div id="footer_comment" class="pop_page" style="display:none;">
 			<div class="matchbox_comment_title">
 				<div class="backicon">
 					<img src="<?php echo get_template_directory_uri(); ?>/images/back.png" onclick="_hidecomment()"/>
@@ -160,7 +160,6 @@
 				</form>
 			</div>
 		</div>
-	
 	</div>
 
 </body>
