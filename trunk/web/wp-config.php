@@ -21,7 +21,7 @@ define('DB_NAME', 'matchbox');
 define('DB_USER', 'root');
 
 /** MySQL数据库密码 */
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'root');
 
 /** MySQL主机 */
 define('DB_HOST', 'localhost');
@@ -42,14 +42,14 @@ define('DB_COLLATE', '');
  *
  * @since 2.6.0
  */
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+define('AUTH_KEY',         '+UBYfi(J[5Dogo6Pp6KGL*k6&Z6 Ir=swwFY%Z%U.x#*iUvGDG+gJ+$w:pJJ7{rM');
+define('SECURE_AUTH_KEY',  'VcQ(9kS|vSVVpj*SVBB^9u:a(gBn 4h[KrxLf*P$|Nuq)f]}|kg0IN3$Ni{OAZHV');
+define('LOGGED_IN_KEY',    'f:WD]!LL+klO&,IGQk*.SNkdxKoab>.ajQYM?[3bdv6VTt(spd]Vl56pd:DYDn0k');
+define('NONCE_KEY',        'jP`:Wp%@.8l&5&MfaSL@: x;@Mfmu7h{| %a@uHitD<q*9o22c(!h1t_I^PIE6:|');
+define('AUTH_SALT',        'OJnNX(VSX+Uv/UCoh,1)Qd(!yU$Y<X.zKamm#&<Bi{5U#C6@U[L(D?sEGmh<@d*V');
+define('SECURE_AUTH_SALT', 'u!*@nU+^[?mj`3XrRGb!1p^Nat>_78pgZ1-DIRq]`e-5H3oc9GxAPUmLpt]ui#bq');
+define('LOGGED_IN_SALT',   '}%>V<;TA5md>)@/Bf+w%a__qar#KBBd/(h]Iad`PMyyzD1c_pyZe+jNB?l-dmgvm');
+define('NONCE_SALT',       '[<)dzwHO1{<R`^%nS%1p.>xti0L,[nwLQ5a())@G!jN3`Im-W{*oaVP&DR<WO>g8');
 
 /**#@-*/
 
@@ -87,10 +87,3 @@ if ( !defined('ABSPATH') )
 
 /** 设置WordPress变量和包含文件。 */
 require_once(ABSPATH . 'wp-settings.php');
-
-
-
-# 调试使用，覆盖 WordPress Site URL
-// $deubg_url = 'http://192.168.16.2:8080';
-// define('WP_HOME', $deubg_url);
-// define('WP_SITEURL','$deubg_url);

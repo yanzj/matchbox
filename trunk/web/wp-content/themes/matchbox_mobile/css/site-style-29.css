@@ -6,14 +6,14 @@
 	position:fixed;
 	width:100%;
 	height:100%;
-	padding: 5px;
+	padding: 15px;
 	background-color: #FFFFFF;
 	z-index:9999;
 	top:0;
 	left:0;
 	text-align: left;
 	display:none;
-}
+}/************************zdd**********************/
 .mb_info_page_sub {
 
 }
@@ -76,23 +76,21 @@
 	font-size: 20px;
 	margin-top: 0;
 	margin-bottom: 0;
-	line-height: 50px;
+	line-height: 35px;
 	border-bottom: 1px;
 	border-bottom-color: rgba(224, 224, 224, 0.63);
 	border-bottom-style: solid;
 	font-weight: 100;
-}
+}/***********************zdd*********************/
 #footer_favorite .mb_favorite_title_s {
 	text-align: center;
 	font-size: 18px;
 	margin-top: 0;
 	margin-bottom: 0;
-	line-height: 50px;
-	border-bottom: 1px;
-	border-bottom-color: rgba(224, 224, 224, 0.63);
-	border-bottom-style: solid;
+	line-height: 35px;
+
 	font-weight: 100;
-}
+}/***************************zdd************************/
 
 #footer_favorite #footer_favorite_favorite_wrap .mb_favorite_title a, 
 #footer_favorite #footer_favorite_favorite_wrap .mb_favorite_title a:hover,
@@ -119,7 +117,7 @@
 
 .btn_cancel_freeback, .btn_cancel_favorite {
 	position: relative;
-	bottom: 40px;
+
 }
 
 .ui-content {
