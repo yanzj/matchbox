@@ -116,14 +116,14 @@ audio:not([controls]) {
 	position:fixed;
 	width:100%;
 	height:320px;
-	background: rgba(0,0,0,0.8);
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(rgba(105, 105, 105, 0.74)),to(rgba(0, 0, 0, 0.84)));
 	z-index:9999;
 	left:0;
 	bottom:0;
 	text-align: center;
 	display:none;
 	padding:0
-}
+}/***************************zdd***************************/
 #favorite_list{
 	position: fixed;
 	width: 100%;
@@ -167,12 +167,13 @@ audio:not([controls]) {
 	margin-bottom: 0;
 	line-height: 60px;
 	border-bottom: 1px;
-	border-bottom-color: #FFFFFF;
+	border-bottom-color: rgba(224, 224, 224, 0.63);
 	border-bottom-style: solid;
 	font-weight:100;
-}
+}/***************zdd**********************/
 #footer_freeback .matchbox_freeback_title a {
-	font-weight:200;
+	font-weight:bold;
 	font-style: normal;
 	text-shadow: 0 0 0 #fff;
+	font-family: "Microsoft YaHei";
 }

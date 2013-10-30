@@ -22,11 +22,16 @@ html {
     display:block;
     background-color: #FFFFFF;
 }
-.mb_header .mb_header_left, .mb_header .mb_header_right{
+.mb_header  .mb_header .mb_header_right{
 	width:40px; 
 	height:32px; 
 	padding-top:3px;
 }
+.mb_header_left{
+   	width:40px; 
+	height:32px; 
+	padding-top:10px;
+}/****************************zdd*********************/
 .mb_header .mb_header_left { 
 	float:left; 
 }
@@ -143,13 +148,13 @@ html {
 	position:fixed;
 	width:100%;
 	height:100%;
-	background: rgba(0,0,0,0.8);
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(94, 94, 94, 0.6)),to(rgba(0, 0, 0, 0.92)));
 	z-index:9999;
 	top:0;
 	left:0;
 	text-align: center;
 	display:none;
-}
+}/***********************zdd************************/
 
 #footer_freeback .matchbox_freeback_title {
 	text-align:center;
@@ -167,19 +172,22 @@ html {
 
 #footer_freeback .matchbox_comment_buttongroup {
 	margin-top:20px;
-}
+	position: absolute;
+    width: 100%;
+    bottom: 20px;
+}/*********************zdd*******************/
 
 #footer_comment {
 	position:fixed;
 	width:100%;
 	height:100%;
-	background: rgba(0,0,0,0.8);
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(85, 83, 83, 0.83)),to(rgba(0, 0, 0, 0.84)));
 	z-index:9999;
 	top:0;
 	left:0;
 	text-align: center;
 	display:none;
-}
+}/*******************************zdd********************/
 
 #footer_comment .matchbox_comment_title {
 	color: #FFFFFF;
@@ -212,6 +220,11 @@ html {
 #footer_comment .matchbox_comment_body input,textarea {
 
 }
+
+#footer_comment .matchbox_comment_body textarea {
+	border-radius: 7px;
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(255, 255, 255, 1)),to(rgba(202, 202, 202, 1)));
+}/******************************zdd*****************************/
 
 #footer_comment .matchbox_comment_body .matchbox_comment_buttongroup {
 	text-align:left;
