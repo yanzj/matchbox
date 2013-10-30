@@ -28,7 +28,7 @@
 			<!--
 			<button id="btn_cancel_list_favorite" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
 			-->
-			<img id="btn_cancel_list_favorite" class="btn_cancel_list_favorite" src="<?php echo get_template_directory_uri(); ?>/images/btn_cancel.png"/>
+			<img id="btn_cancel_list_favorite" class="btn_cancel_list_favorite" src="<?php echo get_template_directory_uri(); ?>/images/cancel.png"/>
 		</div>
 	</div>
 	<!-- 查看收藏正文 -->
@@ -57,12 +57,11 @@
 			</div>
 		</div>
 		<div class="mb_favorite_share_bottom">
-			<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo get_template_directory_uri(); ?>/images/btn_cancel.png" onclick="javascript:_hidefavorite();"/>
+			<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" onclick="javascript:_hidefavorite();"/>
 			<!--
 			<button class="cancel_button" onclick="javascript:_hidefavorite();">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
 			-->
 		</div>
-		
 	</div>
 	<!-- 关于与评价 -->
 	<div id="footer_freeback" class="mb_info_page pop_page" style="display:none;">
@@ -89,7 +88,7 @@
 			<button id="btn_cancel_freeback" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
 			-->
 			
-			<img id="btn_cancel_freeback" class="btn_cancel_freeback" src="<?php echo get_template_directory_uri(); ?>/images/btn_cancel.png" />
+			<img id="btn_cancel_freeback" class="btn_cancel_freeback" src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" />
 		</div>
 	</div>
 	<!-- 信息页面 -->
@@ -151,7 +150,7 @@
 					<!--
 					<button id="matchbox_submit_comment" onclick="_commentsubmit()">提交反馈</button>
 					-->
-					<img class="btn_commit" src="<?php echo get_template_directory_uri(); ?>/images/commit_comment.png" 
+					<img class="btn_commit" src="<?php echo get_template_directory_uri(); ?>/images/submit.png" 
 						onclick="_commentsubmit()" />
 					<input type='hidden' name='comment_post_ID' value='1' id='comment_post_ID' />
 					<input id="author" name="author" type="hidden" value="访客" />
