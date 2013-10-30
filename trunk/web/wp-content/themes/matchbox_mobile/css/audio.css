@@ -165,7 +165,7 @@ audio:not([controls]) {
 	font-size: 20px;
 	margin-top: 0;
 	margin-bottom: 0;
-	line-height: 60px;
+	line-height: 54px;
 	border-bottom: 1px;
 	border-bottom-color: rgba(224, 224, 224, 0.63);
 	border-bottom-style: solid;

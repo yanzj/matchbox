@@ -33,7 +33,7 @@ html {
 .mb_header_left{
    	width:40px; 
 	height:32px; 
-	padding-top:10px;
+	padding-top:8px;
 	padding-left: 10px;
 }/****************************zdd*********************/
 .mb_header .mb_header_left { 
@@ -47,11 +47,12 @@ html {
 	margin-left:40px; 
 	margin-right:40px; 
 	text-align: center;
-}
+	height:35px;
+}/**************zdd****************/
 .mb_header .mb_header_center .mb_header_title {
-	width:110px;
-	height:36px
-}
+    margin: 3px;
+	height:30px
+}/*************zdd******************/
 
 /***********************/
 /* 正文部分                               */
@@ -161,7 +162,7 @@ html {
 	position:fixed;
 	width:100%;
 	height:100%;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(92, 111, 117, 0.6)),to(rgba(24, 32, 34, 0.92)));
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(92, 100, 117, 0.6)),to(rgba(35, 39, 53, 0.92)));
 	z-index:9999;
 	top:0;
 	left:0;
@@ -185,8 +186,9 @@ html {
 
 #footer_freeback .matchbox_comment_buttongroup {
 	margin-top:20px;
-	
-    width: 100%;
+	position: absolute;
+    bottom: 50px;
+    width: 90%;
     
 }/*********************zdd*******************/
 
@@ -194,7 +196,7 @@ html {
 	position:fixed;
 	width:100%;
 	height:100%;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(92, 111, 117, 0.6)),to(rgba(24, 32, 34, 0.92)));
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(92, 100, 117, 0.6)),to(rgba(35, 39, 53, 0.92)));
 	z-index:9999;
 	top:0;
 	left:0;
@@ -260,7 +262,10 @@ html {
 	font-size: 18px;
 	font-weight: bold;
 }
-
+/*意见反馈*/
+.matchbox_comment_bottom{
+    margin-top: 5px;
+}/***************zdd******************/
 /* 文章元素 */
 
 .entry-title-date {
