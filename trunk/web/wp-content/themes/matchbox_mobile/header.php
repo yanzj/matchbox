@@ -15,11 +15,10 @@
 	<?php wp_head(); ?>
 	
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.mobile-1.3.2.min.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.nicescroll.min.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/swipe.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/audio.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/math.uuid.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/iscroll.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/timeline-graph.js"></script>
 	
 	<script type="text/javascript">
 	var _user_token = function() {
@@ -255,6 +254,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.mobile-1.3.2.min.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/audio.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/audio_style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style-29.css" />
 </head>
 

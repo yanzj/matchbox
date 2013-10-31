@@ -82,6 +82,37 @@
 		jQuery('body').height(jQuery('#mySwipe-wrap').height());
 	}	
 	
+	var _init_player = function(id) {
+		var audioId = 'audio-' + id + '-1';
+		var processId = 'progress-in-' + audioId;
+		var playtoggleId = 'playtoggle-' + audioId;
+
+        audio = jQuery('#' + audioId).get(0);
+		jQuery(audio).on("loadedmetadata", function(event) {
+		    //alert(this.duration);
+		});
+	    
+	    jQuery(audio).bind('timeupdate', function() {
+	    	var pos = (audio.currentTime / audio.duration) * 100;
+	        jQuery('#' + processId).css('width', pos + '%'); 
+	                
+        }).bind('play',function(){
+            jQuery("#" + playtoggleId).addClass('playing');                
+        }).bind('pause ended', function() {
+            jQuery("#" + playtoggleId).removeClass('playing');                
+        }).bind("canplay", function () {
+        	alert(thsi.currentTime + '/' + this.duration);
+    	});
+        
+        jQuery("#" + playtoggleId).bind('click', function() {
+	        if (audio.paused) {        
+	        	audio.play();        
+	        } else { 
+	        	audio.pause(); 
+	        }                        
+        });
+	};
+	
 	var _load_post = function(idx) {
 		
 		if (myScroll) {
@@ -112,28 +143,9 @@
 		} else {
 			jQuery('#' + content_id).html(jQuery(a));
 			//alert('load ' + id);
-			
 			jQuery('#' + content_id).load( url + '&single=true', function() {
 			  hashMap.Set(id, '');
-			  var as = audiojs.create(jQuery('#audio-144-1')[0],
-			  	 {
-		          css: false,
-		          createPlayer: {
-		            markup: false,
-		            playPauseClass: 'play-pauseZ',
-		            scrubberClass: 'scrubberZ',
-		            progressClass: 'progressZ',
-		            loaderClass: 'loadedZ',
-		            timeClass: 'timeZ',
-		            durationClass: 'durationZ',
-		            playedClass: 'playedZ',
-		            errorMessageClass: 'error-messageZ',
-		            playingClass: 'playingZ',
-		            loadingClass: 'loadingZ',
-		            errorClass: 'errorZ'
-		          }
-		        }
-			  );
+			  _init_player(id);
 			  _resize_height(content_id);
 			});
 		}
@@ -193,7 +205,7 @@
 		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
 		_load_post(current_post);
 		
-		
+		setup_timeline();
 	});
 
 </script>

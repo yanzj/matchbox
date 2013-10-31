@@ -907,9 +907,10 @@ function wp_audio_shortcode( $attr ) {
 		wp_enqueue_script( 'wp-mediaelement' );
 	}
 
+	$audio_id = sprintf( 'audio-%d-%d', $post_id, $instances );
 	$atts = array(
 		'class'    => apply_filters( 'wp_audio_shortcode_class', 'wp-audio-shortcode' ),
-		'id'       => sprintf( 'audio-%d-%d', $post_id, $instances ),
+		'id'       => $audio_id,
 		'loop'     => $loop,
 		'autoplay' => $autoplay,
 		'preload'  => $preload,
@@ -953,10 +954,10 @@ function wp_audio_shortcode( $attr ) {
 	
 	$html .= '</audio>';
 	
-	$html .= '<div class="audiojsZ">';
-	$html .= '<div class="play-pauseZ"><p class="playZ"></p><p class="pauseZ"></p><p class="loadingZ"></p><p class="errorZ"></p></div>';
-    $html .= '<div class="scrubberZ"><div class="progressZ"></div><div class="loadedZ"></div></div>';
-    $html .= '<div class="timeZ"><em class="playedZ">00:00</em>/<strong class="durationZ">00:00</strong></div><div class="error-messageZ"></div>';
+	$html .= '<span id="playtoggle-' . $audio_id . '" class="playtoggle" />';
+	$html .= '<div class="progress">';
+	$html .= '<span class="progress-val">84%</span>';
+	$html .= '<span class="progress-bar"><span id="progress-in-' . $audio_id . '" class="progress-in" style="width: 84%"></span></span>';
 	$html .= '</div>';
 
 	return apply_filters( 'wp_audio_shortcode', $html, $atts, $audio, $post_id, $library );

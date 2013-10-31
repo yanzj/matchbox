@@ -130,4 +130,7 @@
 .doc_content {
 	padding:2px;
 }
+.format-audio .audio-content {
+	position: relative;
+	}
 
