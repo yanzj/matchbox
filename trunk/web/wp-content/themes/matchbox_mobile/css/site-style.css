@@ -155,8 +155,13 @@ html {
     border-bottom-color: rgba(224, 224, 224, 0.63);
     border-bottom-style: solid;
     font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+    background: url("../images/right_arrow.png") no-repeat right;
+    color: #fff;
 }/*********************zdd*********************/
-#favorite_content ul li a {color:#fff;}
+#favorite_content ul li a {
+    color:#fff;
+   
+}
 
 #footer_freeback {
 	position:fixed;
