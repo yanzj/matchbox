@@ -33,7 +33,7 @@ html {
 .mb_header_left{
    	width:40px; 
 	height:32px; 
-	padding-top:8px;
+	
 	padding-left: 10px;
 }/****************************zdd*********************/
 .mb_header .mb_header_left { 
@@ -42,16 +42,17 @@ html {
 .mb_header .mb_header_right { 
 	float:right; 
 	padding-right: 10px;
+	margin:2px;
 }/***********zdd*************************/
 .mb_header .mb_header_center {
 	margin-left:40px; 
 	margin-right:40px; 
 	text-align: center;
-	height:35px;
+	height:32px;
 }/**************zdd****************/
 .mb_header .mb_header_center .mb_header_title {
-    margin: 3px;
-	height:30px
+    margin: 8px;
+	
 }/*************zdd******************/
 
 /***********************/
