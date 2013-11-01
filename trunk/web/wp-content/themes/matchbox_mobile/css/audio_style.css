@@ -6,7 +6,7 @@
 	height: 35px;
 	background: url(../images/player.png) no-repeat -36px 0;
 	cursor: pointer;
-  bottom: 80px;
+  bottom: 30px;
   left : 30px;
   z-index:999;
 }
