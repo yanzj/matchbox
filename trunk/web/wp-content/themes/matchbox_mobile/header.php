@@ -30,18 +30,6 @@
 		//alert(token);
 	    return token;
 	}
-	
-	function toggleSound(audioid) {
-		var music = document.getElementById(audioid);
-		jQuery("#matchbox_play_button");
-		if (music.paused) {
-			music.play();
-			jQuery("#matchbox_play_button").attr('src', '<?php echo get_template_directory_uri(); ?>/images/pause.png');
-		} else {
-			music.pause();
-			jQuery("#matchbox_play_button").attr('src', '<?php echo get_template_directory_uri(); ?>/images/play.png');
-		}
-	}
 	var _close_pop_all = function() {
 		jQuery('.pop_page').hide();
 	}

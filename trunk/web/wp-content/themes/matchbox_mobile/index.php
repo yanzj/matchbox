@@ -33,7 +33,7 @@
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
 		
-		<div id="scroller">
+		<div id="scroller" style="height:auto;position: relative;">
 		
 			<div id="mySwipe" class="swipe">
 	  			<div id="mySwipe-wrap" class="swipe-wrap">
@@ -87,7 +87,7 @@
 		var processId = 'progress-in-' + audioId;
 		var playtoggleId = 'playtoggle-' + audioId;
 
-        audio = jQuery('#' + audioId).get(0);
+        var audio = jQuery('#' + audioId).get(0);
 		jQuery(audio).on("loadedmetadata", function(event) {
 		    //alert(this.duration);
 		});
@@ -101,15 +101,15 @@
         }).bind('pause ended', function() {
             jQuery("#" + playtoggleId).removeClass('playing');                
         }).bind("canplay", function () {
-        	alert(thsi.currentTime + '/' + this.duration);
+        	//alert(thsi.currentTime + '/' + this.duration);
     	});
         
-        jQuery("#" + playtoggleId).bind('click', function() {
-	        if (audio.paused) {        
-	        	audio.play();        
+        jQuery("#" + playtoggleId).bind('touchstart', function() {
+	        if (audio.paused) {
+	        	audio.play();
 	        } else { 
 	        	audio.pause(); 
-	        }                        
+	        }
         });
 	};
 	
@@ -169,7 +169,7 @@
 		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
 		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 
-		myScroll = new iScroll('scroller');
+		//myScroll = new iScroll('scroller');
 	};
 
 	jQuery(function() {

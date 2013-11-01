@@ -954,7 +954,7 @@ function wp_audio_shortcode( $attr ) {
 	
 	$html .= '</audio>';
 	
-	$html .= '<span id="playtoggle-' . $audio_id . '" class="playtoggle" />';
+	$html .= '<div id="playtoggle-' . $audio_id . '" class="playtoggle"></div>';
 	$html .= '<div class="progress">';
 	$html .= '<span class="progress-val">84%</span>';
 	$html .= '<span class="progress-bar"><span id="progress-in-' . $audio_id . '" class="progress-in" style="width: 84%"></span></span>';
