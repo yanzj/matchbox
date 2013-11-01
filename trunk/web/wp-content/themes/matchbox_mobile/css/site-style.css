@@ -33,7 +33,7 @@ html {
 .mb_header_left{
    	width:40px; 
 	height:32px; 
-	
+	margin-top: 3px;
 	padding-left: 10px;
 }/****************************zdd*********************/
 .mb_header .mb_header_left { 
@@ -194,7 +194,7 @@ html {
 	margin-top:20px;
 	position: absolute;
     bottom: 50px;
-    width: 90%;
+    width: 100%;
     
 }/*********************zdd*******************/
 
@@ -309,7 +309,7 @@ html {
 	height:60px;
 }
 .favorites_link_group .favorites_link_group_wrap {
-	height:80px;
+	height:60px;
 	text-align:center;
 	width:100%;
 	position: relative;

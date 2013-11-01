@@ -133,6 +133,9 @@
 .format-audio .audio-content {
 	position: relative;
 	}
+.format-audio img.alignnone{
+	margin:0px 0;
+}
 audio:not([controls]) {
 display: none;
 height: 0;
