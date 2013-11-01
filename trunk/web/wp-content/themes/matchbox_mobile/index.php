@@ -58,12 +58,7 @@
 
 
 <script type="text/javascript">
-	var hashMap = {  
-		Set : function(key,value){this[key] = value},  
-		Get : function(key){return this[key]},  
-		Contains : function(key){return this.Get(key) == null?false:true},  
-		Remove : function(key){delete this[key]}  
-	}
+	
 	var my_array = new Array();
 	var my_array_title = new Array();
 	var current_post = 0;
@@ -71,51 +66,6 @@
 	var posts_count = <?php echo $_postscount; ?>;
 	var urltemplate = '?p=';
 	var myScroll;
-	
-	var _resize_height = function (content_id) {  
-		
-		jQuery('#' + content_id).scrollTop(0); // 返回顶部
-		//return;
-		if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
-		  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
-			//jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
-		} else {
-		  	//jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
-		}
-		
-		jQuery('body').height(jQuery('#mySwipe-wrap').height());
-	}	
-	
-	var _init_player = function(id) {
-		var audioId = 'audio-' + id + '-1';
-		var processId = 'progress-in-' + audioId;
-		var playtoggleId = 'playtoggle-' + audioId;
-
-        var audio = jQuery('#' + audioId).get(0);
-		jQuery(audio).on("loadedmetadata", function(event) {
-		    //alert(this.duration);
-		});
-	    
-	    jQuery(audio).bind('timeupdate', function() {
-	    	var pos = (audio.currentTime / audio.duration) * 100;
-	        jQuery('#' + processId).css('width', pos + '%'); 
-	                
-        }).bind('play',function(){
-            jQuery("#" + playtoggleId).addClass('playing');                
-        }).bind('pause ended', function() {
-            jQuery("#" + playtoggleId).removeClass('playing');                
-        }).bind("canplay", function () {
-        	//alert(thsi.currentTime + '/' + this.duration);
-    	});
-        
-        jQuery("#" + playtoggleId).bind('touchstart', function() {
-	        if (audio.paused) {
-	        	audio.play();
-	        } else { 
-	        	audio.pause(); 
-	        }
-        });
-	};
 	
 	var _load_post = function(idx) {
 		

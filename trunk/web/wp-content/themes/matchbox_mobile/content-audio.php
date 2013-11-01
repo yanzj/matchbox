@@ -30,6 +30,9 @@
 		</div>
 	</div>
 	
+<?php $_favorite = $_GET['favorite']; ?>
+<?php if ('true' != $_favorite) : ?>
 	<?php include "popfuns.php"; ?>
+<?php endif; ?>
 	
 </article>

@@ -25,14 +25,65 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.mobile-1.3.2.min.css" />
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.mobile-1.3.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/swipe.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/timeline-graph2.js"></script>
 	*/ ?>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/math.uuid.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/iscroll.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/timeline-graph2.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/idangerous.swiper.js"></script>
 	
 	
 	<script type="text/javascript">
+	var hashMap = {  
+		Set : function(key,value){this[key] = value},  
+		Get : function(key){return this[key]},  
+		Contains : function(key){return this.Get(key) == null?false:true},  
+		Remove : function(key){delete this[key]}  
+	}
+	var _resize_height = function (content_id) {  
+		
+		jQuery('#' + content_id).scrollTop(0); // 返回顶部
+		//return;
+		if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
+		  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
+			//jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
+		} else {
+		  	//jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
+		}
+		
+		jQuery('body').height(jQuery('#mySwipe-wrap').height());
+	}	
+	
+	var _init_player = function(id) {
+		var audioId = 'audio-' + id + '-1';
+		var processId = 'progress-in-' + audioId;
+		var playtoggleId = 'playtoggle-' + audioId;
+
+        var audio = jQuery('#' + audioId).get(0);
+		jQuery(audio).on("loadedmetadata", function(event) {
+		    //alert(this.duration);
+		});
+	    
+	    jQuery(audio).bind('timeupdate', function() {
+	    	var pos = (audio.currentTime / audio.duration) * 100;
+	        jQuery('#' + processId).css('width', pos + '%'); 
+	                
+        }).bind('play',function(){
+            jQuery("#" + playtoggleId).addClass('playing');                
+        }).bind('pause ended', function() {
+            jQuery("#" + playtoggleId).removeClass('playing');                
+        }).bind("canplay", function () {
+        	//alert(thsi.currentTime + '/' + this.duration);
+    	});
+        
+        jQuery("#" + playtoggleId).bind('touchstart', function() {
+	        if (audio.paused) {
+	        	audio.play();
+	        } else { 
+	        	audio.pause(); 
+	        }
+        });
+	};
+	
 	var _user_token = function() {
 		var token = localStorage.getItem('user_token');
 		if (!token) {
@@ -42,6 +93,7 @@
 		//alert(token);
 	    return token;
 	}
+	//alert(_user_token());
 	var _close_pop_all = function() {
 		jQuery('.pop_page').hide();
 	}
@@ -203,6 +255,7 @@
 			var post_id	= jQuery('#favorite_current_post_id').val();
 			jQuery.get('?wpfpaction=remove&postid=' + post_id + '&ajax=1&user=' + _user_token(), function(data){
 			  //alert(data);
+			  _init_player('favorited-' + post_id);
 			  jQuery('#link_remove_favorite').hide();
 		  	  jQuery('#link_add_favorite').show();
 			});

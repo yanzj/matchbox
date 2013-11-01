@@ -908,6 +908,13 @@ function wp_audio_shortcode( $attr ) {
 	}
 
 	$audio_id = sprintf( 'audio-%d-%d', $post_id, $instances );
+	
+	error_log('$audio_id  favorite : ' . $_REQUEST['favorite']);
+	if ('true' ==  $_REQUEST['favorite']) {
+		$audio_id = sprintf( 'favorited-audio-%d-%d', $post_id, $instances );
+	}
+	
+	
 	$atts = array(
 		'class'    => apply_filters( 'wp_audio_shortcode_class', 'wp-audio-shortcode' ),
 		'id'       => $audio_id,

@@ -131,7 +131,7 @@ function wpfp_list_favorite() {
 	global $wpdb;
     $query = "SELECT post_id, meta_value, post_status FROM $wpdb->postmeta";
     $query .= " LEFT JOIN $wpdb->posts ON post_id=$wpdb->posts.ID";
-    $query .= " WHERE post_id in (" . implode(',', $collection_post_ids) . ") and post_status='publish' AND meta_key='".WPFP_META_KEY."' AND meta_value > 0 ORDER BY ROUND(meta_value) DESC";
+    $query .= " WHERE post_id in (" . str_replace('Array,','',implode(',', $collection_post_ids)). ") and post_status='publish' AND meta_key='".WPFP_META_KEY."' AND meta_value > 0 ORDER BY ROUND(meta_value) DESC";
     $results = $wpdb->get_results($query);
     if ($results) {
         $strHtml .= '<ul>';
