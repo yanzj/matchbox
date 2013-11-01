@@ -14,11 +14,23 @@
 	 */?>
 	<?php wp_head(); ?>
 	
+	
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/audio.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/audio_style.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style-29.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/idangerous.swiper.css" />
+	
+	<?php /*
+	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.mobile-1.3.2.min.css" />
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/jquery.mobile-1.3.2.min.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/swipe.js"></script>
+	*/ ?>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/math.uuid.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/iscroll.js"></script>
-	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/timeline-graph.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/timeline-graph2.js"></script>
+	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/idangerous.swiper.js"></script>
+	
 	
 	<script type="text/javascript">
 	var _user_token = function() {
@@ -139,7 +151,7 @@
 		}
 		*/
 		
-		jQuery.mobile.ajaxEnabled = false;
+		//jQuery.mobile.ajaxEnabled = false;
 		
 		var getDateStr = function () { 
 			var dd = new Date(); 
@@ -239,11 +251,7 @@
 	});
 	
 	</script>
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/jquery.mobile-1.3.2.min.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/audio.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/audio_style.css" />
-	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style-29.css" />
+
 </head>
 
 <body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;">

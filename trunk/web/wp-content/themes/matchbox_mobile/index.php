@@ -33,12 +33,16 @@
 			<?php get_template_part( 'content', 'none' ); ?>
 		<?php endif; ?>
 		
-		<div id="scroller" style="height:auto;position: relative;">
 		
-			<div id="mySwipe" class="swipe">
-	  			<div id="mySwipe-wrap" class="swipe-wrap">
+		<style>
+			.doc_content {
+				background-color:#FFFFFF;
+			}
+		</style>
+			<div id="mySwipe" class="swiper-container">
+	  			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper" style="background-color:red">
 		  			<?php while ( have_posts() ) : the_post(); /*LOOP*/ ?>
-					<div id="mathbox_content_<?php echo $post->ID;?>" class="doc_content">
+					<div id="mathbox_content_<?php echo $post->ID;?>" class="doc_content swiper-slide">
 					<!--
 					<b>mathbox_content_<?php echo $post->ID;?></b>
 					-->
@@ -46,7 +50,7 @@
 					<?php endwhile; ?>
 				</div>
 			</div>
-		</div>
+
 			<!--
 		</div>
 	</div>
@@ -68,7 +72,7 @@
 	var urltemplate = '?p=';
 	var myScroll;
 	
-	var _resize_height = function (content_id) { 
+	var _resize_height = function (content_id) {  
 		
 		jQuery('#' + content_id).scrollTop(0); // 返回顶部
 		//return;
@@ -182,6 +186,7 @@
 		*/
 	 	var elem = document.getElementById('mySwipe');
 		if (elem) {
+			/*
 			window.mySwipe = Swipe(elem, {
 			  startSlide: 0,
 			  //speed: 400,
@@ -190,13 +195,28 @@
 			  //disableScroll: false,
 			  //stopPropagation: false,
 			  callback: function(index, elem) {
-			  	//alert('callback');
+			  	
 			  	_load_post(index);
 			  },
 			  transitionEnd: function(index, elem) {
-			  	
+			  	//alert(index);
 			  }
 			});
+			*/
+			
+			 var mySwiper = jQuery('#mySwipe').swiper({
+			    //mode : 'vertical', //Switch to vertical mode
+			    speed : 500, //Set animation duration to 500ms
+			    wrapperClass : 'swipe-wrap',
+				slideClass : 'doc_content',
+			    onTouchStart : function() {
+			      //Do something when you touch the slide
+			      //alert('OMG you touch the slide!') 
+			    },
+			    onSlideChangeEnd : function () {
+			    	_load_post(mySwiper.activeIndex);
+			    }
+			 });
 
 			<?php echo $_pushscripts; ?>
 			//alert(my_array);
@@ -205,7 +225,7 @@
 		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
 		_load_post(current_post);
 		
-		setup_timeline();
+		//setup_timeline();
 	});
 
 </script>
