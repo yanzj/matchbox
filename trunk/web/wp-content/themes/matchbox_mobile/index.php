@@ -40,7 +40,7 @@
 			}
 		</style>
 			<div id="mySwipe" class="swiper-container">
-	  			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper" style="background-color:red">
+	  			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper">
 		  			<?php while ( have_posts() ) : the_post(); /*LOOP*/ ?>
 					<div id="mathbox_content_<?php echo $post->ID;?>" class="doc_content swiper-slide">
 					<!--
