@@ -35,6 +35,19 @@
 <script type="text/javascript">
 	jQuery(function() {
 		jQuery('.favorites_link_group').hide();
+		_init_player(<?php echo $post->ID; ?>);
+		jQuery('#ad_image_<?php echo $post->ID; ?>').toggle(
+		     function () {
+		        jQuery('#mb_ad_link_<?php echo $post->ID; ?>').show();
+		     },
+		     function () {
+		        jQuery('#mb_ad_link_<?php echo $post->ID; ?>').hide();
+		     }
+		 ).bind('click');
+		 
+		 jQuery('#mb_ad_link_<?php echo $post->ID; ?>').bind('click', function(event) {
+		 	event.stopPropagation();
+		 });
 	});
 </script>
 	<?php get_footer(); ?>

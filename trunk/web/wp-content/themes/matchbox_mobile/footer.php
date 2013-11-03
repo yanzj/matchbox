@@ -38,7 +38,8 @@
 		</div>
 	</div>
 	<!-- 分享与收藏 -->
-	<div id="footer_favorite" class="pop_page" style="display:none;">
+	<div id="footer_favorite_frame" class="pop_page" style="display:none;">
+	<div id="footer_favorite">
 		<div id="footer_favorite_favorite_wrap">
 			<input type="hidden" id="favorite_current_post_id" value=""/>
 			<div class="mb_favorite_title">
@@ -51,17 +52,25 @@
 		<div id="footer_favorite_share_wrap">
 			<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 			<div class="mb_favorite_sharp_group">
-				<a id="share_weixin" href="" title="分享到微信" class="share_icon"><img src="<?php echo get_template_directory_uri(); ?>/images/weixin32.png"/></a> 
-				<a id="share_sina" href="" title="分享到新浪微博" class="share_icon" target="_blank"><img src="<?php echo get_template_directory_uri(); ?>/images/weibo32.png"/></a>
-				<a id="share_mail" href="#" title="发送邮件给朋友" class="share_icon"><img src="<?php echo get_template_directory_uri(); ?>/images/mail32.png"/></a>
+				<div class="share_icon_wrap">
+					<div class="share_icon_img">
+						<a id="share_weixin" href="" title="分享到微信" class="share_icon">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/weixin32.png"/></a></div>
+					<div class="share_icon_text">微信</div>
+				</div>
+				<div class="share_icon_wrap">
+					<div class="share_icon_img">
+						<a id="share_sina" href="" title="分享到新浪微博" class="share_icon" target="_blank">
+							<img src="<?php echo get_template_directory_uri(); ?>/images/weibo32.png"/></a></div>
+					<div class="share_icon_text">新浪微博</div>
+				</div>
 			</div>
 		</div>
 		<div class="mb_favorite_share_bottom">
-			<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" onclick="javascript:_hidefavorite();"/>
-			<!--
-			<button class="cancel_button" onclick="javascript:_hidefavorite();">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
-			-->
+			<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" 
+				onclick="javascript:_hide_favorite();"/>
 		</div>
+	</div>
 	</div>
 	<!-- 关于与评价 -->
 	<div id="footer_freeback" class="mb_info_page pop_page" style="display:none;">
@@ -78,7 +87,7 @@
 			<a>去APP STORE评价我们</a>
 		</div>
 		<div class="matchbox_freeback_title">
-			<a onclick="_showcomment()">意见反馈</a>
+			<a onclick="_show_comment()">意见反馈</a>
 		</div>
 		<div class="matchbox_freeback_title">
 			<a  id="btn_open_business">商业合作</a>
@@ -122,7 +131,7 @@
 	<div id="footer_comment" class="pop_page" style="display:none;">
 			<div class="matchbox_comment_title">
 				<div class="backicon">
-					<img src="<?php echo get_template_directory_uri(); ?>/images/back.png" onclick="_hidecomment()"/>
+					<img src="<?php echo get_template_directory_uri(); ?>/images/back.png" onclick="_hide_comment()"/>
 				</div>
 				<div style="margin-left:40px; margin-right:40px; text-align: center;">
 					用户反馈
@@ -147,11 +156,8 @@
 				</div>
 				<div class="matchbox_comment_bottom">
 					<span id="matchbox_comment_status"></span>
-					<!--
-					<button id="matchbox_submit_comment" onclick="_commentsubmit()">提交反馈</button>
-					-->
 					<img class="btn_commit" src="<?php echo get_template_directory_uri(); ?>/images/submit.png" 
-						onclick="_commentsubmit()" />
+						onclick="_submit_comment()" />
 					<input type='hidden' name='comment_post_ID' value='1' id='comment_post_ID' />
 					<input id="author" name="author" type="hidden" value="访客" />
 					<input type='hidden' name='comment_parent' id='comment_parent' value='0' />

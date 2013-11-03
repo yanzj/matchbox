@@ -23,7 +23,7 @@
 			<div class="matchbox_favorite_button_wrap">
 				<a href="javascript:void(0)">
 					<img id="matchbox_play_button" width="32px" height="32px" 
-					src="<?php echo get_template_directory_uri(); ?>/images/star.png" onclick="_showfavorite()"/>
+					src="<?php echo get_template_directory_uri(); ?>/images/star.png" onclick="_show_favorite()"/>
 				</a>
 			</div>
 			-->

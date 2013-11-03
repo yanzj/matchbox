@@ -911,7 +911,7 @@ function wp_audio_shortcode( $attr ) {
 	
 	error_log('$audio_id  favorite : ' . $_REQUEST['favorite']);
 	if ('true' ==  $_REQUEST['favorite']) {
-		$audio_id = sprintf( 'favorited-audio-%d-%d', $post_id, $instances );
+		$audio_id = sprintf( 'audio-favorited-%d-%d', $post_id, $instances );
 	}
 	
 	
@@ -963,8 +963,8 @@ function wp_audio_shortcode( $attr ) {
 	
 	$html .= '<div id="playtoggle-' . $audio_id . '" class="playtoggle"></div>';
 	$html .= '<div class="progress">';
-	$html .= '<span class="progress-val">84%</span>';
-	$html .= '<span class="progress-bar"><span id="progress-in-' . $audio_id . '" class="progress-in" style="width: 84%"></span></span>';
+	$html .= '<span class="progress-val"></span>';
+	$html .= '<span class="progress-bar"><span id="progress-in-' . $audio_id . '" class="progress-in" style="width:0"></span></span>';
 	$html .= '</div>';
 
 	return apply_filters( 'wp_audio_shortcode', $html, $atts, $audio, $post_id, $library );

@@ -89,9 +89,9 @@ function set_post_format( $post, $format ) {
  */
 function get_post_format_strings() {
 	$strings = array(
-		'standard' => _x( 'Standard', 'Post format' ), // Special case. any value that evals to false will be considered standard
+		'standard' => '诗文', #_x( 'Standard', 'Post format' ), // Special case. any value that evals to false will be considered standard
 		'aside'    => _x( 'Aside',    'Post format' ),
-		'chat'     => _x( 'Chat',     'Post format' ),
+		'chat'     => '广告', #_x( 'Chat',     'Post format' ),
 		'gallery'  => _x( 'Gallery',  'Post format' ),
 		'link'     => _x( 'Link',     'Post format' ),
 		'image'    => _x( 'Image',    'Post format' ),

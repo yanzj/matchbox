@@ -97,8 +97,9 @@
 			jQuery('#' + content_id).load( url + '&single=true', function() {
 			  hashMap.Set(id, '');
 			  _init_player(id);
+			 
 			  
-			 jQuery('#ad_image_' + id).toggle(
+			  jQuery('#ad_image_' + id).toggle(
 			     function () {
 			        jQuery('#mb_ad_link_' + id).show();
 			     },
@@ -110,13 +111,15 @@
 			 jQuery('#mb_ad_link_' + id).bind('click', function(event) {
 			 	event.stopPropagation();
 			 });
-
-			  _resize_height(content_id);
+			 
+			 
+			  
+			  //_resize_height(content_id);
 			});
 		}
 
 		// 判断是否已经收藏 
-		jQuery.get('?matchboxfp=exists&postid=' + id + '&ajax=1&user=' + _user_token(), function(data){
+		jQuery.get('?wpfpaction=exists&postid=' + id + '&ajax=1', function(data){
 		  //alert("Data Loaded: " + data);
 		  if ('false' == data) {
 		  	jQuery('#link_remove_favorite').hide();

@@ -57,32 +57,17 @@ add_action('template_redirect', 'wp_favorite_posts');
 
 function wpfp_add_favorite($post_id = "") {
     if ( empty($post_id) ) $post_id = $_REQUEST['postid'];
-	/*
-    if (wpfp_get_option('opt_only_registered') && !is_user_logged_in() )
-        wpfp_die_or_go(wpfp_get_option('text_only_registered') );
-	*/
     if (wpfp_do_add_to_list($post_id)) {
-        // added, now?
-        do_action('wpfp_after_add', $post_id);
-        if (wpfp_get_option('statics')) wpfp_update_post_meta($post_id, 1);
-        if (wpfp_get_option('added') == 'show remove link') {
-            $str = wpfp_link(1, "remove", 0, array( 'post_id' => $post_id ) );
-            wpfp_die_or_go($str);
-        } else {
-            wpfp_die_or_go(wpfp_get_option('added'));
-        }
+	    wpfp_die_or_go('success');
+    } else {
+        wpfp_die_or_go('failure');
     }
 }
+
 function wpfp_do_add_to_list($post_id) {
-    if (wpfp_check_favorited($post_id))
+    if (wpfp_check_favorited($post_id)) {
         return false;
-	/*
-    if (is_user_logged_in()) {
-        return wpfp_add_to_usermeta($post_id);
-    } else {
-        return wpfp_set_cookie($post_id, "added");
-    }
-	*/
+	}
 	return wpfp_add_to_usermeta($post_id);
 }
 
@@ -157,23 +142,15 @@ function wpfp_die_or_go($str) {
 
 function wpfp_add_to_usermeta($post_id) {
     $wpfp_favorites = wpfp_get_user_meta();
+    
     $wpfp_favorites[] = $post_id;
+    
     wpfp_update_user_meta($wpfp_favorites);
+	
     return true;
 }
 
 function wpfp_check_favorited($cid) {
-	/*
-    if (is_user_logged_in()) {
-        
-	} else {
-	    if (wpfp_get_cookie()):
-	        foreach (wpfp_get_cookie() as $fpost_id => $val)
-	            if ($fpost_id == $cid) return true;
-	    endif;
-	} 
-	*/
-	
 	$favorite_post_ids = wpfp_get_user_meta();
         if ($favorite_post_ids)
             foreach ($favorite_post_ids as $fpost_id)
@@ -435,16 +412,6 @@ function wpfp_get_user_id() {
 }
 
 function wpfp_get_user_meta($user = "") {
-	/*
-    if (!empty($user)):
-        $userdata = get_userdatabylogin($user);
-        $user_id = $userdata->ID;
-        return get_usermeta($user_id, WPFP_META_KEY);
-    else:
-        return get_usermeta(wpfp_get_user_id(), WPFP_META_KEY);
-    endif;
-	*/
-	
 	return get_usermeta(wpfp_get_user_id(), WPFP_META_KEY);
 }
 

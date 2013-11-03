@@ -89,7 +89,7 @@ function twentythirteen_setup() {
 		// 'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	// ) );
 	add_theme_support( 'post-formats', array(
-		'aside', 'image', 'audio', 'chat', 'quote'
+		'image', 'audio', 'chat'
 	) );
 
 	// This theme uses wp_nav_menu() in one location.
@@ -548,7 +548,7 @@ add_shortcode('adlink', 'adlink_shortcode');
 
 
 function adlink_shortcode($attr, $content = null) {
-	// New-style shortcode with the caption inside the shortcode with the link and image tags.
+	$post_id = get_post() ? get_the_ID() : 0;
 	if ( ! isset( $attr['adlink'] ) ) {
 		if ( preg_match( '#((?:<a [^>]+>\s*)?<img [^>]+>(?:\s*</a>)?)(.*)#is', $content, $matches ) ) {
 			$content = $matches[1];
@@ -560,22 +560,8 @@ function adlink_shortcode($attr, $content = null) {
 	if ( $output != '' )
 		return $output;
 
-	// extract(shortcode_atts(array(
-		// 'id'	=> '',
-		// 'align'	=> 'alignnone',
-		// 'width'	=> '',
-		// 'caption' => ''
-	// ), $attr, 'caption'));
-// 
-	// if ( 1 > (int) $width || empty($caption) )
-		// return $content;
-// 
-	// if ( $id ) $id = 'id="' . esc_attr($id) . '" ';
-
-	// return '<div ' . $id . 'class="wp-caption ' . esc_attr($align) . '" style="width: ' . (10 + (int) $width) . 'px">'
-	// . do_shortcode( $content ) . '<p class="wp-caption-text">' . $caption . '</p></div>';
-	
-	return '<div ' . $id . 'class="mathbox_ad_link" >' . do_shortcode( $content ) . '</div>'; 
+	return '<div id="mb_ad_link_' . $post_id . '" class="mb_ad_link" ><div class="mb_ad_link_wrap"><a id="mb_ad_link_a_' . $post_id . '" target="_blank" href="' 
+		. do_shortcode( $content ) . '">&nbsp;进&nbsp;入&nbsp;</a></div></div>'; 
 }
 
 remove_filter (  'the_content' ,  'wpautop'  );

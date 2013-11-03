@@ -1084,7 +1084,7 @@ function get_sample_permalink_html( $id, $new_title = null, $new_slug = null ) {
 			$return .= '</div></div>';
 			$return .= '<script>jQuery(function() {jQuery( "#qrcode_dialog" ).dialog({width:480,height:360,modal:false,autoOpen:false});});</script>';
 		if ( isset( $view_post ) )
-			$return .= "<span id='view-post-btn'><a href='$permalink' class='button button-small'>$view_post</a></span>\n";
+			$return .= "<span id='view-post-btn'><a href=\"javascript:window.open ('${permalink}&view=true','','height=480,width=320,top=64,left=64,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no') \" class='button button-small'>$view_post</a></span>\n";
 
 		
 		$return = apply_filters('get_sample_permalink_html', $return, $id, $new_title, $new_slug);
@@ -1115,7 +1115,9 @@ function get_sample_permalink_html( $id, $new_title = null, $new_slug = null ) {
 	$return .= '<span id="edit-slug-buttons"><a href="#post_name" class="edit-slug button button-small hide-if-no-js" onclick="editPermalink(' . $id . '); return false;">' . __('Edit') . "</a></span>\n";
 	$return .= '<span id="editable-post-name-full">' . $post_name . "</span>\n";
 	if ( isset($view_post) )
-		$return .= "<span id='view-post-btn'><a href='$view_link' class='button button-small'>$view_post</a></span>\n";
+		//$return .= "<span id='view-post-btn'><a href='$view_link' class='button button-small'>$view_post</a></span>\n";
+		$return .= "<span id='view-post-btn'><a href=\"javascript:window.open ('${permalink}&view=true','','height=480,width=320,top=64,left=64,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no') \" class='button button-small'>$view_post</a></span>\n";
+	
 
 	$return = apply_filters('get_sample_permalink_html', $return, $id, $new_title, $new_slug);
 
