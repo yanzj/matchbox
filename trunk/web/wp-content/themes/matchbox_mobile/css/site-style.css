@@ -12,6 +12,12 @@ html {
 /***********************/
 /* 标题栏                                   */
 /***********************/
+#btn_feedback{
+   height:18px;
+}
+#btn_favorite{
+   height:28px;
+}
 .mb_header {
     position: fixed;
     top: 0;
@@ -27,13 +33,13 @@ html {
 }/**************************zdd***************************/
 .mb_header  .mb_header .mb_header_right{
 	width:40px; 
-	height:32px; 
-	padding-top:3px;
+	height:25px; 
+	padding-top:10px;
 }
 .mb_header_left{
-   	width:40px; 
-	height:32px; 
-	margin-top: 3px;
+   
+	height:28px; 
+	margin-top: 8px;
 	padding-left: 10px;
 }/****************************zdd*********************/
 .mb_header .mb_header_left { 
@@ -48,11 +54,11 @@ html {
 	margin-left:40px; 
 	margin-right:40px; 
 	text-align: center;
-	height:32px;
+	height:30px;
 }/**************zdd****************/
 .mb_header .mb_header_center .mb_header_title {
-    margin: 8px;
-	
+    margin-top: 8px;
+    height: 22px;
 }/*************zdd******************/
 
 /***********************/
