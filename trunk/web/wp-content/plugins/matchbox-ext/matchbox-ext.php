@@ -12,6 +12,60 @@ Author URI:
     Copyright (c) 2013 Matchbox 
 */
 
+function matchbox_action() {
+    if (isset($_REQUEST['matchbox'])):
+		$action_name = $_REQUEST['matchbox'];
+        if ($action_name == 'last') {	// list posts
+        	matchbox_last_posts();
+        } 
+    endif;
+}
+add_action('template_redirect', 'matchbox_action');
+
+function matchbox_last_posts() {
+	error_log('invoke matchbox_last_posts');
+	$last = 0;
+	if (isset($_REQUEST['last'])) {
+		$last = $_REQUEST['last'];
+	}
+		
+	$jarr = array (
+		'last' =>  0,
+		'update' => 'false',
+		'list' =>  array()
+	); 
+	
+	$posts = get_posts();   
+	foreach( $posts as $post ) {
+		if ($jarr['last'] === 0) {
+			$jarr['last'] = $post->ID;
+			if ($last >= $post->ID) {
+				break;
+				$jarr['last'] = $last;
+			}
+		}
+		if ($last >= $post->ID) {
+			break;
+		}
+		setup_postdata($post);      
+		$jarr['list'][] = array( 'id'=>$post->ID, 'title'=>$post->post_title );
+		$jarr['update'] = 'true';
+	}   
+	
+	$jobj = new stdclass();
+	foreach($jarr as $key=>$value){ 
+		$jobj->$key = $value; 
+    } 
+	/*
+    print_r($jobj);//打印传递属性后的对象
+	echo'使用$jobj->list[0][\'code\']输出数组元素:'.$jobj->list[0]['code'].'<br>'; 
+	echo'编码后的json字符串：'.json_encode($jobj).'<br>';//打印编码后的json字符串  
+    */
+	matchbox_die_or_go(json_encode($jobj));
+
+}
+
+
 function matchbox_favorite_posts() {
     if (isset($_REQUEST['matchboxfp'])):
 		

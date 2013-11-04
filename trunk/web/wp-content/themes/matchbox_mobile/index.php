@@ -95,13 +95,13 @@
 				+ '</div></div>';
 		//切换特效
 		
-		if (hashMap.Contains(id)) {
+		if (false && hashMap.Contains(url)) {
 			_resize_height(content_id);
 		} else {
 			jQuery('#' + content_id).html(jQuery(a));
 			//alert('load ' + id);
 			jQuery('#' + content_id).load( url + '&single=true', function() {
-			  hashMap.Set(id, '');
+			  hashMap.Set(url, '');
 			  _init_player(id);
 			  
 			 jQuery('#ad_image_' + id).toggle(
@@ -144,36 +144,11 @@
 	};
 
 	jQuery(function() {
-		/*
-		jQuery("#footer_favorite").pinFooter();
-		jQuery(window).resize(function() {
-		    jQuery("#footer_favorite").pinFooter();
-		});
-		jQuery("#footer_favorite").hide();
-		*/
 	 	var elem = document.getElementById('mySwipe');
 		if (elem) {
-			/*
-			window.mySwipe = Swipe(elem, {
-			  startSlide: 0,
-			  //speed: 400,
-			  //auto: 3000,
-			  continuous: false,
-			  //disableScroll: false,
-			  //stopPropagation: false,
-			  callback: function(index, elem) {
-			  	
-			  	_load_post(index);
-			  },
-			  transitionEnd: function(index, elem) {
-			  	//alert(index);
-			  }
-			});
-			*/
 			 holdPosition = 0;
 			 var mySwiper = jQuery('#mySwipe').swiper({
-			    //mode : 'vertical', //Switch to vertical mode
-			    speed : 500, //Set animation duration to 500ms
+			    speed : 500, 
 			    wrapperClass : 'swipe-wrap',
 				slideClass : 'doc_content',
 				watchActiveIndex: true,
@@ -185,16 +160,9 @@
 			    },
 			    onTouchEnd: function(){
 			      if (holdPosition>80) {
-			        // Hold Swiper in required position
-			        mySwiper.setWrapperTranslate(80,0,0)
-			
-			        //Dissalow futher interactions
-			        mySwiper.params.onlyExternal=true
-			
-			        //Show loader
+			        mySwiper.setWrapperTranslate(80,0,0);
+			        mySwiper.params.onlyExternal = true;
 			        jQuery('.preloader').addClass('visible');
-			
-			        //Load slides
 			        loadNewSlides();
 			      }
 			    },
@@ -204,38 +172,38 @@
 			 });
 			 
 			 function loadNewSlides() {
-    /* 
-    Probably you should do some Ajax Request here
-    But we will just use setTimeout
-    */
-    setTimeout(function(){
-      //Prepend new slide
-      //var colors = ['red','blue','green','orange','pink'];
-      //var color = colors[Math.floor(Math.random()*colors.length)];
-      //mySwiper.prependSlide('<div class="title">New slide '+'slideNumber'+'</div>', 'swiper-slide '+color+'-slide')
-
-      //Release interactions and set wrapper
-      mySwiper.setWrapperTranslate(0,0,0)
-      mySwiper.params.onlyExternal=false;
-
-      //Update active slide
-      mySwiper.updateActiveSlide(0)
-
-      //Hide loader
-      jQuery('.preloader').removeClass('visible')
-    },1000)
-
-    //slideNumber++;
-  }
+				jQuery.getJSON( '?matchbox=last&last=' + my_array[0], function() {
+					console.log( "call success" );
+				}).done(function(data) {
+					console.log( "callback success" );
+					console.log( data.last + ' ' + data.update + ' ' + data.list.length);
+					if ('true' == data.update) {
+						for (i=data.list.length-1; i >=0; i--) {
+							post = data.list[i];
+							my_array.unshift(post.id);
+							my_array_title.unshift(post.title);
+							var newSlide = mySwiper.createSlide('<div id="mathbox_content_' + post.id + '" class="doc_content swiper-slide"></div>');
+							newSlide.prepend(); 
+							_load_post(0);
+						}
+					}
+					
+				}).fail(function() {
+					console.log( "loadNewSlides error" );
+				}).always(function() {
+					mySwiper.setWrapperTranslate(0,0,0);
+			      	mySwiper.params.onlyExternal = false;
+			      	mySwiper.updateActiveSlide(0);
+			      	jQuery('.preloader').removeClass('visible');
+				});
+			  }
 
 			<?php echo $_pushscripts; ?>
-			//alert(my_array);
 		}
 
 		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
 		_load_post(current_post);
-		
-		//setup_timeline();
+
 	});
 
 </script>
