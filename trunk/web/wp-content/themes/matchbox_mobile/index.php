@@ -95,7 +95,7 @@
 				+ '</div></div>';
 		//切换特效
 		
-		if (false && hashMap.Contains(url)) {
+		if (hashMap.Contains(url)) {
 			_resize_height(content_id);
 		} else {
 			jQuery('#' + content_id).html(jQuery(a));
