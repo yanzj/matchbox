@@ -49,7 +49,8 @@
 			
 			<div class="mb_favorite_title"><a id="link_list_favorite" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
 		</div>
-		<div id="footer_favorite_share_wrap">
+		<div id="footer_favorite_share_wrap" style="display:none;">
+			<?php /*
 			<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 			<div class="mb_favorite_sharp_group">
 				<div class="share_icon_wrap">
@@ -65,6 +66,7 @@
 					<div class="share_icon_text">新浪微博</div>
 				</div>
 			</div>
+			*/?>
 		</div>
 		<div class="mb_favorite_share_bottom">
 			<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo get_template_directory_uri(); ?>/images/cancel.png" 
@@ -80,18 +82,24 @@
 			-->
 			<a id="btn_open_about">关于火柴盒</a>
 		</div>
+		<?php /*
 		<div class="matchbox_freeback_title">
 			<a id="btn_open_contribute">投稿给我们</a>
 		</div>
+		*/?>
+		<?php /*
 		<div class="matchbox_freeback_title">
 			<a>去APP STORE评价我们</a>
 		</div>
+		*/?>
 		<div class="matchbox_freeback_title">
 			<a onclick="_show_comment()">意见反馈</a>
 		</div>
+		<?php /*
 		<div class="matchbox_freeback_title">
 			<a  id="btn_open_business">商业合作</a>
 		</div>
+		*/?>
 		<div class="matchbox_comment_buttongroup">
 			<!--
 			<button id="btn_cancel_freeback" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
