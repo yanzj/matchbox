@@ -34,8 +34,14 @@
 		<?php endif; ?>
 
 <div class="preloader">
-    Loading...
-  </div>
+	<div class='loading'>
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	    <span></span>
+	</div>
+	<div>Loading...</div>
+</div>
 			<div id="mySwipe" class="swiper-container">
 	  			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper">
 		  			<?php while ( have_posts() ) : the_post(); /*LOOP*/ ?>
@@ -178,9 +184,9 @@
 			      holdPosition = pos;
 			    },
 			    onTouchEnd: function(){
-			      if (holdPosition>100) {
+			      if (holdPosition>80) {
 			        // Hold Swiper in required position
-			        mySwiper.setWrapperTranslate(100,0,0)
+			        mySwiper.setWrapperTranslate(80,0,0)
 			
 			        //Dissalow futher interactions
 			        mySwiper.params.onlyExternal=true

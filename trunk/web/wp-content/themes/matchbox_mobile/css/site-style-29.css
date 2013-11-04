@@ -224,21 +224,62 @@ height: 0;
   left: -100px;
   top: 0;
   z-index: 9999;
-  color: #fff;
+  color: #555;
   text-align: center;
   line-height: 100px;
   height: 100%;
-  width: 100px;
+  width: 80px;
   opacity: 0;
-  font-size: 25px;
+  font-size: 12px;
   -webkit-transition: 300ms;
   -moz-transition: 300ms;
   -ms-transition: 300ms;
   -o-transition: 300ms;
   transition: 300ms;
-  background: rgba(0,0,0,0.1);
+  background: rgba(f,f,f,1);
 }
 .preloader.visible {
   left: 0;
   opacity: 1;
+}
+
+.preloader .loading {text-align:center;}
+
+.preloader .loading span {
+  display:inline-block;
+  margin:0px 1px;
+  width:20px;
+  height:20px;
+}
+
+.preloader .loading span:nth-child(1) {
+  -webkit-animation:loading 0.5s infinite alternate 0s;
+  -moz-animation:loading 0.5s infinite alternate 0s;
+  -ms-animation:loading 0.5s infinite alternate 0s;
+  -o-animation:loading 0.5s infinite alternate 0s;
+  animation:loading 0.5s infinite alternate 0s;
+}
+
+..preloader .loading span:nth-child(2) {
+  -webkit-animation:loading 0.5s infinite alternate 0.2s;
+  -moz-animation:loading 0.5s infinite alternate 0.2s;
+  -ms-animation:loading 0.5s infinite alternate 0.2s;
+  -o-animation:loading 0.5s infinite alternate 0.2s;
+  animation:loading 0.5s infinite alternate 0.2s;
+}
+
+.preloader .loading span:nth-child(3) {
+  -webkit-animation:loading 0.5s infinite alternate 0.4s;
+  -moz-animation:loading 0.5s infinite alternate 0.4s;
+  -ms-animation:loading 0.5s infinite alternate 0.4s;
+  -o-animation:loading 0.5s infinite alternate 0.4s;
+  animation:loading 0.5s infinite alternate 0.4s;
+}
+
+.preloader .loading span:nth-child(4) {
+  -webkit-animation:loading 0.5s infinite alternate 0.6s;
+  -moz-animation:loading 0.5s infinite alternate 0.6s;
+  -ms-animation:loading 0.5s infinite alternate 0.6s;
+  -o-animation:loading 0.5s infinite alternate 0.6s;
+  animation:loading 0.5s infinite alternate 0.6s;
 }
