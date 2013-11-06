@@ -69,32 +69,33 @@
 		var audioId = 'audio-' + id + '-1';
 		var processId = 'progress-in-' + audioId;
 		var playtoggleId = 'playtoggle-' + audioId;
-
-        var audio = jQuery('#' + audioId).get(0);
-		jQuery(audio).on("loadedmetadata", function(event) {
-		    //alert(this.duration);
-		});
-	    
-	    jQuery(audio).bind('timeupdate', function() {
-	    	var pos = (audio.currentTime / audio.duration) * 100;
-	        jQuery('#' + processId).css('width', pos + '%'); 
-	                
-        }).bind('play',function(){
-            jQuery("#" + playtoggleId).addClass('playing');                
-        }).bind('pause ended', function() {
-            jQuery("#" + playtoggleId).removeClass('playing');                
-        }).bind("canplay", function () {
-        	//alert(thsi.currentTime + '/' + this.duration);
-    	});
-        
-        //jQuery("#" + playtoggleId).bind('touchstart', function() {
-       	jQuery("#" + playtoggleId).bind(_clickEventName, function() {
-	        if (audio.paused) {
-	        	audio.play();
-	        } else { 
-	        	audio.pause(); 
-	        }
-        });
+		if (jQuery('#' + audioId)) {
+	        var audio = jQuery('#' + audioId).get(0);
+			jQuery(audio).on("loadedmetadata", function(event) {
+			    //alert(this.duration);
+			});
+		    
+		    jQuery(audio).bind('timeupdate', function() {
+		    	var pos = (audio.currentTime / audio.duration) * 100;
+		        jQuery('#' + processId).css('width', pos + '%'); 
+		                
+	        }).bind('play',function(){
+	            jQuery("#" + playtoggleId).addClass('playing');
+	        }).bind('pause ended', function() {
+	            jQuery("#" + playtoggleId).removeClass('playing');
+	        }).bind("canplay", function () {
+	        	//alert(thsi.currentTime + '/' + this.duration);
+	    	});
+	        
+	        //jQuery("#" + playtoggleId).bind('touchstart', function() {
+	       	jQuery("#" + playtoggleId).bind(_clickEventName, function() {
+		        if (audio.paused) {
+		        	audio.play();
+		        } else { 
+		        	audio.pause(); 
+		        }
+	        });
+	    }
 	};
 	// 取得用户标识
 	var _user_token = function() {
@@ -235,13 +236,14 @@
 			localStorage.setItem(name,today);
 	        return ret;
 		}
+		/*
 		if (firstUsing()) {
 			setTimeout('jQuery(".md_ad").fadeIn("slow")',100);
 			setTimeout('jQuery(".md_ad").fadeOut("slow")',4000);
 			jQuery(".ad_close").bind(_clickEventName, function(){
 				jQuery(".md_ad").hide("slow");
 			});
-		}
+		}*/
 		
 		jQuery('#footer_favorite').bind(_clickEventName, function(event) {
 		 	event.stopPropagation();

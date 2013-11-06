@@ -70,6 +70,18 @@
 	var urltemplate = '?p=';
 	var myScroll;
 	
+	var circularHtml = '<div style="width:100%;margin:0 auto;text-align:center;"><div id="circular" style="display:inline-block;margin-top:50px;">' 
+					+ '<div id="circular_1" class="circular"></div>'
+					+ '<div id="circular_2" class="circular"></div>'
+					+ '<div id="circular_3" class="circular"></div>'
+					+ '<div id="circular_4" class="circular"></div>'
+					+ '<div id="circular_5" class="circular"></div>'
+					+ '<div id="circular_6" class="circular"></div>'
+					+ '<div id="circular_7" class="circular"></div>'
+					+ '<div id="circular_8" class="circular"></div>'
+					+ '<div class="clearfix"></div>'
+				+ '</div></div>';
+	
 	var _load_post = function(idx, surplus, first) {
 		
 		if (myScroll) {
@@ -82,28 +94,20 @@
 		var url = urltemplate + id;
 		var content_id = 'mathbox_content_' + id;
 		
-		var a = '<div style="width:100%;margin:0 auto;text-align:center;"><div id="circular" style="display:inline-block;margin-top:50px;">' 
-					+ '<div id="circular_1" class="circular"></div>'
-					+ '<div id="circular_2" class="circular"></div>'
-					+ '<div id="circular_3" class="circular"></div>'
-					+ '<div id="circular_4" class="circular"></div>'
-					+ '<div id="circular_5" class="circular"></div>'
-					+ '<div id="circular_6" class="circular"></div>'
-					+ '<div id="circular_7" class="circular"></div>'
-					+ '<div id="circular_8" class="circular"></div>'
-					+ '<div class="clearfix"></div>'
-				+ '</div></div>';
+		
 		//切换特效
 		
 		if (hashMap.Contains(url)) {
 			_resize_height(content_id);
 		} else {
-			jQuery('#' + content_id).html(jQuery(a));
+			if (first) {
+				jQuery('#' + content_id).html(circularHtml);
+			}
 			//alert('load ' + id);
 			jQuery('#' + content_id).load( url + '&single=true', function() {
 			  hashMap.Set(url, '');
 			  _init_player(id);
-			  
+			 
 			 jQuery('#ad_image_' + id).toggle(
 			     function () {
 			        jQuery('#mb_ad_link_' + id).show();
