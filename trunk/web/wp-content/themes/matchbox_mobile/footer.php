@@ -155,17 +155,17 @@
 				</div>
 				<div class="matchbox_comment_label"><label for="comment">反馈内容</label></div>
 				<div><textarea id="comment" name="comment" rows="15" style="width:100%;height:200px;"></textarea></div>
-				<div class="matchbox_comment_loading">
-					<div id='matchbox_comment_loading_circle' style='margin-right: 30px;'></div>
-					<div id='matchbox_comment_loading_circle_1' class='matchbox_comment_loading_circle'></div>
-					<div id='matchbox_comment_loading_circle_2' class='matchbox_comment_loading_circle'></div>
-					<div id='matchbox_comment_loading_circle_3' class='matchbox_comment_loading_circle'></div>
+				<div id="matchbox_comment_loading" class="matchbox_comment_loading">
+					<div id='matchbox_comment_loading_circle' style='margin-right: 30px;'>
+						<div id='matchbox_comment_loading_circle_1' class='matchbox_comment_loading_circle'></div>
+						<div id='matchbox_comment_loading_circle_2' class='matchbox_comment_loading_circle'></div>
+						<div id='matchbox_comment_loading_circle_3' class='matchbox_comment_loading_circle'></div>
+					</div>
 					<div style='clear: both; float: none;'></div>
 				</div>
 				<div class="matchbox_comment_bottom">
 					<span id="matchbox_comment_status"></span>
-					<img class="btn_commit" src="<?php echo get_template_directory_uri(); ?>/images/submit.png" 
-						onclick="_submit_comment()" />
+					<img id="matchbox_submit_comment" class="btn_commit" src="<?php echo get_template_directory_uri(); ?>/images/submit.png" />
 					<input type='hidden' name='comment_post_ID' value='1' id='comment_post_ID' />
 					<input id="author" name="author" type="hidden" value="访客" />
 					<input type='hidden' name='comment_parent' id='comment_parent' value='0' />

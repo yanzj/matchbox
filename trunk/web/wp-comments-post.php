@@ -4,7 +4,7 @@
  *
  * @package WordPress
  */
-
+error_log('wp-comments-post');
 if ( 'POST' != $_SERVER['REQUEST_METHOD'] ) {
 	header('Allow: POST');
 	header('HTTP/1.1 405 Method Not Allowed');
@@ -27,6 +27,7 @@ if ( empty($post->comment_status) ) {
 }
 
 // get_post_status() will get the parent status for attachments.
+/*
 $status = get_post_status($post);
 
 $status_obj = get_post_status_object($status);
@@ -46,12 +47,13 @@ if ( !comments_open($comment_post_ID) ) {
 } else {
 	do_action('pre_comment_on_post', $comment_post_ID);
 }
-
+*/
+do_action('pre_comment_on_post', $comment_post_ID);
 //$comment_author       = ( isset($_POST['author']) )  ? trim(strip_tags($_POST['author'])) : null;
 $comment_author       = '访客';
 $comment_author_email = '';
 $comment_author_url   = null;
-$comment_content      = ( isset($_POST['comment']) ) ? trim($_POST['comment']) : null;
+$comment_content      = ( isset($_POST['comment']) ) ? trim($_POST['comment']) : '';
 
 /*
 // If the user is logged in
@@ -83,21 +85,23 @@ if ( get_option('require_name_email') && !$user->exists() ) {
 		wp_die( __('<strong>ERROR</strong>: please enter a valid email address.') );
 }
 */
-print($comment_content);
-if ( '' == $comment_content )
+error_log($comment_content);
+if ( '' == $comment_content ) {
 	$comment_content = '无内容';
+	die('nodata');
 	#wp_die( __('<strong>ERROR</strong>: please type a comment.') );
-else {
+} else {
 	$comment_parent = isset($_POST['comment_parent']) ? absint($_POST['comment_parent']) : 0;
 	$commentdata = compact('comment_post_ID', 'comment_author', 'comment_author_email', 'comment_author_url', 'comment_content', 'comment_type', 'comment_parent', 'user_ID');
 }
 $comment_id = wp_new_comment( $commentdata );
 
-$comment = get_comment($comment_id);
+//$comment = get_comment($comment_id);
 //do_action('set_comment_cookies', $comment, $user);
 
-$location = empty($_POST['redirect_to']) ? get_comment_link($comment_id) : $_POST['redirect_to'] . '#comment-' . $comment_id;
-$location = apply_filters('comment_post_redirect', $location, $comment);
+//$location = empty($_POST['redirect_to']) ? get_comment_link($comment_id) : $_POST['redirect_to'] . '#comment-' . $comment_id;
+//$location = apply_filters('comment_post_redirect', $location, $comment);
 
-wp_safe_redirect( $location );
+//wp_safe_redirect( $location );
+die('OK');
 exit;

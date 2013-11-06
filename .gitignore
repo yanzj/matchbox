@@ -10,3 +10,7 @@ trunk/web/wp-content/uploads
 trunk/web/wp-config.php
 trunk/web/wp-config.php
 trunk/web/wp-content/debug.log
+/trunk/web/deployment.xml
+/trunk/web/.buildpath
+/trunk/web/.project
+/trunk/web/deployment.properties

@@ -7,14 +7,13 @@
 	<meta content="yes" name="apple-mobile-web-app-capable">
 	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
 	<meta name="format-detection" content="telephone=no">
-	<title><?php wp_title( '|', true, 'right' ); ?></title>
+	<title>火柴盒</title>
 	<?php /*
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	 */?>
 	<?php wp_head(); ?>
-	
-	
+			
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/site-style.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/audio.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri(); ?>/css/audio_style.css" />
@@ -31,8 +30,11 @@
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/iscroll.js"></script>
 	<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/idangerous.swiper.js"></script>
 	
-	
 	<script type="text/javascript">
+	var _clickEventName = 'click';
+	var _fadeTime = 600;
+	var sUserAgent = navigator.userAgent.toLowerCase(); 
+	var bAndroid = sUserAgent.match(/android/i) == 'android';
 	var hashMap = {  
 		Set : function(key,value){this[key] = value},  
 		Get : function(key){return this[key]},  
@@ -50,7 +52,7 @@
 	var _resize_height = function (content_id) {  
 		jQuery('#' + content_id).scrollTop(0); // 返回顶部
 		//return;
-		if (jQuery('#' + content_id).height() < jQuery(window).height() - 36) {
+		if (jQuery('#' + content_id).height() < jQuery(window).height() - 38) {
 		  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
 			//jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
 		} else {
@@ -58,6 +60,9 @@
 		}
 		
 		jQuery('body').height(jQuery('#mySwipe-wrap').height());
+		if (bAndroid) {
+			new iScroll(content_id);
+		}
 	}	
 	// 载入播放器
 	var _init_player = function(id) {
@@ -83,7 +88,7 @@
     	});
         
         //jQuery("#" + playtoggleId).bind('touchstart', function() {
-       	jQuery("#" + playtoggleId).bind('click', function() {
+       	jQuery("#" + playtoggleId).bind(_clickEventName, function() {
 	        if (audio.paused) {
 	        	audio.play();
 	        } else { 
@@ -122,9 +127,9 @@
 		*/
 		jQuery('#footer_favorite_favorite_wrap').show();
 		jQuery('#footer_favorite_share_wrap').show();
-		jQuery('#footer_favorite_frame').css('margin-top', '36px');
-		jQuery('#footer_favorite_frame').height(jQuery(window).height() - 36);	
-		jQuery('#footer_favorite_frame').fadeIn(1200);	
+		jQuery('#footer_favorite_frame').css('margin-top', '38px');
+		jQuery('#footer_favorite_frame').height(jQuery(window).height() - 38);	
+		jQuery('#footer_favorite_frame').fadeIn(_fadeTime);	
 	};
 	// 关闭收藏与分享POP层
 	var _hide_favorite = function() {
@@ -135,9 +140,9 @@
 		jQuery('#mb_favorite_page_content').empty();
 		jQuery('#mb_header_right').hide();
 		jQuery('#mb_header_favorite_back').show();
-		jQuery('#mb_favorite_page').css('margin-top', '36px');
-		jQuery('#mb_favorite_page').height(jQuery(window).height() - 36);	
-		jQuery('#mb_favorite_page').fadeIn(1200);
+		jQuery('#mb_favorite_page').css('margin-top', '38px');
+		jQuery('#mb_favorite_page').height(jQuery(window).height() - 38);	
+		jQuery('#mb_favorite_page').fadeIn(_fadeTime);
 		jQuery('#mb_favorite_page_content').load( '?p=' + postid + '&single=true&favorite=true', 
 			function() {
 			_init_player('favorited-' + postid);
@@ -145,16 +150,16 @@
 	};
 	// 关闭收藏文章
 	var _close_favorite_page = function() {
-		jQuery('#mb_favorite_page').fadeOut(1200);
+		jQuery('#mb_favorite_page').fadeOut(_fadeTime);
 		jQuery('#mb_header_favorite_back').hide();
 		jQuery('#mb_header_right').show();
 	};
 	// 显示评价POP层
 	var _show_freeback = function() {
 		_close_pop_all();
-		jQuery('#footer_freeback').css('margin-top', '36px');
-		jQuery('#footer_freeback').height(jQuery(window).height() - 36);	
-		jQuery('#footer_freeback').fadeIn(1200);	
+		jQuery('#footer_freeback').css('margin-top', '38px');
+		jQuery('#footer_freeback').height(jQuery(window).height() - 38);	
+		jQuery('#footer_freeback').fadeIn(_fadeTime);	
 	};
 	// 关闭评价POP层
 	var _hide_freeback = function() {
@@ -162,19 +167,19 @@
 	};
 	// 打开信息页面
 	var _open_info_page = function(kind) {
-		jQuery('#mb_info_page').css('margin-top', '36px');
-		jQuery('#mb_info_page').height(jQuery(window).height() - 36);	
+		jQuery('#mb_info_page').css('margin-top', '38px');
+		jQuery('#mb_info_page').height(jQuery(window).height() - 38);	
 		_hide_freeback();
 		
 		jQuery('#mb_info_page .mb_info_page_sub').hide();
 		jQuery('#mb_info_page_' + kind).show();
 		jQuery('#mb_header_right').hide();
 		jQuery('#mb_header_back').show();
-		jQuery('#mb_info_page').fadeIn(1200);
+		jQuery('#mb_info_page').fadeIn(_fadeTime);
 	};
 	// 关闭信息页面
 	var _close_info_page = function() {
-		jQuery('#mb_info_page').fadeOut(1200);
+		jQuery('#mb_info_page').fadeOut(_fadeTime);
 		jQuery('#mb_header_back').hide();
 		jQuery('#mb_header_right').show();
 	};
@@ -183,9 +188,9 @@
 		jQuery('#matchbox_comment_loading_circle').hide();
 		jQuery('#matchbox_comment_status').empty();
 		jQuery('#matchbox_submit_comment').show();
-		jQuery('#footer_comment').css('margin-top', '36px');	
-		jQuery('#footer_comment').height(jQuery(window).height() - 36);	
-		jQuery('#footer_comment').fadeIn(1200);
+		jQuery('#footer_comment').css('margin-top', '38px');	
+		jQuery('#footer_comment').height(jQuery(window).height() - 38);	
+		jQuery('#footer_comment').fadeIn(_fadeTime);
 		_hide_freeback();
 	};
 	var _hide_comment = function() {
@@ -197,12 +202,16 @@
 		jQuery('#matchbox_comment_status').hide();
 		jQuery('#matchbox_comment_loading_circle').show();
 		jQuery('#matchbox_submit_comment').hide();
-		jQuery.post("<?php echo esc_url( home_url( '/' ) ); ?>wp-comments-post.php", 
-			jQuery( "#matchbox_commentform" ).serialize() )
+		jQuery.ajax({
+			type: 'POST',
+			headers : { "cache-control": "no-cache" },
+			url : '<?php echo esc_url( home_url( '/' ) ); ?>wp-comments-post.php', 
+			data: jQuery('#matchbox_commentform').serialize()
+		})
 			.done(function( data ) {
 		    	jQuery('#matchbox_comment_status').html('<span><?php echo "您的评价已经提交，谢谢！" ?></span>');
 				jQuery('#comment').val('');
-		    	jQuery('#footer_comment').fadeOut(1200);
+		    	jQuery('#footer_comment').fadeOut(_fadeTime);
 		    })
 		    .fail(function() {
 			    jQuery('#matchbox_submit_comment').show();
@@ -229,25 +238,25 @@
 		if (firstUsing()) {
 			setTimeout('jQuery(".md_ad").fadeIn("slow")',100);
 			setTimeout('jQuery(".md_ad").fadeOut("slow")',4000);
-				jQuery(".ad_close").click(function(){
+			jQuery(".ad_close").bind(_clickEventName, function(){
 				jQuery(".md_ad").hide("slow");
 			});
 		}
 		
-		jQuery('#footer_favorite').bind('click', function(event) {
+		jQuery('#footer_favorite').bind(_clickEventName, function(event) {
 		 	event.stopPropagation();
 		});
 		// 收藏与分享ClickEvent
-		jQuery('#btn_favorite').bind("click", function(event) {
+		jQuery('#btn_favorite').bind(_clickEventName, function(event) {
 			_show_favorite();	
 		});
 		
 		// 评价ClickEvent
-		jQuery('#btn_feedback').bind("click", function(event) {
+		jQuery('#btn_feedback').bind(_clickEventName, function(event) {
 			_show_freeback();	
 		});	
 		// 收藏本文ClickEvent
-		jQuery('#link_add_favorite').bind("click", function(event) {
+		jQuery('#link_add_favorite').bind(_clickEventName, function(event) {
 			var post_id	= jQuery('#favorite_current_post_id').val();
 			jQuery.get('?matchboxfp=add&postid=' + post_id + '&ajax=1&user=' + _user_token(), function(data){
 			  //alert(data);
@@ -257,7 +266,7 @@
 			});
 		});
 		// 取消收藏ClickEvent
-		jQuery('#link_remove_favorite').bind("click", function(event) {
+		jQuery('#link_remove_favorite').bind(_clickEventName, function(event) {
 			var post_id	= jQuery('#favorite_current_post_id').val();
 			jQuery.get('?matchboxfp=remove&postid=' + post_id + '&ajax=1&user=' + _user_token(), function(data){
 			  //alert(data);
@@ -266,50 +275,54 @@
 			});
 		});
 		// 查看收藏ClickEvent
-		jQuery('#link_list_favorite').bind("click", function(event) {
+		jQuery('#link_list_favorite').bind(_clickEventName, function(event) {
 			jQuery('#favorite_content').load('?matchboxfp=list&ajax=1&user=' + _user_token(), function(){
 			  _hide_favorite();
-			  jQuery('#favorite_list').css('margin-top', '36px');
-			  jQuery('#favorite_list').height(jQuery(window).height() - 36);	
+			  jQuery('#favorite_list').css('margin-top', '38px');
+			  jQuery('#favorite_list').height(jQuery(window).height() - 38);	
 			  jQuery('#favorite_list').css({'display':'block'});
 			});
 		});
 		// 收藏与分享取消Clickvent
-		jQuery('#mb_header_favorite_back').bind("click", function(event) {
+		jQuery('#mb_header_favorite_back').bind(_clickEventName, function(event) {
 			  _close_favorite_page();
 		});
 		// 查看收藏取消Clickvent
-		jQuery('#btn_cancel_list_favorite').bind("click", function(event) {
+		jQuery('#btn_cancel_list_favorite').bind(_clickEventName, function(event) {
 			  jQuery('#favorite_list').css({'display':'none'});
 		});
 		// 收藏与分析空白部分Clickvent
-		jQuery('#footer_favorite_frame').bind("click", function(event) {
+		jQuery('#footer_favorite_frame').bind(_clickEventName, function(event) {
 			  _hide_favorite();
 		});
 		// 评价取消Clickvent
-		jQuery('#btn_cancel_freeback').bind("click", function(event) {
+		jQuery('#btn_cancel_freeback').bind(_clickEventName, function(event) {
 			  jQuery('#footer_freeback').css({'display':'none'});
 		});
 		/* 信息页面控制 */
 		jQuery('#btn_header_back').bind("click", function(event) {
 			_close_info_page();
 		});
-		jQuery('#btn_open_about').bind("click", function(event) {
+		jQuery('#btn_open_about').bind(_clickEventName, function(event) {
 			_open_info_page('about');
 		});
-		jQuery('#btn_open_contribute').bind("click", function(event) {
+		jQuery('#btn_open_contribute').bind(_clickEventName, function(event) {
 			_open_info_page('contribute');
 		});
-		jQuery('#btn_open_business').bind("click", function(event) {
+		jQuery('#btn_open_business').bind(_clickEventName, function(event) {
 			_open_info_page('business');
 		});
+		jQuery('#matchbox_submit_comment').bind(_clickEventName, function(event) {
+			_submit_comment();
+		});
+		
 	});
 	
 	</script>
 
 </head>
 
-<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;">
+<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:38px;">
 	<div id="masthead" class="mb_header" data-role="header" data-position="fixed" data-theme="m">
 		<div class="mb_header_left">
 			<img id="btn_feedback" src="<?php echo get_template_directory_uri(); ?>/images/fun_left.png"/></div>	
@@ -321,8 +334,8 @@
 			<img id="btn_header_favorite_back" src="<?php echo get_template_directory_uri(); ?>/images/fun_right_back.png"/></div>
 		<div class="mb_header_center">
 		
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-		
+		<!--	<a href="<?php echo esc_url( home_url( '/' ) ); ?>">	-->
+			<a>
 				<img class="mb_header_title" src="<?php echo get_template_directory_uri(); ?>/images/title.png"/>
 
 			</a>
@@ -334,7 +347,7 @@
 	</div>
 	<div class="md_ad" style="display:none;">
 		<a href="#" target="_blank">
-			<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/uploads/2013/10/20095121364651126.jpg" 
+			<img src="<?php echo esc_url( home_url( '/' ) ); ?>wp-content/ad/main.jpg" 
 				style="width:100%;height:100%;"/></a>
 		<a class="ad_close">关闭</a>
 	</div>

@@ -111,9 +111,9 @@
 			     function () {
 			        jQuery('#mb_ad_link_' + id).hide();
 			     }
-			 ).bind('click');
+			 ).bind(_clickEventName);
 			 
-			 jQuery('#mb_ad_link_' + id).bind('click', function(event) {
+			 jQuery('#mb_ad_link_' + id).bind(_clickEventName, function(event) {
 			 	event.stopPropagation();
 			 });
 
@@ -139,8 +139,6 @@
 		jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
 		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
 		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
-
-		//myScroll = new iScroll('scroller');
 	};
 
 	jQuery(function() {
@@ -151,6 +149,8 @@
 			    speed : 500, 
 			    wrapperClass : 'swipe-wrap',
 				slideClass : 'doc_content',
+			//	useCSS3Transforms : false,
+			//	calculateHeight: true,
 				watchActiveIndex: true,
 			    onTouchStart: function() {
 			      holdPosition = 0;
@@ -201,7 +201,7 @@
 			<?php echo $_pushscripts; ?>
 		}
 
-		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
+		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 38);
 		_load_post(current_post);
 
 	});

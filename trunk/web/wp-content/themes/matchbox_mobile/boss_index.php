@@ -229,7 +229,7 @@
 			//alert(my_array);
 		}
 
-		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
+		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 38);
 		_load_post(current_post);
 		
 		//setup_timeline();

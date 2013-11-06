@@ -564,7 +564,9 @@ function adlink_shortcode($attr, $content = null) {
 		. do_shortcode( $content ) . '">&nbsp;进&nbsp;入&nbsp;</a></div></div>'; 
 }
 
-remove_filter (  'the_content' ,  'wpautop'  );
-remove_filter (  'the_excerpt' ,  'wpautop'  );
+remove_filter('the_content','wpautop'  );
+remove_filter('the_excerpt',  'wpautop'  );
+remove_action('wp_head', 'admin-bar-css');
+
 
 
