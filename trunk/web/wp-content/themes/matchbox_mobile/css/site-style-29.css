@@ -16,6 +16,9 @@
 }/************************zdd**********************/
 .mb_info_page_sub {
     padding: 0px 15px;
+    border-top: 1px;
+    border-top-style: solid;
+    border-top-color: #E2E2E2;
 }
 
 .mb_info_page_sub .title_area{
@@ -132,9 +135,9 @@
 	bottom: 20px;
 }
 #favorite_footer {
-	position: absolute;
+	
 	width: 100%;
-	bottom: 15px;
+	margin:20px 0px;
 }
 
 .btn_cancel_freeback, .btn_cancel_favorite {
@@ -282,4 +285,10 @@ height: 0;
   -ms-animation:loading 0.5s infinite alternate 0.6s;
   -o-animation:loading 0.5s infinite alternate 0.6s;
   animation:loading 0.5s infinite alternate 0.6s;
+}
+
+#mb_favorite_page_content{
+   border-top: 1px;
+   border-top-style: solid;
+   border-top-color: #E2E2E2;
 }

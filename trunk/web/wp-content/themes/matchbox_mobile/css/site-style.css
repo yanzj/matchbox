@@ -13,10 +13,30 @@ html {
 /* 标题栏                                   */
 /***********************/
 #btn_feedback{
-   height:18px;
+   height:12px;
 }
 #btn_favorite{
-   height:28px;
+   height:22px;
+}
+#btn_header_back{
+   height:22px;
+}
+#masthead{
+   border-bottom: 1px;
+   border-bottom-color: rgba(224, 224, 224, 0.63);
+   border-bottom-style: solid;
+}
+#btn_header_favorite_back{
+   height:22px;
+}
+.btn_cancel_freeback{
+   width:200px;
+}
+.btn_cancel_favorite{
+   width:200px;
+}
+.btn_cancel_list_favorite{
+   width:200px;
 }
 .mb_header {
     position: fixed;
@@ -38,7 +58,7 @@ html {
 }
 .mb_header_left{
    
-	height:28px; 
+	height:24px; 
 	margin-top: 8px;
 	padding-left: 10px;
 }/****************************zdd*********************/
@@ -58,7 +78,7 @@ html {
 }/**************zdd****************/
 .mb_header .mb_header_center .mb_header_title {
     margin-top: 8px;
-    height: 22px;
+    height: 21px;
 }/*************zdd******************/
 
 /***********************/
@@ -96,7 +116,9 @@ html {
   min-height:100%;
   position: relative;
   overflow-y:auto;
-  
+  -webkit-box-sizing : border-box;  
+  -webkit-overflow-scrolling : touch;
+  padding-top: 5px;
 }
 
 /***********************/
@@ -157,7 +179,7 @@ html {
 }
 #favorite_content {text-align:left;}
 #favorite_content ul li {
-    margin: 20px 5px 5px 0;
+    margin: 20px 5px 5px -20px;
     border-bottom: 1px;
     border-bottom-color: rgba(224, 224, 224, 0.63);
     border-bottom-style: solid;
@@ -200,7 +222,7 @@ html {
 #footer_freeback .matchbox_comment_buttongroup {
 	margin-top:20px;
 	position: absolute;
-    bottom: 50px;
+    bottom: 25px;
     width: 100%;
     
 }/*********************zdd*******************/
@@ -332,6 +354,9 @@ html {
 /***********************/
 /* 评价提交动画                       */
 /***********************/
+.matchbox_comment_loading{
+    margin: 5px 0px;
+}
 #matchbox_comment_loading_circle{
 	margin-top:8px;
 	float:left;
@@ -491,12 +516,12 @@ html {
 }
 .format-standard .entry-content, 
 .format-aside .entry-content {
-	font-size: 16px;
+	font-size: 14px;
 	font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
-	line-height: 26px;
+	line-height: 24px;
 	color: #415560;
 	text-align: justify;
-    
+    margin-top: 5px;
 	
 }/**************************zdd***********************/
 
@@ -530,4 +555,10 @@ html {
 
 .ui-bar-m {
 	clear:both;
+}
+.entry-content img.alignnone{
+    margin: 0px 0px 5px 0px ;
+}
+.btn_commit{
+    height: 30px;
 }
