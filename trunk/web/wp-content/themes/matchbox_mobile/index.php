@@ -70,7 +70,7 @@
 	var urltemplate = '?p=';
 	var myScroll;
 	
-	var _load_post = function(idx) {
+	var _load_post = function(idx, surplus, first) {
 		
 		if (myScroll) {
 			//myScroll.destroy();
@@ -116,8 +116,15 @@
 			 jQuery('#mb_ad_link_' + id).bind(_clickEventName, function(event) {
 			 	event.stopPropagation();
 			 });
-
-			  _resize_height(content_id);
+			 if (first) {
+			 	 _resize_height(content_id);
+			 }
+			 if (surplus > 0) {
+			 	 if (my_array.length >= idx + 1) {
+			 	 	// alert('next');
+			 		_load_post(idx+1, surplus-1, false);
+			 	 }
+			 } 
 			});
 		}
 
@@ -167,7 +174,7 @@
 			      }
 			    },
 			    onSlideChangeEnd : function () {
-			    	_load_post(mySwiper.activeIndex);
+			    	_load_post(mySwiper.activeIndex, 10, true);
 			    }
 			 });
 			 
@@ -184,7 +191,7 @@
 							my_array_title.unshift(post.title);
 							var newSlide = mySwiper.createSlide('<div id="mathbox_content_' + post.id + '" class="doc_content swiper-slide"></div>');
 							newSlide.prepend(); 
-							_load_post(0);
+							_load_post(0, 0, true);
 						}
 					}
 					
@@ -202,7 +209,7 @@
 		}
 
 		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 38);
-		_load_post(current_post);
+		_load_post(current_post, 10, true);
 
 	});
 
