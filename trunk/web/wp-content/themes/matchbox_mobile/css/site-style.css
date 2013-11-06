@@ -164,6 +164,7 @@ html {
     font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
     background: url("../images/right_arrow.png") no-repeat right;
     color: #fff;
+    list-style:none;
 }/*********************zdd*********************/
 #favorite_content ul li a {
     color:#fff;
