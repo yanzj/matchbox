@@ -338,11 +338,11 @@ html {
 	height:60px;
 }
 .favorites_link_group .favorites_link_group_wrap {
-	height:90px;
+	height:60px;
 	text-align:center;
 	width:100%;
 	position: relative;
-	margin-top:20px;
+	margin:20px 0px;
 }/******************zdd**************************/
 .favorites_link_group .favorites_link_group_wrap .favorites_link_button {
 	width:80px; 
