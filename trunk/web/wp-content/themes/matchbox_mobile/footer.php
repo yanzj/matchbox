@@ -22,7 +22,9 @@
 	<!-- 查看收藏列表 -->
 	<div id="favorite_list" class="pop_page" style="overflow-y:scroll">
 		<div id="favorite_content">
+			<ul id="favorite_content_ul">
 			
+			<ul>
 		</div>
 		<div id="favorite_footer">
 			<!--
@@ -77,9 +79,6 @@
 	<!-- 关于与评价 -->
 	<div id="footer_freeback" class="mb_info_page pop_page" style="display:none;">
 		<div class="matchbox_freeback_title">
-		<!--
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>?page_id=2" >关于火柴盒</a>
-			-->
 			<a id="btn_open_about">关于火柴盒</a>
 		</div>
 		<?php /*

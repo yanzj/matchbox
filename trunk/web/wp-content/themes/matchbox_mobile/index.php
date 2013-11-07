@@ -133,6 +133,7 @@
 		}
 
 		// 判断是否已经收藏 
+		<?php /*
 		jQuery.get('?matchboxfp=exists&postid=' + id + '&ajax=1&user=' + _user_token(), function(data){
 		  //alert("Data Loaded: " + data);
 		  if ('false' == data) {
@@ -144,12 +145,23 @@
 		  }
 		  jQuery('#favorite_current_post_id').val(id);
 		});
-		
-		// 分享连接
-		var shareUrl = '<?php echo esc_url( home_url( '/' ) ); ?>' + url;
-		jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
-		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
-		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
+		*/ ?>
+		if (first) {
+			if (!favorite.Exists(id)) {
+			  jQuery('#link_remove_favorite').hide();
+			  jQuery('#link_add_favorite').show();
+			} else {
+			  jQuery('#link_add_favorite').hide();
+			  jQuery('#link_remove_favorite').show();
+			}
+			jQuery('#favorite_current_post_id').val(id);
+				
+			// 分享连接
+			var shareUrl = '<?php echo esc_url( home_url( '/' ) ); ?>' + url;
+			jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
+			jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
+			jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
+		}
 	};
 
 	jQuery(function() {

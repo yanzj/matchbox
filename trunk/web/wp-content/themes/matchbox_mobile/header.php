@@ -40,14 +40,52 @@
 		Get : function(key){return this[key]},  
 		Contains : function(key){return this.Get(key) == null?false:true},  
 		Remove : function(key){delete this[key]}  
-	}
+	};
+	
+	var favorite = {
+		Init : function() {
+			var favorite = localStorage.getItem('favorite');
+			if (!favorite) {
+				localStorage.setItem('favorite', ',');
+			}
+		},
+		Add : function(id, title) {
+			var favorite = localStorage.getItem('favorite');
+			favorite = favorite + id + ',';
+			localStorage.setItem('favorite', favorite);
+			localStorage.setItem('favorite_' + id, title);
+		},
+		Remove : function(id) {
+			var favorite = localStorage.getItem('favorite');
+			favorite = favorite.replace(',' + id + ',', ',');
+			localStorage.setItem('favorite', favorite);
+		},
+		Exists : function(id) {
+			var favorite = localStorage.getItem('favorite');
+			if (favorite)
+				return favorite.indexOf(',' + id + ',') > -1;
+			return false;
+		},
+		Items : function() {
+			jQuery('#favorite_content_ul').empty();
+			var favorite = localStorage.getItem('favorite');
+			var ids = favorite.split(',');
+			for (i = 0; i < ids.length; i++) {
+				if (ids[i]) {
+					jQuery('#favorite_content_ul').append(jQuery('<li><a onclick="_show_favorite_page(' + ids[i] + ')">' + localStorage.getItem('favorite_' + ids[i]) + '</a></li>'));
+				}
+			}
+		}
+	};
+	favorite.Init();
+	
 	var _get_date_str = function () { 
 		var dd = new Date(); 
 		var y = dd.getYear(); 
 		var m = dd.getMonth() + 1;
 		var d = dd.getDate(); 
 		return y+"-"+m+"-"+d; 
-	} 
+	};
 	// 重置内容高度
 	var _resize_height = function (content_id) {  
 		jQuery('#' + content_id).scrollTop(0); // 返回顶部
@@ -63,12 +101,13 @@
 		if ( jQuery('#height_' + content_id).length > 0 ) {
 			if (jQuery('#' + content_id).height() < jQuery('body').height()) {
 				jQuery('#height_' + content_id).height(jQuery('body').height() - jQuery('#' + content_id).height() + 20);
+				console.log(jQuery('#height_' + content_id).height());
 			}
 		}
 		if (bAndroid) {
 			new iScroll(content_id);
 		}
-	}	
+	};	
 	// 载入播放器
 	var _init_player = function(id) {
 		var audioId = 'audio-' + id + '-1';
@@ -76,10 +115,11 @@
 		var playtoggleId = 'playtoggle-' + audioId;
 		if (jQuery('#' + audioId)) {
 	        var audio = jQuery('#' + audioId).get(0);
+	        <?php /*
 			jQuery(audio).on("loadedmetadata", function(event) {
 			    //alert(this.duration);
 			});
-		    
+		    */?>
 		    jQuery(audio).bind('timeupdate', function() {
 		    	var pos = (audio.currentTime / audio.duration) * 100;
 		        jQuery('#' + processId).css('width', pos + '%'); 
@@ -93,7 +133,6 @@
 	    	});
 	        
 	        jQuery("#" + playtoggleId).bind('touchstart', function() {
-	       	//jQuery("#" + playtoggleId).bind(_clickEventName, function(event) {
 		        if (audio.paused) {
 		        	audio.play();
 		        } else { 
@@ -112,11 +151,11 @@
 		} 
 		//alert(token);
 	    return token;
-	}
+	};
 	// 关闭所有POP层
 	var _close_pop_all = function() {
 		jQuery('.pop_page').hide();
-	}
+	};
 	// 显示收藏与分享POP层
 	var _show_favorite = function(kind) {
 		_close_pop_all();
@@ -262,33 +301,51 @@
 		jQuery('#btn_feedback').bind(_clickEventName, function(event) {
 			_show_freeback();	
 		});	
+		
 		// 收藏本文ClickEvent
 		jQuery('#link_add_favorite').bind(_clickEventName, function(event) {
 			var post_id	= jQuery('#favorite_current_post_id').val();
+			var post_title = jQuery('#mb_post_title_' + post_id).val();
+			favorite.Add(post_id, post_title);
+			jQuery('#link_add_favorite').hide();
+			jQuery('#link_remove_favorite').show();
+			<?php /*
 			jQuery.get('?matchboxfp=add&postid=' + post_id + '&ajax=1&user=' + _user_token(), function(data){
 			  //alert(data);
 			  jQuery('#link_add_favorite').hide();
 			  jQuery('#link_remove_favorite').show();
-		  	  
 			});
+			*/ ?>
 		});
 		// 取消收藏ClickEvent
 		jQuery('#link_remove_favorite').bind(_clickEventName, function(event) {
 			var post_id	= jQuery('#favorite_current_post_id').val();
+			favorite.Remove(post_id);
+			jQuery('#link_remove_favorite').hide();
+		  	jQuery('#link_add_favorite').show();
+		  	<?php /*
 			jQuery.get('?matchboxfp=remove&postid=' + post_id + '&ajax=1&user=' + _user_token(), function(data){
 			  //alert(data);
 			  jQuery('#link_remove_favorite').hide();
 		  	  jQuery('#link_add_favorite').show();
 			});
+			*/ ?>
 		});
 		// 查看收藏ClickEvent
 		jQuery('#link_list_favorite').bind(_clickEventName, function(event) {
+			_hide_favorite();
+			jQuery('#favorite_list').css('margin-top', '38px');
+			jQuery('#favorite_list').height(jQuery(window).height() - 38);	
+			jQuery('#favorite_list').css({'display':'block'});
+			favorite.Items();
+			<?php /*
 			jQuery('#favorite_content').load('?matchboxfp=list&ajax=1&user=' + _user_token(), function(){
 			  _hide_favorite();
 			  jQuery('#favorite_list').css('margin-top', '38px');
 			  jQuery('#favorite_list').height(jQuery(window).height() - 38);	
 			  jQuery('#favorite_list').css({'display':'block'});
 			});
+			*/ ?>
 		});
 		// 收藏与分享取消Clickvent
 		jQuery('#mb_header_favorite_back').bind(_clickEventName, function(event) {
