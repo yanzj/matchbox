@@ -60,7 +60,7 @@
 		}
 		
 		jQuery('body').height(jQuery('#mySwipe-wrap').height());
-		if ( jQuery('#height_' + id).length > 0 ) {
+		if ( jQuery('#height_' + content_id).length > 0 ) {
 			if (jQuery('#' + content_id).height() < jQuery('body').height()) {
 				jQuery('#height_' + content_id).height(jQuery('body').height() - jQuery('#' + content_id).height() + 20);
 			}
