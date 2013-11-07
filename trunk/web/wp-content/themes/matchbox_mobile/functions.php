@@ -555,13 +555,14 @@ function adlink_shortcode($attr, $content = null) {
 			//$attr['caption'] = trim( $matches[2] );
 		}
 	}
-
+	/*
 	$output = apply_filters('adlink_shortcode', '', $attr, $content);
 	if ( $output != '' )
 		return $output;
-
+	*/
+	
 	return '<div id="mb_ad_link_' . $post_id . '" class="mb_ad_link" ><div class="mb_ad_link_wrap"><a id="mb_ad_link_a_' . $post_id . '" target="_blank" href="' 
-		. do_shortcode( $content ) . '">&nbsp;进&nbsp;入&nbsp;</a></div></div>'; 
+		. do_shortcode( $content ) . '">' . $attr['title'] . '</a></div></div>'; 
 }
 
 remove_filter('the_content','wpautop'  );
