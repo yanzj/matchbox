@@ -78,7 +78,7 @@ html {
 }/**************zdd****************/
 .mb_header .mb_header_center .mb_header_title {
     margin-top: 8px;
-    height: 21px;
+    height: 20px;
 }/*************zdd******************/
 
 /***********************/
@@ -338,7 +338,7 @@ html {
 	height:60px;
 }
 .favorites_link_group .favorites_link_group_wrap {
-	height:60px;
+	height:90px;
 	text-align:center;
 	width:100%;
 	position: relative;
@@ -516,7 +516,7 @@ html {
 }
 .format-standard .entry-content, 
 .format-aside .entry-content {
-	font-size: 14px;
+	font-size: 15px;
 	font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
 	line-height: 24px;
 	color: #415560;
