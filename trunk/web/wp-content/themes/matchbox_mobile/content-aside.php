@@ -26,4 +26,4 @@
 <?php endif; ?>
 
 </article>
-<div id="height_<?php the_ID(); ?>" style="overflow-x: hidden">
+<div id="height_<?php the_ID(); ?>" style="overflow-x: hidden"></div>
