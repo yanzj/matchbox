@@ -116,7 +116,7 @@ audio:not([controls]) {
 	position:fixed;
 	width:100%;
 	height:250px;
-	background:-webkit-gradient(linear, 0 0, 0 100%, from(rgba(92, 111, 117, 0.6)),to(rgba(24, 32, 34, 0.92)));
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(rgba(28, 29, 36, 0.6)),to(rgba(1, 6, 14, 0.85)));
 	z-index:9999;
 	left:0;
 	bottom:0;
@@ -128,7 +128,7 @@ audio:not([controls]) {
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(36, 38, 43, 0.6)),to(rgba(22, 24, 29, 0.92)));
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(28, 29, 36, 0.6)),to(rgba(1, 6, 14, 0.85)));
 	z-index: 9999;
 	top: 0;
 	left: 0;
