@@ -7,8 +7,11 @@
 	background: url(../images/player.png) no-repeat -37px 0;
     background-size:70px 35px;
 	cursor: pointer;
-  bottom:9px;
-  z-index:999;
+	bottom:9px;
+	left: 5px;;
+	display: block;
+	transition: 0.5s all ease;
+	z-index: 2;
   
 }
 .playing {
