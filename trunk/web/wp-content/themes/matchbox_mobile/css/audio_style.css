@@ -22,10 +22,9 @@
   margin: 0 auto;
   width: 100%;
   height: 3px;
-  background: #d3d5d9;
+  
   border-radius: 1px;
-  background-image: -webkit-linear-gradient(top, #ebecef, #bfc3c7);
-  background-image: -moz-linear-gradient(top, #ebecef, #bfc3c7);
+  
   border-radius: 2px;
   
   /*

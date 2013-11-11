@@ -20,13 +20,14 @@
 }
 
 .mb_info_page_sub .title_area{
-	font-size: 22px;
+	font-size: 21px;
 	color: #415560;
 	font-family: "Microsoft YaHei";
+	margin-top: 20px;
 }
 .mb_info_page_sub .text_area{
-	line-height: 28px;
-	font-size: 16px;
+	line-height: 24px;
+	font-size: 15px;
 	color: #415560;
 	font-family: "Microsoft YaHei";
 }/************zdd***************************/
@@ -101,7 +102,7 @@
 	margin-bottom: 0;
 	line-height: 30px;
 	border-bottom: 1px;
-	border-bottom-color: rgba(224, 224, 224, 0.63);
+	border-bottom-color: rgba(224, 224, 224, 0.43);
 	border-bottom-style: solid;
 	font-weight: 100;
 }/***********************zdd*********************/
@@ -141,6 +142,9 @@
 .btn_cancel_freeback, .btn_cancel_favorite {
 	position: relative;
     width: 58%;
+    background-color: rgba(12, 12, 12, 0.26);
+    padding: 2px 1px 1px 3px;
+    border-radius: 5px;
 }
 
 .ui-content {
@@ -174,6 +178,7 @@ height: 0;
 
 .entry-content {
 	position: relative;
+	
 }
 .mb_ad_link {
 	margin: 0 auto;
@@ -187,7 +192,7 @@ height: 0;
 .mb_ad_link_wrap {
 	position: relative;
 	line-height: 35px;
-	background-color: rgba(224, 224, 224, 0.63);
+	background-color: rgba(224, 224, 224, 0.43);
 	text-align:center;
 	width: 160px;
 	height: 38px;
