@@ -19,12 +19,13 @@ html {
    height:22px;
 }
 #btn_header_back{
-   height:22px;
+   height:16px;
 }
 #masthead{
    border-bottom: 1px;
-   border-bottom-color: rgba(224, 224, 224, 0.63);
+   border-bottom-color: rgba(224, 224, 224, 1);
    border-bottom-style: solid;
+   margin: 0px 13px;
 }
 #btn_header_favorite_back{
    height:22px;
@@ -36,7 +37,10 @@ html {
    width:200px;
 }
 .btn_cancel_list_favorite{
-   width:200px;
+   width:58%;
+   background-color: rgba(12, 12, 12, 0.26);
+   padding: 2px 1px 1px 3px;
+   border-radius: 5px;
 }
 .mb_header {
     position: fixed;
@@ -48,7 +52,7 @@ html {
     display:block;
     background-color: #FFFFFF;
     border-bottom: 1px;
-    border-bottom-color: rgba(224, 224, 224, 0.63);
+    border-bottom-color: rgba(224, 224, 224, 0.43);
     border-bottom-style: solid;
 }/**************************zdd***************************/
 .mb_header  .mb_header .mb_header_right{
@@ -60,15 +64,15 @@ html {
    
 	height:24px; 
 	margin-top: 8px;
-	padding-left: 10px;
+	
 }/****************************zdd*********************/
 .mb_header .mb_header_left { 
 	float:left; 
 }
 .mb_header .mb_header_right { 
 	float:right; 
-	padding-right: 10px;
-	margin:2px;
+	
+	margin:4px 0px;
 }/***********zdd*************************/
 .mb_header .mb_header_center {
 	margin-left:40px; 
@@ -77,7 +81,7 @@ html {
 	height:30px;
 }/**************zdd****************/
 .mb_header .mb_header_center .mb_header_title {
-    margin-top: 8px;
+    margin-top: 9px;
     height: 20px;
 }/*************zdd******************/
 
@@ -193,6 +197,8 @@ html {
    overflow: hidden;
    white-space: nowrap;
    text-overflow: ellipsis;
+   width:96%;
+   display:block;
 }
 
 #footer_freeback {
@@ -205,6 +211,7 @@ html {
 	left:0;
 	text-align: center;
 	display:none;
+	margin-top: 33px;
 }/***********************zdd************************/
 
 #footer_freeback .matchbox_freeback_title {
@@ -243,13 +250,16 @@ html {
 
 #footer_comment .matchbox_comment_title {
 	color: #FFFFFF;
-	height:30px;
+	height:35px;
 	font-size: 22px;
 	font-weight: bold;
 	text-transform: uppercase;
 	text-shadow: 0px 1px 0px 0px;
 	line-height: 35px;
 	padding: 0px 15px;
+	border-bottom: 1px;
+    border-bottom-color: rgba(224, 224, 224, 0.43);
+    border-bottom-style: solid;
 }
 
 #footer_comment .matchbox_comment_title .backicon{
@@ -567,5 +577,5 @@ html {
     height: 26px;
 }
 .favorites_link_button_img{
-   width:20%;
+   height:28%;
 }
