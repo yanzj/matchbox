@@ -579,3 +579,10 @@ html {
 .favorites_link_button_img{
    height:28%;
 }
+
+.favorites_link_group_hr{
+  margin: 0px;
+  height: 1px;
+  border: none;
+  border-top: 1px solid rgba(224, 224, 224, 1);
+}
