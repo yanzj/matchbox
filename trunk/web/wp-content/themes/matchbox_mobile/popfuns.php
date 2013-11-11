@@ -1,5 +1,5 @@
 <footer class="favorites_link_group">
-	<hr style="margin: 0;"/>
+	<hr class="favorites_link_group_hr"/>
 	<div class="favorites_link_group_wrap">
 		<div class="favorites_link_button">
 			<a href="javascript:void(0)" onclick="_show_favorite('f')">
