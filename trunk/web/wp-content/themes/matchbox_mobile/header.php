@@ -32,7 +32,7 @@
 	
 	<script type="text/javascript">
 	var _clickEventName = 'click';
-	var _fadeTime = 600;
+	var _fadeTime = 1000;
 	var sUserAgent = navigator.userAgent.toLowerCase(); 
 	var bAndroid = sUserAgent.match(/android/i) == 'android';
 	var hashMap = {  
@@ -154,6 +154,10 @@
 	};
 	// 关闭所有POP层
 	var _close_pop_all = function() {
+		jQuery('#mb_header_back').hide();
+		jQuery('#mb_header_favorite_back').hide();
+		jQuery('#mb_header_right').show();
+		jQuery('#mb_header_left').show();
 		jQuery('.pop_page').hide();
 	};
 	// 显示收藏与分享POP层
@@ -175,20 +179,20 @@
 		jQuery('#footer_favorite_share_wrap').show();
 		jQuery('#footer_favorite_frame').css('margin-top', '33px');
 		jQuery('#footer_favorite_frame').height(jQuery(window).height() - 33);	
-		jQuery('#footer_favorite_frame').fadeIn(_fadeTime);	
+		jQuery('#footer_favorite_frame').slideDown(_fadeTime);	
 	};
 	// 关闭收藏与分享POP层
 	var _hide_favorite = function() {
-		jQuery('#footer_favorite_frame').hide();
+		jQuery('#footer_favorite_frame').slideUp(_fadeTime);
 	};
 	// 打开收藏文章
 	var _show_favorite_page = function(postid) {
 		jQuery('#mb_favorite_page_content').empty();
-		jQuery('#mb_header_right').hide();
+		jQuery('#mb_header_left').hide();
 		jQuery('#mb_header_favorite_back').show();
 		jQuery('#mb_favorite_page').css('margin-top', '33px');
 		jQuery('#mb_favorite_page').height(jQuery(window).height() - 33);	
-		jQuery('#mb_favorite_page').fadeIn(_fadeTime);
+		jQuery('#mb_favorite_page').slideDown(_fadeTime);
 		jQuery('#mb_favorite_page_content').load( '?p=' + postid + '&single=true&favorite=true', 
 			function() {
 			_init_player('favorited-' + postid);
@@ -196,20 +200,20 @@
 	};
 	// 关闭收藏文章
 	var _close_favorite_page = function() {
-		jQuery('#mb_favorite_page').fadeOut(_fadeTime);
+		jQuery('#mb_favorite_page').slideUp(_fadeTime);
 		jQuery('#mb_header_favorite_back').hide();
-		jQuery('#mb_header_right').show();
+		jQuery('#mb_header_left').show();
 	};
 	// 显示评价POP层
 	var _show_freeback = function() {
 		_close_pop_all();
 		jQuery('#footer_freeback').css('margin-top', '33px');
 		jQuery('#footer_freeback').height(jQuery(window).height() - 33);	
-		jQuery('#footer_freeback').fadeIn(_fadeTime);	
+		jQuery('#footer_freeback').slideDown(_fadeTime);	
 	};
 	// 关闭评价POP层
 	var _hide_freeback = function() {
-		jQuery('#footer_freeback').hide();	
+		jQuery('#footer_freeback').slideUp();	
 	};
 	// 打开信息页面
 	var _open_info_page = function(kind) {
@@ -221,11 +225,12 @@
 		jQuery('#mb_info_page_' + kind).show();
 		jQuery('#mb_header_right').hide();
 		jQuery('#mb_header_back').show();
-		jQuery('#mb_info_page').fadeIn(_fadeTime);
+		jQuery('#mb_info_page').slideDown(_fadeTime);
+
 	};
 	// 关闭信息页面
 	var _close_info_page = function() {
-		jQuery('#mb_info_page').fadeOut(_fadeTime);
+		jQuery('#mb_info_page').slideUp(_fadeTime);
 		jQuery('#mb_header_back').hide();
 		jQuery('#mb_header_right').show();
 	};
@@ -236,7 +241,7 @@
 		jQuery('#matchbox_submit_comment').show();
 		jQuery('#footer_comment').css('margin-top', '33px');	
 		jQuery('#footer_comment').height(jQuery(window).height() - 33);	
-		jQuery('#footer_comment').fadeIn(_fadeTime);
+		jQuery('#footer_comment').slideDown(_fadeTime);
 		_hide_freeback();
 	};
 	var _hide_comment = function() {
@@ -336,7 +341,8 @@
 			_hide_favorite();
 			jQuery('#favorite_list').css('margin-top', '33px');
 			jQuery('#favorite_list').height(jQuery(window).height() - 33);	
-			jQuery('#favorite_list').css({'display':'block'});
+			//jQuery('#favorite_list').css({'display':'block'});
+			jQuery('#favorite_list').slideDown(_fadeTime);
 			favorite.Items();
 			<?php /*
 			jQuery('#favorite_content').load('?matchboxfp=list&ajax=1&user=' + _user_token(), function(){
@@ -353,15 +359,18 @@
 		});
 		// 查看收藏取消Clickvent
 		jQuery('#btn_cancel_list_favorite').bind(_clickEventName, function(event) {
-			  jQuery('#favorite_list').css({'display':'none'});
+			  //jQuery('#favorite_list').css({'display':'none'});
+			  jQuery('#favorite_list').slideUp(_fadeTime);
+			  
 		});
-		// 收藏与分析空白部分Clickvent
+		// 收藏与分享空白部分Clickvent
 		jQuery('#footer_favorite_frame').bind(_clickEventName, function(event) {
 			  _hide_favorite();
 		});
 		// 评价取消Clickvent
 		jQuery('#btn_cancel_freeback').bind(_clickEventName, function(event) {
-			  jQuery('#footer_freeback').css({'display':'none'});
+			  //jQuery('#footer_freeback').css({'display':'none'});
+			  jQuery('#footer_freeback').slideUp(_fadeTime);
 		});
 		/* 信息页面控制 */
 		jQuery('#btn_header_back').bind("click", function(event) {
@@ -388,14 +397,14 @@
 
 <body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:33px;">
 	<div id="masthead" class="mb_header" data-role="header" data-position="fixed" data-theme="m">
-		<div class="mb_header_left">
+		<div id="mb_header_left" class="mb_header_left">
 			<img id="btn_feedback" src="<?php echo get_template_directory_uri(); ?>/images/fun_left.png"/></div>	
 		<div id="mb_header_right" class="mb_header_right">
 			<img id="btn_favorite" src="<?php echo get_template_directory_uri(); ?>/images/fun_right.png"/></div>
 		<div id="mb_header_back" class="mb_header_right" style="display:none;">
 			<img id="btn_header_back" src="<?php echo get_template_directory_uri(); ?>/images/fun_right_back.png"/></div>
-		<div id="mb_header_favorite_back" class="mb_header_right" style="display:none;">
-			<img id="btn_header_favorite_back" src="<?php echo get_template_directory_uri(); ?>/images/fun_right_back.png"/></div>
+		<div id="mb_header_favorite_back" class="mb_header_left" style="display:none;">
+			<img id="btn_header_favorite_back" src="<?php echo get_template_directory_uri(); ?>/images/fun_right_back2.png"/></div>
 		<div class="mb_header_center">
 		
 		<!--	<a href="<?php echo esc_url( home_url( '/' ) ); ?>">	-->

@@ -45,11 +45,11 @@
 		<div id="footer_favorite_favorite_wrap">
 			<input type="hidden" id="favorite_current_post_id" value=""/>
 			<div class="mb_favorite_title">
-				<a id="link_add_favorite" href="#" style="display:none">&nbsp;收&nbsp;藏&nbsp;本&nbsp;文&nbsp;</a>
-				<a id="link_remove_favorite" href="#" style="display:none">&nbsp;取&nbsp;消&nbsp;收&nbsp;藏&nbsp;</a>
+				<a id="link_add_favorite" href="#" class="mb_menu_link" style="display:none">&nbsp;收&nbsp;藏&nbsp;本&nbsp;文&nbsp;</a>
+				<a id="link_remove_favorite" href="#" class="mb_menu_link" style="display:none">&nbsp;取&nbsp;消&nbsp;收&nbsp;藏&nbsp;</a>
 			</div>
 			
-			<div class="mb_favorite_title"><a id="link_list_favorite" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
+			<div class="mb_favorite_title"><a id="link_list_favorite" class="mb_menu_link" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
 		</div>
 		<div id="footer_favorite_share_wrap" style="display:none;">
 			<?php /*
@@ -79,24 +79,24 @@
 	<!-- 关于与评价 -->
 	<div id="footer_freeback" class="mb_info_page pop_page" style="display:none;">
 		<div class="matchbox_freeback_title">
-			<a id="btn_open_about">关于火柴盒</a>
+			<a id="btn_open_about" class="mb_menu_link">关于火柴盒</a>
 		</div>
 		<?php /*
-		<div class="matchbox_freeback_title">
-			<a id="btn_open_contribute">投稿给我们</a>
+		<div class="matchbox_freeback_title"> 
+			<a id="btn_open_contribute" class="mb_menu_link">投稿给我们</a>
 		</div>
 		*/?>
 		<?php /*
 		<div class="matchbox_freeback_title">
-			<a>去APP STORE评价我们</a>
+			<a class="mb_menu_link">去APP STORE评价我们</a>
 		</div>
 		*/?>
 		<div class="matchbox_freeback_title">
-			<a onclick="_show_comment()">意见反馈</a>
+			<a onclick="_show_comment()" class="mb_menu_link">意见反馈</a>
 		</div>
 		<?php /*
 		<div class="matchbox_freeback_title">
-			<a  id="btn_open_business">商业合作</a>
+			<a  id="btn_open_business" class="mb_menu_link">商业合作</a>
 		</div>
 		*/?>
 		<div class="matchbox_comment_buttongroup">
