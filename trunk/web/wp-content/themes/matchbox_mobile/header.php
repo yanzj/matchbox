@@ -90,7 +90,7 @@
 	var _resize_height = function (content_id) {  
 		jQuery('#' + content_id).scrollTop(0); // 返回顶部
 		//return;
-		if (jQuery('#' + content_id).height() < jQuery(window).height() - 33) {
+		if (jQuery('#' + content_id).height() < jQuery(window).height() - 34) {
 		  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
 			//jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
 		} else {
@@ -177,8 +177,8 @@
 		*/
 		jQuery('#footer_favorite_favorite_wrap').show();
 		jQuery('#footer_favorite_share_wrap').show();
-		jQuery('#footer_favorite_frame').css('margin-top', '33px');
-		jQuery('#footer_favorite_frame').height(jQuery(window).height() - 33);	
+		jQuery('#footer_favorite_frame').css('margin-top', '34px');
+		jQuery('#footer_favorite_frame').height(jQuery(window).height() - 34);	
 		jQuery('#footer_favorite_frame').slideDown(_fadeTime);	
 	};
 	// 关闭收藏与分享POP层
@@ -190,8 +190,8 @@
 		jQuery('#mb_favorite_page_content').empty();
 		jQuery('#mb_header_left').hide();
 		jQuery('#mb_header_favorite_back').show();
-		jQuery('#mb_favorite_page').css('margin-top', '33px');
-		jQuery('#mb_favorite_page').height(jQuery(window).height() - 33);	
+		jQuery('#mb_favorite_page').css('margin-top', '34px');
+		jQuery('#mb_favorite_page').height(jQuery(window).height() - 34);	
 		jQuery('#mb_favorite_page').slideDown(_fadeTime);
 		jQuery('#mb_favorite_page_content').load( '?p=' + postid + '&single=true&favorite=true', 
 			function() {
@@ -207,8 +207,8 @@
 	// 显示评价POP层
 	var _show_freeback = function() {
 		_close_pop_all();
-		jQuery('#footer_freeback').css('margin-top', '33px');
-		jQuery('#footer_freeback').height(jQuery(window).height() - 33);	
+		jQuery('#footer_freeback').css('margin-top', '34px');
+		jQuery('#footer_freeback').height(jQuery(window).height() - 34);	
 		jQuery('#footer_freeback').slideDown(_fadeTime);	
 	};
 	// 关闭评价POP层
@@ -239,8 +239,8 @@
 		jQuery('#matchbox_comment_loading_circle').hide();
 		jQuery('#matchbox_comment_status').empty();
 		jQuery('#matchbox_submit_comment').show();
-		jQuery('#footer_comment').css('margin-top', '33px');	
-		jQuery('#footer_comment').height(jQuery(window).height() - 33);	
+		jQuery('#footer_comment').css('margin-top', '34px');	
+		jQuery('#footer_comment').height(jQuery(window).height() - 34);	
 		jQuery('#footer_comment').slideDown(_fadeTime);
 		_hide_freeback();
 	};
@@ -339,16 +339,16 @@
 		// 查看收藏ClickEvent
 		jQuery('#link_list_favorite').bind(_clickEventName, function(event) {
 			_hide_favorite();
-			jQuery('#favorite_list').css('margin-top', '33px');
-			jQuery('#favorite_list').height(jQuery(window).height() - 33);	
+			jQuery('#favorite_list').css('margin-top', '34px');
+			jQuery('#favorite_list').height(jQuery(window).height() - 34);	
 			//jQuery('#favorite_list').css({'display':'block'});
 			jQuery('#favorite_list').slideDown(_fadeTime);
 			favorite.Items();
 			<?php /*
 			jQuery('#favorite_content').load('?matchboxfp=list&ajax=1&user=' + _user_token(), function(){
 			  _hide_favorite();
-			  jQuery('#favorite_list').css('margin-top', '33px');
-			  jQuery('#favorite_list').height(jQuery(window).height() - 33);	
+			  jQuery('#favorite_list').css('margin-top', '34px');
+			  jQuery('#favorite_list').height(jQuery(window).height() - 34);	
 			  jQuery('#favorite_list').css({'display':'block'});
 			});
 			*/ ?>
@@ -395,7 +395,7 @@
 
 </head>
 
-<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:33px;">
+<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:34px;">
 	<div id="masthead" class="mb_header" data-role="header" data-position="fixed" data-theme="m">
 		<div id="mb_header_left" class="mb_header_left">
 			<img id="btn_feedback" src="<?php echo get_template_directory_uri(); ?>/images/fun_left.png"/></div>	

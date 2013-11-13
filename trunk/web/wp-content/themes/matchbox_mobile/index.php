@@ -224,7 +224,7 @@
 			<?php echo $_pushscripts; ?>
 		}
 
-		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 38);
+		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 34);
 		_load_post(current_post, 10, true);
 
 	});
