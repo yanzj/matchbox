@@ -4,8 +4,8 @@
 	position:absolute;
 	width: 35px;
 	height: 35px;
-	background: url(../images/player.png) no-repeat -37px 0;
-    background-size:70px 35px;
+	background: url(../images/player.png) no-repeat -36px 0;
+    background-size:74px 30px;
 	cursor: pointer;
 	bottom:9px;
 	left: 5px;;
