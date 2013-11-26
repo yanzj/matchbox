@@ -340,16 +340,8 @@ var urltemplate = '?p=';
 var myScroll;
 	
 var circularHtml = '<div style="width:100%;margin:0 auto;text-align:center;"><div id="circular" style="display:inline-block;margin-top:50px;">' 
-				+ '<div id="circular_1" class="circular"></div>'
-				+ '<div id="circular_2" class="circular"></div>'
-				+ '<div id="circular_3" class="circular"></div>'
-				+ '<div id="circular_4" class="circular"></div>'
-				+ '<div id="circular_5" class="circular"></div>'
-				+ '<div id="circular_6" class="circular"></div>'
-				+ '<div id="circular_7" class="circular"></div>'
-				+ '<div id="circular_8" class="circular"></div>'
-				+ '<div class="clearfix"></div>'
-			    + '</div></div>';
+				+ '<img src="/wp-content/themes/matchbox_mobile/images/loader.gif"/>'
+			  + '</div></div>';
 
 var _load_post = function(idx, surplus, first) {
 	
