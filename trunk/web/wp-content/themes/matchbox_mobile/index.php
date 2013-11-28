@@ -15,6 +15,7 @@
 	<link rel='stylesheet' id='twentythirteen-style-css'  href='<?php echo $TEMPLATE_URL; ?>/style.css' type='text/css' media='all' />
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/jquery/jquery.js'></script>
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/jquery/jquery-migrate.min.js'></script>
+	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/phonegap/cordova.js'></script>
 </head>
 <body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:34px;">
 <div id="masthead" class="mb_header">
@@ -318,8 +319,12 @@
 		}
 
 		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 34);
-		//_load_post(current_post, 10, true);
-
+		
+		
+		_load_post(current_post, 5, true);
+		
+		
+		
 	});
 </script>
 </html>

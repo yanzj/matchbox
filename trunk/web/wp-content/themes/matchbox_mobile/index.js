@@ -338,11 +338,20 @@ var current_post = 0;
 var current_post_id;
 var urltemplate = '?p=';
 var myScroll;
+var _deviceReady;
+
 	
 var circularHtml = '<div style="width:100%;margin:0 auto;text-align:center;"><div id="circular" style="display:inline-block;margin-top:50px;">' 
 				+ '<img src="/wp-content/themes/matchbox_mobile/images/loader.gif"/>'
 			  + '</div></div>';
 
+var _closeSplashScreen = function() {
+		document.addEventListener("deviceready", onDeviceReady, false);	
+		function onDeviceReady() {
+        navigator.splashscreen.hide();
+    }
+};
+    
 var _load_post = function(idx, surplus, first) {
 	
 	if (myScroll) {
@@ -355,12 +364,17 @@ var _load_post = function(idx, surplus, first) {
 	var url = urltemplate + id;
 	var content_id = 'mathbox_content_' + id;
 	
-	
 	//切换特效
 	
 	if (hashMap.Contains(url)) {
 		console.log('has ' + url);
 		_resize_height(content_id);
+		if (!_deviceReady) {
+		 		console.log(surplus + 'deviceReady3');
+		 	  _closeSplashScreen();
+		 		_deviceReady = true;
+		 		
+		 	}
 	} else {
 		if (first) {
 			jQuery('#' + content_id).html(circularHtml);
@@ -385,13 +399,28 @@ var _load_post = function(idx, surplus, first) {
 		 if (first) {
 		 	 _resize_height(content_id);
 		 }
+		 
 		 if (surplus > 0) {
 		 	 if (my_array.length >= idx + 1) {
 		 	 	// alert('next');
 		 		_load_post(idx+1, surplus-1, false);
+		 	 } else {
+			 	if (!_deviceReady) {
+			 		console.log(surplus + 'deviceReady1');
+			 		_closeSplashScreen();
+			 		_deviceReady = true;
+			 		
+			 	}
 		 	 }
-		 } 
-		});
+		 } else {
+		 	if (!_deviceReady) {
+		 		console.log(surplus + 'deviceReady2');
+		 		_closeSplashScreen();
+		 		_deviceReady = true;
+		 		
+		 	}
+		 }
+	   });
 	}
 
 	// 判断是否已经收藏 
