@@ -14,7 +14,7 @@
  * The $size parameter accepts either an array or a string. The supported string
  * values are 'thumb' or 'thumbnail' for the given thumbnail size or defaults at
  * 128 width and 96 height in pixels. Also supported for the string value is
- * 'medium' and 'full'. The 'full' isn't actually supported, but any value other
+ * 'medium' and 'full'. The 'full' isn't actually supported, but any value other 
  * than the supported will result in the content_width size or 500 if that is
  * not set.
  *
