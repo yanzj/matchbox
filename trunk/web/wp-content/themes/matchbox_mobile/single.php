@@ -12,11 +12,17 @@
 ?>
 <?php if ('true' != $_single ): ?>
 	<?php get_header(); ?>
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
-			<?php if ( have_posts() ) : the_post(); ?>
-				<?php get_template_part( 'content', get_post_format() ); ?>
-			<?php endif; ?>
+	<div id="mySwipe" class="swiper-container">
+		<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper">
+			<div class="doc_content swiper-slide">
+				<div id="primary" class="content-area">
+					<div id="content" class="site-content" role="main">
+						<?php if ( have_posts() ) : the_post(); ?>
+							<?php get_template_part( 'content', get_post_format() ); ?>
+						<?php endif; ?>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 <script type="text/javascript">
@@ -37,6 +43,11 @@
 		 });
 	});
 </script>
+<?php if(isset($_REQUEST['back'])): ?>
+	<div style="width:100%;text-align:center;font-size:18px;">
+		<a href="<?php echo get_site_url();?>/?matchboxboss=lp"><- 返回</a>
+	</div>
+<?php endif ?>
 	<?php get_footer(); ?>
 <?php else: ?>
 	<div id="primary" class="content-area">

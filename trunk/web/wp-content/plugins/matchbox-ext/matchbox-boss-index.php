@@ -31,6 +31,7 @@
 	border-top:1px solid #fff;
 	background-color:#fafafa;
 	font-size:14px;
+	color: #123261;
 }
 
 #scroller li > a {
@@ -38,7 +39,7 @@
 }
 	
 </style>
-<div id="wrapper">
+<div id="wrapper" style="margin-left:12px;margin-right:12px;">
 	<div id="scroller">
 		<ul id="thelist">
 <?php	  	
@@ -51,7 +52,7 @@
     if ($results) {
         foreach ($results as $o):
             $p = get_post($o->ID);
-            echo '<li><a href="'. esc_url( home_url( '/' ) ) . '?p=' . $o->ID . '">' . $p->post_title . '</a></li>';
+            echo '<li><a style="color: #123261;" href="'. esc_url( home_url( '/' ) ) . '?p=' . $o->ID . '&back=true">' . $p->post_title . '</a></li>';
         endforeach;
     }
 ?>

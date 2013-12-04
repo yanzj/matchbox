@@ -215,7 +215,11 @@ function matchbox_boss_action() {
     if (isset($_REQUEST['matchboxboss'])):
 		$action_name = $_REQUEST['matchboxboss'];
         if ($action_name == 'lp') {	// list posts
-        	matchbox_list_all_posts();
+        	if (!is_user_logged_in()) {
+        		wp_redirect('wp-login.php?redirect_to=' . urlencode(get_site_url() . '/?matchboxboss=lp'));
+        	} else {
+        		matchbox_list_all_posts();
+        	}
         } else if ($action_name == 'vp') { // view post
             matchbox_die_or_go($action_name);
         } 
