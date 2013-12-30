@@ -3498,6 +3498,8 @@ audio:not([controls]) {
 	bottom: 0;
 	left: 0;
 	text-align: center;
+	-webkit-box-sizing : border-box;  
+    -webkit-overflow-scrolling : touch;
 	display: none;
 }/************************zdd******************/
 #footer_about {
@@ -3635,6 +3637,8 @@ audio:not([controls]) {
 }/************************zdd**********************/
 .mb_info_page_sub {
     padding: 0px 15px;
+    -webkit-box-sizing : border-box;  
+  -webkit-overflow-scrolling : touch;
 }
 
 .mb_info_page_sub .title_area{

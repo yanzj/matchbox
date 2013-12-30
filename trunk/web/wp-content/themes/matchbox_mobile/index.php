@@ -28,7 +28,7 @@
 	<div id="mb_header_favorite_back" class="mb_header_left" style="display:none;">
 		<img id="btn_header_favorite_back" src="<?php echo $TEMPLATE_URL; ?>/images/fun_right_back2.png"/></div>
 	<div class="mb_header_center">
-		<a><img class="mb_header_title" src="<?php echo $TEMPLATE_URL; ?>/images/title.png"/></a>
+		<a href="javascript:_close_pop_all();"><img class="mb_header_title" src="<?php echo $TEMPLATE_URL; ?>/images/title.png"/></a>
 	</div>
 </div>
 <div class="md_ad" style="display:none;">
@@ -101,9 +101,6 @@
 		<ul>
 	</div>
 	<div id="favorite_footer">
-		<!--
-		<button id="btn_cancel_list_favorite" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
-		-->
 		<img id="btn_cancel_list_favorite" class="btn_cancel_list_favorite" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png"/>
 	</div>
 </div>
@@ -125,8 +122,7 @@
 		
 		<div class="mb_favorite_title"><a id="link_list_favorite" class="mb_menu_link" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
 	</div>
-	<div id="footer_favorite_share_wrap" style="display:none;">
-		<?php /*
+	<div id="footer_favorite_share_wrap" style="display:block;">
 		<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 		<div class="mb_favorite_sharp_group">
 			<div class="share_icon_wrap">
@@ -142,7 +138,6 @@
 				<div class="share_icon_text">新浪微博</div>
 			</div>
 		</div>
-		*/?>
 	</div>
 	<div class="mb_favorite_share_bottom">
 		<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png" 
@@ -155,29 +150,19 @@
 	<div class="matchbox_freeback_title">
 		<a id="btn_open_about" class="mb_menu_link">关于火柴盒</a>
 	</div>
-	<?php /*
 	<div class="matchbox_freeback_title"> 
 		<a id="btn_open_contribute" class="mb_menu_link">投稿给我们</a>
 	</div>
-	*/?>
-	<?php /*
 	<div class="matchbox_freeback_title">
 		<a class="mb_menu_link">去APP STORE评价我们</a>
 	</div>
-	*/?>
 	<div class="matchbox_freeback_title">
 		<a onclick="_show_comment()" class="mb_menu_link">意见反馈</a>
 	</div>
-	<?php /*
 	<div class="matchbox_freeback_title">
 		<a  id="btn_open_business" class="mb_menu_link">商业合作</a>
 	</div>
-	*/?>
 	<div class="matchbox_comment_buttongroup">
-		<!--
-		<button id="btn_cancel_freeback" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
-		-->
-		
 		<img id="btn_cancel_freeback" class="btn_cancel_freeback" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png" />
 	</div>
 </div>
@@ -210,6 +195,7 @@
 </div>
 <!-- 评价页面 -->
 <div id="footer_comment" class="pop_page" style="display:none;">
+		<!--				
 		<div class="matchbox_comment_title">
 			<div class="backicon">
 				<img src="<?php echo $TEMPLATE_URL; ?>/images/back.png" onclick="_hide_comment()"/>
@@ -218,6 +204,7 @@
 				用户反馈
 			</div>
 		</div>
+		-->
 		<div class="matchbox_comment_body">
 			<form method="post" id="matchbox_commentform" onsubmit="javascript:return false;" novalidate>
 			<div style="display:none">
@@ -322,9 +309,7 @@
 		
 		
 		_load_post(current_post, 5, true);
-		
-		
-		
+
 	});
 </script>
 </html>

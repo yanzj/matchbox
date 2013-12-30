@@ -1,5 +1,5 @@
 var _clickEventName = 'click';
-var _fadeTime = 1000;
+var _fadeTime = 500;
 var sUserAgent = navigator.userAgent.toLowerCase(); 
 var bAndroid = sUserAgent.match(/android/i) == 'android';
 var hashMap = {  
@@ -37,7 +37,7 @@ var favorite = {
 		jQuery('#favorite_content_ul').empty();
 		var favorite = localStorage.getItem('favorite');
 		var ids = favorite.split(',');
-		for (i = 0; i < ids.length; i++) {
+		for (i = ids.length - 1; i >= 0 ; i--) {
 			if (ids[i]) {
 				jQuery('#favorite_content_ul').append(jQuery('<li><a onclick="_show_favorite_page(' + ids[i] + ')">' + localStorage.getItem('favorite_' + ids[i]) + '</a></li>'));
 			}
@@ -436,8 +436,8 @@ var _load_post = function(idx, surplus, first) {
 			
 		// 分享连接
 		var shareUrl = SITE_URL + '/' + url;
-		jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
-		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?url=' + shareUrl + '&amp;title=' + title);
-		jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
+		//jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
+		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?appkey=appkey&url=' + shareUrl + '&title=' + jQuery('#mb_post_title_' + id).val());
+		//jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 	}
 };
