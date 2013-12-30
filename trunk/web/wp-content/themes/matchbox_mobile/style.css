@@ -3135,9 +3135,7 @@ html {
 	text-shadow: 0px 1px 0px 0px;
 	line-height: 35px;
 	padding: 0px 15px;
-	border-bottom: 1px;
-    border-bottom-color: rgba(224, 224, 224, 0.43);
-    border-bottom-style: solid;
+
 }
 
 #footer_comment .matchbox_comment_title .backicon{
@@ -3549,8 +3547,8 @@ audio:not([controls]) {
 	position:absolute;
 	width: 35px;
 	height: 35px;
-	background: url(images/player.png) no-repeat -36px 0;
-    background-size:74px 30px;
+	background: url(images/player.png) no-repeat -35px 0;
+    background-size:72px 30px;
 	cursor: pointer;
 	bottom:9px;
 	left: 5px;;

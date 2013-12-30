@@ -58,7 +58,7 @@ var _resize_height = function (content_id) {
 	//return;
 	if (jQuery('#' + content_id).height() < jQuery(window).height() - 34) {
 	  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
-		//jQuery('#mySwipe-wrap').height(jQuery(window).height() - 36);
+		//jQuery('#mySwipe-wrap').height(jQuery(window).height() - 34);
 	} else {
 	  	//jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
 	}
