@@ -3079,34 +3079,46 @@ html {
    display:block;
 }
 
+
+#footer_freeback_wrap {
+	position: fixed;
+	width:100%;
+	height:228px;
+	background:-webkit-gradient(linear, 0 0, 0 100%, from(rgba(28, 29, 36, 0.6)),to(rgba(1, 6, 14, 0.85)));
+	
+	left:0;
+	bottom:0;
+	text-align: center;
+	display: block;
+	padding:0
+}
+
+
 #footer_freeback {
 	position:fixed;
-	width:100%;
-	height:100%;
-    background: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(28, 29, 36, 0.6)),to(rgba(1, 6, 14, 0.85)));
-	z-index:9999;
-	bottom:0;
 	left:0;
+	bottom:0;
+	z-index:9999;
 	text-align: center;
-	display:none;
-	margin-top: 33px;
+	width:100%;
+	height: 100%;
+	display: none;
 }/***********************zdd************************/
 
-#footer_freeback .matchbox_freeback_title {
+.matchbox_freeback_title {
 	text-align:center;
 	font-size: 24px;
 	font-weight: bold;
 	margin-top:15px;
 	margin-bottom:15px;
 }
-
-#footer_freeback .matchbox_freeback_title a,  
-#footer_freeback .matchbox_freeback_title a:hover { 
+.matchbox_freeback_title a,  
+.matchbox_freeback_title a:hover { 
 	color: #fff; 
 	text-decoration:none;
 }
 
-#footer_freeback .matchbox_comment_buttongroup {
+.matchbox_comment_buttongroup {
 	margin-top:20px;
 	position: absolute;
     bottom: 23px;
@@ -3549,11 +3561,11 @@ audio:not([controls]) {
 	position:absolute;
 	width: 35px;
 	height: 35px;
-	background: url(images/player.png) no-repeat -35px 0;
-    background-size:72px 30px;
+	background: url(images/player.png) no-repeat -34px 0;
+    background-size:70px 30px;
 	cursor: pointer;
 	bottom:9px;
-	left: 5px;;
+	left: 8px;;
 	display: block;
 	transition: 0.5s all ease;
 	z-index: 2;
@@ -3801,7 +3813,6 @@ height: 0;
 	text-align: center;
 }
 .share_icon_wrap div {
-	width:100%;
 	text-align: center;
 	margin: 5px;
 }

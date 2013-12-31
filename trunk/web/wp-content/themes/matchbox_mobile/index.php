@@ -125,12 +125,14 @@
 	<div id="footer_favorite_share_wrap" style="display:block;">
 		<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 		<div class="mb_favorite_sharp_group">
+			<!--
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_weixin" href="" title="分享到微信" class="share_icon">
 						<img src="<?php echo $TEMPLATE_URL; ?>/images/weixin32.png"/></a></div>
 				<div class="share_icon_text">微信</div>
 			</div>
+			-->
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_sina" href="" title="分享到新浪微博" class="share_icon" target="_blank">
@@ -146,16 +148,19 @@
 </div>
 </div>
 <!-- 关于与评价 -->
-<div id="footer_freeback" class="mb_info_page pop_page" style="display:none;">
+<div id="footer_freeback" class="pop_page" style="display:none;">
+	<div id="footer_freeback_wrap">
 	<div class="matchbox_freeback_title">
 		<a id="btn_open_about" class="mb_menu_link">关于火柴盒</a>
 	</div>
 	<div class="matchbox_freeback_title"> 
 		<a id="btn_open_contribute" class="mb_menu_link">投稿给我们</a>
 	</div>
+	<!--
 	<div class="matchbox_freeback_title">
 		<a class="mb_menu_link">去APP STORE评价我们</a>
 	</div>
+	-->
 	<div class="matchbox_freeback_title">
 		<a onclick="_show_comment()" class="mb_menu_link">意见反馈</a>
 	</div>
@@ -164,6 +169,7 @@
 	</div>
 	<div class="matchbox_comment_buttongroup">
 		<img id="btn_cancel_freeback" class="btn_cancel_freeback" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png" />
+	</div>
 	</div>
 </div>
 <!-- 信息页面 -->
@@ -217,9 +223,7 @@
 			<div><textarea id="comment" name="comment" rows="15" style="width:100%;height:200px;"></textarea></div>
 			<div id="matchbox_comment_loading" class="matchbox_comment_loading">
 				<div id='matchbox_comment_loading_circle' style='margin-right: 30px;'>
-					<div id='matchbox_comment_loading_circle_1' class='matchbox_comment_loading_circle'></div>
-					<div id='matchbox_comment_loading_circle_2' class='matchbox_comment_loading_circle'></div>
-					<div id='matchbox_comment_loading_circle_3' class='matchbox_comment_loading_circle'></div>
+					<img src="<?php echo $TEMPLATE_URL; ?>/images/fb.gif" />
 				</div>
 				<div style='clear: both; float: none;'></div>
 			</div>

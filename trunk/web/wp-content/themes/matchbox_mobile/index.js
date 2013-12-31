@@ -309,6 +309,9 @@ jQuery(function(){
 	jQuery('#footer_favorite_frame').bind(_clickEventName, function(event) {
 		  _hide_favorite();
 	});
+	jQuery('#footer_freeback').bind(_clickEventName, function(event) {
+		  _hide_freeback();
+	});
 	// 评价取消Clickvent
 	jQuery('#btn_cancel_freeback').bind(_clickEventName, function(event) {
 		  jQuery('#footer_freeback').slideUp(_fadeTime);
