@@ -17,7 +17,7 @@
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/jquery/jquery-migrate.min.js'></script>
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/phonegap/cordova.js'></script>
 </head>
-<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:34px;">
+<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;margin-bottom:2px;">
 <div id="masthead" class="mb_header">
 	<div id="mb_header_left" class="mb_header_left">
 		<img id="btn_feedback" src="<?php echo $TEMPLATE_URL; ?>/images/fun_left.png"/></div>	
@@ -309,7 +309,7 @@
 			<?php echo $_pushscripts; ?>
 		}
 
-		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 34);
+		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 38);
 		
 		
 		_load_post(current_post, 5, true);

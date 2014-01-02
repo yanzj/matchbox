@@ -3763,7 +3763,6 @@ audio:not([controls]) {
 }
 .doc_content {
 	padding:2px;
-	margin: 2px 0;
 }
 .format-audio .audio-content {
 	position: relative;
