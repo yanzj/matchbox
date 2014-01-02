@@ -251,13 +251,11 @@ jQuery(function(){
         return ret;
 	}
 	if (firstUsing()) {
-		/*
 		setTimeout('jQuery(".md_ad").fadeIn("slow")',100);
 		setTimeout('jQuery(".md_ad").fadeOut("slow")',4000);
 		jQuery(".ad_close").bind(_clickEventName, function(){
 			jQuery(".md_ad").hide("slow");
 		});
-		*/
 	}
 	
 	jQuery('#footer_favorite').bind(_clickEventName, function(event) {

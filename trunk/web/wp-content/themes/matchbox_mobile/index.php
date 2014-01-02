@@ -27,8 +27,8 @@
 		<img id="btn_header_back" src="<?php echo $TEMPLATE_URL; ?>/images/fun_right_back.png"/></div>
 	<div id="mb_header_favorite_back" class="mb_header_left" style="display:none;">
 		<img id="btn_header_favorite_back" src="<?php echo $TEMPLATE_URL; ?>/images/fun_right_back2.png"/></div>
-	<div class="mb_header_center">
-		<a href="javascript:_close_pop_all();"><img class="mb_header_title" src="<?php echo $TEMPLATE_URL; ?>/images/title.png"/></a>
+	<div class="mb_header_center" onclick="_close_pop_all()">
+		<a><img class="mb_header_title" src="<?php echo $TEMPLATE_URL; ?>/images/title.png"/></a>
 	</div>
 </div>
 <div class="md_ad" style="display:none;">
@@ -111,8 +111,8 @@
 	</div>
 </div>
 <!-- 分享与收藏 -->
-<div id="footer_favorite_frame" class="pop_page" style="display:none;">
-<div id="footer_favorite">
+<div id="footer_favorite_frame" class="pop_page" style="display:none;overflow-y:scroll">
+<div id="footer_favorite" style="overflow-y:scroll">
 	<div id="footer_favorite_favorite_wrap">
 		<input type="hidden" id="favorite_current_post_id" value=""/>
 		<div class="mb_favorite_title">
@@ -148,8 +148,8 @@
 </div>
 </div>
 <!-- 关于与评价 -->
-<div id="footer_freeback" class="pop_page" style="display:none;">
-	<div id="footer_freeback_wrap">
+<div id="footer_freeback" class="pop_page" style="display:none;overflow-y:scroll">
+	<div id="footer_freeback_wrap"> 
 	<div class="matchbox_freeback_title">
 		<a id="btn_open_about" class="mb_menu_link">关于火柴盒</a>
 	</div>
