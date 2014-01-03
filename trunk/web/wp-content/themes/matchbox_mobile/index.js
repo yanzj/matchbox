@@ -84,23 +84,29 @@ var _init_player = function(id) {
 	    jQuery(audio).bind('timeupdate', function() {
 	    	var pos = (audio.currentTime / audio.duration) * 100;
 	        jQuery('#' + processId).css('width', pos + '%'); 
-	                
-        }).bind('play',function(){
-            jQuery("#" + playtoggleId).addClass('playing');
-        }).bind('pause ended', function() {
-            jQuery("#" + playtoggleId).removeClass('playing');
-        }).bind("canplay", function () {
-        	console.log(thsi.currentTime + '/' + this.duration);
+      }).bind('play',function(){
+          jQuery("#" + playtoggleId).addClass('playing');
+      }).bind('pause ended', function() {
+          jQuery("#" + playtoggleId).removeClass('playing');
+      }).bind("canplay", function () {
+      	console.log(this.currentTime + '/' + this.duration);
     	});
-        
-        jQuery("#" + playtoggleId).bind('touchstart', function() {
-	        if (audio.paused) {
-	        	audio.play();
-	        } else { 
-	        	audio.pause(); 
-	        }
-	        event.stopPropagation();
-        });
+			jQuery("#" + playtoggleId).bind('touchstart', function() {
+				if (audio.paused) {
+					jQuery('audio').each(function(){
+						var oAudio = jQuery(this).get(0);
+						console.log(audio.id + ':' + oAudio.id);
+				    if (audio.id != oAudio.id) {
+				      //oAudio.currentTime = 0;
+				    	oAudio.pause(); 
+				    }
+				  });
+					audio.play();
+				} else { 
+					audio.pause(); 
+				}
+				event.stopPropagation();
+			});
     }
 };
 // 取得用户标识

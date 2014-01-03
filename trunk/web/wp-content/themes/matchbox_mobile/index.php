@@ -65,18 +65,18 @@
 					if ($_postcount == 0):
 						$_lasttime = $post->post_date;
 					endif;
-					$_strdate = date('Ymd', $post->post_date);
+					$_strdate = substr($post->post_date, 0, 10);
 					$_postdates[$_strdate] = $_strdate;
 					$_postscount++;
-					if (count($_postdates) >= 10):
+					if (count($_postdates) > 10):
 						break;
 					endif;
 				?>
+			
 				<div id="mathbox_content_<?php echo $post->ID;?>" class="doc_content swiper-slide">
 					<?php 
 						if ($_postscount <= 1): 
 							$_pushscripts .= "hashMap.Set('?p=" . $post->ID . "', '');";
-						
 					?>
 					
 					<div id="primary" class="content-area">
@@ -123,16 +123,15 @@
 		<div class="mb_favorite_title"><a id="link_list_favorite" class="mb_menu_link" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
 	</div>
 	<div id="footer_favorite_share_wrap" style="display:none;">
+		<!--
 		<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 		<div class="mb_favorite_sharp_group">
-			<!--
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_weixin" href="" title="分享到微信" class="share_icon">
 						<img src="<?php echo $TEMPLATE_URL; ?>/images/weixin32.png"/></a></div>
 				<div class="share_icon_text">微信</div>
 			</div>
-			-->
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_sina" href="" title="分享到新浪微博" class="share_icon" target="_blank">
@@ -140,6 +139,7 @@
 				<div class="share_icon_text">新浪微博</div>
 			</div>
 		</div>
+		-->
 	</div>
 	<div class="mb_favorite_share_bottom">
 		<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png" 
