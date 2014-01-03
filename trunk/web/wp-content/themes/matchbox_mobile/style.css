@@ -398,7 +398,7 @@ ins {
 	background: #fff9c0;
 	text-decoration: none;
 }
-
+/*
 hr {
 	background: url(images/dotted-line.png) repeat center top;
 	background-size: 4px 4px;
@@ -406,7 +406,7 @@ hr {
 	height: 1px;
 	margin: 0 0 24px;
 }
-
+*/
 
 /**
  * 2.0 Repeatable Patterns
@@ -2919,7 +2919,7 @@ html {
    margin: 0px 13px;
 }
 #btn_header_favorite_back{
-   height:16px;
+   height:28px;
 }
 .btn_cancel_freeback{
    width:200px;
@@ -3476,14 +3476,14 @@ html {
 .favorites_link_button_img{
    height:28%;
 }
-
+/*
 .favorites_link_group_hr{
   margin: 0px;
   height: 1px;
   border: none;
   border-top: 1px solid rgba(224, 224, 224, 1);
 }
-
+*/
 
 .wp-audio-shortcode {
 	display:block;

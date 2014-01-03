@@ -56,9 +56,9 @@ var _get_date_str = function () {
 var _resize_height = function (content_id) {  
 	jQuery('#' + content_id).scrollTop(0); // 返回顶部
 	//return;
-	if (jQuery('#' + content_id).height() < jQuery(window).height() - 38) {
+	if (jQuery('#' + content_id).height() < jQuery(window).height() - 34) {
 	  	//alert(jQuery('#' + content_id).height() + '/' + jQuery(window).height());
-		//jQuery('#mySwipe-wrap').height(jQuery(window).height() - 38);
+		//jQuery('#mySwipe-wrap').height(jQuery(window).height() - 34);
 	} else {
 	  	//jQuery('#mySwipe-wrap').height(jQuery('#' + content_id).height());
 	}
@@ -141,8 +141,8 @@ var _show_favorite = function(kind) {
 	*/
 	jQuery('#footer_favorite_favorite_wrap').show();
 	jQuery('#footer_favorite_share_wrap').show();
-	jQuery('#footer_favorite_frame').css('margin-top', '38px');
-	jQuery('#footer_favorite_frame').height(jQuery(window).height() - 38);	
+	jQuery('#footer_favorite_frame').css('margin-top', '34px');
+	jQuery('#footer_favorite_frame').height(jQuery(window).height() - 34);	
 	jQuery('#footer_favorite_frame').slideDown(_fadeTime);	
 };
 // 关闭收藏与分享POP层
@@ -154,8 +154,8 @@ var _show_favorite_page = function(postid) {
 	jQuery('#mb_favorite_page_content').empty();
 	jQuery('#mb_header_left').hide();
 	jQuery('#mb_header_favorite_back').show();
-	jQuery('#mb_favorite_page').css('margin-top', '38px');
-	jQuery('#mb_favorite_page').height(jQuery(window).height() - 38);	
+	jQuery('#mb_favorite_page').css('margin-top', '34px');
+	jQuery('#mb_favorite_page').height(jQuery(window).height() - 34);	
 	jQuery('#mb_favorite_page').slideDown(_fadeTime);
 	jQuery('#mb_favorite_page_content').load( '?p=' + postid + '&single=true&favorite=true', 
 		function() {
@@ -171,8 +171,8 @@ var _close_favorite_page = function() {
 // 显示评价POP层
 var _show_freeback = function() {
 	_close_pop_all();
-	jQuery('#footer_freeback').css('margin-top', '38px');
-	jQuery('#footer_freeback').height(jQuery(window).height() - 38);	
+	jQuery('#footer_freeback').css('margin-top', '34px');
+	jQuery('#footer_freeback').height(jQuery(window).height() - 34);	
 	jQuery('#footer_freeback').slideDown(_fadeTime);	
 };
 // 关闭评价POP层
@@ -203,8 +203,8 @@ var _show_comment = function() {
 	jQuery('#matchbox_comment_loading_circle').hide();
 	jQuery('#matchbox_comment_status').empty();
 	jQuery('#matchbox_submit_comment').show();
-	jQuery('#footer_comment').css('margin-top', '38px');	
-	jQuery('#footer_comment').height(jQuery(window).height() - 38);	
+	jQuery('#footer_comment').css('margin-top', '34px');	
+	jQuery('#footer_comment').height(jQuery(window).height() - 34);	
 	jQuery('#footer_comment').slideDown(_fadeTime);
 	_hide_freeback();
 };
@@ -289,8 +289,8 @@ jQuery(function(){
 	// 查看收藏ClickEvent
 	jQuery('#link_list_favorite').bind(_clickEventName, function(event) {
 		jQuery('#footer_favorite_frame').hide();
-		jQuery('#favorite_list').css('margin-top', '38px');
-		jQuery('#favorite_list').height(jQuery(window).height() - 38);	
+		jQuery('#favorite_list').css('margin-top', '34px');
+		jQuery('#favorite_list').height(jQuery(window).height() - 34);	
 		jQuery('#favorite_list').slideDown(_fadeTime);
 		favorite.Items();
 	});
