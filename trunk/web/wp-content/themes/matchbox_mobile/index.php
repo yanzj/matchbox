@@ -53,7 +53,7 @@
 			    <span></span>
 			    <span></span>
 			</div>
-			<div><p>Shine</p><p>A</p><p>Light</p></div>
+			<div><p style="line-height:22px;margin:0">Shine</p><p style="line-height:22px;margin:0">A</p><p style="line-height:22px;margin:0">Light</p></div>
 		</div>
 		<div id="mySwipe" class="swiper-container">
 			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper">
