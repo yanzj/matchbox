@@ -288,7 +288,7 @@ jQuery(function(){
 	});
 	// 查看收藏ClickEvent
 	jQuery('#link_list_favorite').bind(_clickEventName, function(event) {
-		_hide_favorite();
+		jQuery('#footer_favorite_frame').hide();
 		jQuery('#favorite_list').css('margin-top', '38px');
 		jQuery('#favorite_list').height(jQuery(window).height() - 38);	
 		jQuery('#favorite_list').slideDown(_fadeTime);
@@ -438,7 +438,7 @@ var _load_post = function(idx, surplus, first) {
 		// 分享连接
 		var shareUrl = SITE_URL + '/' + url;
 		//jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
-		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?appkey=appkey&url=' + shareUrl + '&title=' + jQuery('#mb_post_title_' + id).val());
+		//jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?appkey=appkey&url=' + shareUrl + '&title=' + jQuery('#mb_post_title_' + id).val());
 		//jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 	}
 };

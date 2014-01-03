@@ -53,7 +53,7 @@
 			    <span></span>
 			    <span></span>
 			</div>
-			<div>Loading...</div>
+			<div><p>Shine</p><p>A</p><p>Light</p></div>
 		</div>
 		<div id="mySwipe" class="swiper-container">
 			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper">
@@ -122,7 +122,7 @@
 		
 		<div class="mb_favorite_title"><a id="link_list_favorite" class="mb_menu_link" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
 	</div>
-	<div id="footer_favorite_share_wrap" style="display:block;">
+	<div id="footer_favorite_share_wrap" style="display:none;">
 		<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 		<div class="mb_favorite_sharp_group">
 			<!--
