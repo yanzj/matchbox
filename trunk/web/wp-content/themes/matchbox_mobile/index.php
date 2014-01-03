@@ -313,6 +313,7 @@
 		
 		
 		_load_post(current_post, 5, true);
+		_init_player(my_array[0]);
 
 	});
 </script>
