@@ -1,4 +1,4 @@
-var _clickEventName = 'click';
+var _clickEventName = 'touchstart';
 var _fadeTime = 500;
 var sUserAgent = navigator.userAgent.toLowerCase(); 
 var bAndroid = sUserAgent.match(/android/i) == 'android';
@@ -39,7 +39,7 @@ var favorite = {
 		var ids = favorite.split(',');
 		for (i = ids.length - 1; i >= 0 ; i--) {
 			if (ids[i]) {
-				jQuery('#favorite_content_ul').append(jQuery('<li><a onclick="_show_favorite_page(' + ids[i] + ')">' + localStorage.getItem('favorite_' + ids[i]) + '</a></li>'));
+				jQuery('#favorite_content_ul').append(jQuery('<li><a ontouchstart="_show_favorite_page(' + ids[i] + ')">' + localStorage.getItem('favorite_' + ids[i]) + '</a></li>'));
 			}
 		}
 	}

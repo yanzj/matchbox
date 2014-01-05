@@ -33,7 +33,7 @@
 </div>
 <div class="md_ad" style="display:none;">
 	<a href="#" target="_blank">
-		<img src="<?php echo $SITE_URL; ?>wp-content/ad/main.jpg" 
+		<img src="<?php echo $SITE_URL;?>/wp-content/ad/main.jpg" 
 			style="width:100%;height:100%;"/></a>
 	<a class="ad_close">关闭</a>
 </div>
