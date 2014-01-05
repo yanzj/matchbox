@@ -15,7 +15,6 @@
 			<?php the_content(); ?>
 		</div>
 	</div>
-	
 </article>
-<div id="height_mathbox_content_<?php the_ID(); ?>" style="overflow-x: hidden"></div>
+<div id="xheight_mathbox_content_<?php the_ID(); ?>" style="height:1px; overflow-x: hidden"></div>
 

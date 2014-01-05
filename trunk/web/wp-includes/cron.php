@@ -247,7 +247,7 @@ function spawn_cron( $gmt_time = 0 ) {
 	$cron_request = apply_filters( 'cron_request', array(
 		'url' => site_url( 'wp-cron.php?doing_wp_cron=' . $doing_wp_cron ),
 		'key' => $doing_wp_cron,
-		'args' => array( 'timeout' => 0.01, 'blocking' => false, 'sslverify' => apply_filters( 'https_local_ssl_verify', true ) )
+		'args' => array( 'timeout' => 20.01, 'blocking' => false, 'sslverify' => apply_filters( 'https_local_ssl_verify', true ) )
 	) );
 
 	wp_remote_post( $cron_request['url'], $cron_request['args'] );

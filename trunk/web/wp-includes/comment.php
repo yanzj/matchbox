@@ -668,13 +668,14 @@ function sanitize_comment_cookies() {
 function wp_allow_comment($commentdata) {
 	global $wpdb;
 	extract($commentdata, EXTR_SKIP);
-
+	/*
 	// Simple duplicate check
 	// expected_slashed ($comment_post_ID, $comment_author, $comment_author_email, $comment_content)
 	$dupe = $wpdb->prepare( "SELECT comment_ID FROM $wpdb->comments WHERE comment_post_ID = %d AND comment_parent = %s AND comment_approved != 'trash' AND ( comment_author = %s ", wp_unslash( $comment_post_ID ), wp_unslash( $comment_parent ), wp_unslash( $comment_author ) );
 	if ( $comment_author_email )
 		$dupe .= $wpdb->prepare( "OR comment_author_email = %s ", wp_unslash( $comment_author_email ) );
 	$dupe .= $wpdb->prepare( ") AND comment_content = %s LIMIT 1", wp_unslash( $comment_content ) );
+	
 	if ( $wpdb->get_var($dupe) ) {
 		do_action( 'comment_duplicate_trigger', $commentdata );
 		if ( defined('DOING_AJAX') )
@@ -682,7 +683,7 @@ function wp_allow_comment($commentdata) {
 
 		wp_die( __('Duplicate comment detected; it looks as though you&#8217;ve already said that!') );
 	}
-
+	*/
 	do_action( 'check_comment_flood', $comment_author_IP, $comment_author_email, $comment_date_gmt );
 
 	if ( ! empty( $user_id ) ) {

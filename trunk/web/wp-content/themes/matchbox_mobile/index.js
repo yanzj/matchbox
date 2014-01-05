@@ -39,7 +39,7 @@ var favorite = {
 		var ids = favorite.split(',');
 		for (i = ids.length - 1; i >= 0 ; i--) {
 			if (ids[i]) {
-				jQuery('#favorite_content_ul').append(jQuery('<li><a ontouchstart="_show_favorite_page(' + ids[i] + ')">' + localStorage.getItem('favorite_' + ids[i]) + '</a></li>'));
+				jQuery('#favorite_content_ul').append(jQuery('<li><a onclick="_show_favorite_page(' + ids[i] + ')">' + localStorage.getItem('favorite_' + ids[i]) + '</a></li>'));
 			}
 		}
 	}
@@ -243,19 +243,18 @@ var _submit_comment = function() {
 			jQuery('#matchbox_comment_status').show();
 		});
 };
-
-jQuery(function(){		
-	var firstUsing = function () {
-		var name = 'lastdate';
-		var today = _get_date_str();
-		var ret = false;
-		lastdate = localStorage.getItem(name);
-		if (!lastdate || lastdate != today) {
-			ret = true;
-		} 
-		localStorage.setItem(name,today);
-        return ret;
-	}
+var firstUsing = function () {
+	var name = 'lastdate';
+	var today = _get_date_str();
+	var ret = false;
+	lastdate = localStorage.getItem(name);
+	if (!lastdate || lastdate != today) {
+		ret = true;
+	} 
+	localStorage.setItem(name,today);
+    return ret;
+}
+function showAD() {
 	if (firstUsing()) {
 		setTimeout('jQuery(".md_ad").fadeIn("slow")',100);
 		setTimeout('jQuery(".md_ad").fadeOut("slow")',4000);
@@ -263,22 +262,23 @@ jQuery(function(){
 			jQuery(".md_ad").hide("slow");
 		});
 	}
-	
+}
+jQuery(function(){		
 	jQuery('#footer_favorite').bind(_clickEventName, function(event) {
 	 	event.stopPropagation();
 	});
 	// 收藏与分享ClickEvent
-	jQuery('#btn_favorite').bind(_clickEventName, function(event) {
+	jQuery('#mb_header_right').bind(_clickEventName, function(event) {
 		_show_favorite();	
 	});
 	
 	// 评价ClickEvent
-	jQuery('#btn_feedback').bind(_clickEventName, function(event) {
+	jQuery('#mb_header_left').bind(_clickEventName, function(event) {
 		_show_freeback();	
 	});	
 	
 	// 收藏本文ClickEvent
-	jQuery('#link_add_favorite').bind(_clickEventName, function(event) {
+	jQuery('#link_add_favorite').bind('click', function(event) {
 		var post_id	= jQuery('#favorite_current_post_id').val();
 		var post_title = jQuery('#mb_post_title_' + post_id).val();
 		favorite.Add(post_id, post_title);
@@ -286,14 +286,14 @@ jQuery(function(){
 		jQuery('#link_remove_favorite').show();
 	});
 	// 取消收藏ClickEvent
-	jQuery('#link_remove_favorite').bind(_clickEventName, function(event) {
+	jQuery('#link_remove_favorite').bind('click', function(event) {
 		var post_id	= jQuery('#favorite_current_post_id').val();
 		favorite.Remove(post_id);
 		jQuery('#link_remove_favorite').hide();
 	  	jQuery('#link_add_favorite').show();
 	});
 	// 查看收藏ClickEvent
-	jQuery('#link_list_favorite').bind(_clickEventName, function(event) {
+	jQuery('#link_list_favorite').bind('click', function(event) {
 		jQuery('#footer_favorite_frame').hide();
 		jQuery('#favorite_list').css('margin-top', '34px');
 		jQuery('#favorite_list').height(jQuery(window).height() - 34);	
@@ -301,27 +301,27 @@ jQuery(function(){
 		favorite.Items();
 	});
 	// 收藏与分享取消Clickvent
-	jQuery('#mb_header_favorite_back').bind(_clickEventName, function(event) {
+	jQuery('#mb_header_favorite_back').bind('click', function(event) {
 		  _close_favorite_page();
 	});
 	// 查看收藏取消Clickvent
-	jQuery('#btn_cancel_list_favorite').bind(_clickEventName, function(event) {
+	jQuery('#btn_cancel_list_favorite').bind('click', function(event) {
 		  jQuery('#favorite_list').slideUp(_fadeTime);
 		  
 	});
 	// 收藏与分享空白部分Clickvent
-	jQuery('#footer_favorite_frame').bind(_clickEventName, function(event) {
+	jQuery('#footer_favorite_frame').bind('click', function(event) {
 		  _hide_favorite();
 	});
 	jQuery('#footer_freeback').bind(_clickEventName, function(event) {
 		  _hide_freeback();
 	});
 	// 评价取消Clickvent
-	jQuery('#btn_cancel_freeback').bind(_clickEventName, function(event) {
+	jQuery('#btn_cancel_freeback').bind('click', function(event) {
 		  jQuery('#footer_freeback').slideUp(_fadeTime);
 	});
 	/* 信息页面控制 */
-	jQuery('#btn_header_back').bind("click", function(event) {
+	jQuery('#mb_header_back').bind(_clickEventName, function(event) {
 		_close_info_page();
 	});
 	jQuery('#btn_open_about').bind(_clickEventName, function(event) {
@@ -398,7 +398,7 @@ var _load_post = function(idx, surplus, first) {
 		     function () {
 		        jQuery('#mb_ad_link_' + id).hide();
 		     }
-		 ).bind(_clickEventName);
+		 ).bind('click');
 		 
 		 jQuery('#mb_ad_link_' + id).bind(_clickEventName, function(event) {
 		 	event.stopPropagation();

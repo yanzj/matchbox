@@ -19,23 +19,13 @@
 </head>
 <body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:34px;">
 <div id="masthead" class="mb_header">
-	<div id="mb_header_left" class="mb_header_left">
-		<img id="btn_feedback" src="<?php echo $TEMPLATE_URL; ?>/images/fun_left.png"/></div>	
-	<div id="mb_header_right" class="mb_header_right">
-		<img id="btn_favorite" src="<?php echo $TEMPLATE_URL; ?>/images/fun_right.png"/></div>
-	<div id="mb_header_back" class="mb_header_right" style="display:none;">
-		<img id="btn_header_back" src="<?php echo $TEMPLATE_URL; ?>/images/fun_right_back.png"/></div>
-	<div id="mb_header_favorite_back" class="mb_header_left" style="display:none;">
-		<img id="btn_header_favorite_back" src="<?php echo $TEMPLATE_URL; ?>/images/fun_right_back2.png"/></div>
-	<div class="mb_header_center">
+	<div id="mb_header_left" class="mb_header_left" style="width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_left.png') no-repeat;background-size: 18px auto;height:32px;background-position-y:17px;"></div>
+	<div id="mb_header_right" class="mb_header_right" style="width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right.png') no-repeat;background-size: 18px auto;background-position-x: right;background-position-y: 7px;"></div>
+	<div id="mb_header_back" class="mb_header_right" style="display:none;width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right_back.png') no-repeat;background-size: 18px auto;background-position: 100% 7px;"></div>
+	<div id="mb_header_favorite_back" class="mb_header_left" style="display:none;width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right_back2.png') no-repeat;height:32px;background-position-y: 12px;"></div>
+	<div class="mb_header_center" onclick="_close_pop_all()">
 		<a><img class="mb_header_title" src="<?php echo $TEMPLATE_URL; ?>/images/title.png"/></a>
 	</div>
-</div>
-<div class="md_ad" style="display:none;">
-	<a href="#" target="_blank">
-		<img src="<?php echo $SITE_URL; ?>wp-content/ad/main.jpg" 
-			style="width:100%;height:100%;"/></a>
-	<a class="ad_close">关闭</a>
 </div>
 
 <div id="main" class="mb_content" data-role="content" data-theme="m">

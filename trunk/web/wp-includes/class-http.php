@@ -952,7 +952,7 @@ class WP_Http_Streams {
 		if ( !WP_DEBUG )
 			$handle = @fopen($url, 'r', false, $context);
 		else
-			$handle = fopen($url, 'r', false, $context);
+			$handle = @fopen($url, 'r', false, $context);
 
 		if ( ! $handle )
 			return new WP_Error('http_request_failed', sprintf(__('Could not open handle for fopen() to %s'), $url));

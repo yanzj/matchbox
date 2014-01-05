@@ -15,18 +15,13 @@
 	<link rel='stylesheet' id='twentythirteen-style-css'  href='<?php echo $TEMPLATE_URL; ?>/style.css' type='text/css' media='all' />
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/jquery/jquery.js'></script>
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/jquery/jquery-migrate.min.js'></script>
-	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/phonegap/cordova.js'></script>
 </head>
 <body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;margin-bottom:2px;">
 <div id="masthead" class="mb_header">
-	<div id="mb_header_left" class="mb_header_left">
-		<img id="btn_feedback" src="<?php echo $TEMPLATE_URL; ?>/images/fun_left.png"/></div>	
-	<div id="mb_header_right" class="mb_header_right">
-		<img id="btn_favorite" src="<?php echo $TEMPLATE_URL; ?>/images/fun_right.png"/></div>
-	<div id="mb_header_back" class="mb_header_right" style="display:none;">
-		<img id="btn_header_back" src="<?php echo $TEMPLATE_URL; ?>/images/fun_right_back.png"/></div>
-	<div id="mb_header_favorite_back" class="mb_header_left" style="display:none;">
-		<img id="btn_header_favorite_back" src="<?php echo $TEMPLATE_URL; ?>/images/fun_right_back2.png"/></div>
+	<div id="mb_header_left" class="mb_header_left" style="width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_left.png') no-repeat;background-size: 18px auto;height:32px;background-position-y:16px;"></div>
+	<div id="mb_header_right" class="mb_header_right" style="width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right.png') no-repeat;background-size: 18px auto;background-position-x: right;background-position-y: 6px;"></div>
+	<div id="mb_header_back" class="mb_header_right" style="display:none;width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right_back.png') no-repeat;background-size: 16px auto;background-position: 100% 8px;"></div>
+	<div id="mb_header_favorite_back" class="mb_header_left" style="display:none;width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right_back2.png') no-repeat;height:32px;background-position-y: 11px;"></div>
 	<div class="mb_header_center" onclick="_close_pop_all()">
 		<a><img class="mb_header_title" src="<?php echo $TEMPLATE_URL; ?>/images/title.png"/></a>
 	</div>
@@ -34,7 +29,7 @@
 <div class="md_ad" style="display:none;">
 	<a href="#" target="_blank">
 		<img src="<?php echo $SITE_URL;?>/wp-content/ad/main.jpg" 
-			style="width:100%;height:100%;"/></a>
+			style="width:100%;height:100%;" onload="showAD()"/></a>
 	<a class="ad_close">关闭</a>
 </div>
 
@@ -47,13 +42,7 @@
 	$_postdates = array();
 ?>
 		<div class="preloader">
-			<div class='loading'>
-			    <span></span>
-			    <span></span>
-			    <span></span>
-			    <span></span>
-			</div>
-			<div><p style="line-height:22px;margin:0">Shine</p><p style="line-height:22px;margin:0">A</p><p style="line-height:22px;margin:0">Light</p></div>
+			<div style="margin-top:160px"><p style="line-height:18px;margin:0">Shine</p><p style="line-height:18px;margin:0">A</p><p style="line-height:18px;margin:0">Light</p></div>
 		</div>
 		<div id="mySwipe" class="swiper-container">
 			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper">
@@ -141,10 +130,12 @@
 		</div>
 		-->
 	</div>
+	<!--
 	<div class="mb_favorite_share_bottom">
 		<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png" 
 			onclick="javascript:_hide_favorite();"/>
 	</div>
+	-->
 </div>
 </div>
 <!-- 关于与评价 -->
@@ -167,9 +158,11 @@
 	<div class="matchbox_freeback_title">
 		<a  id="btn_open_business" class="mb_menu_link">商业合作</a>
 	</div>
+	<!--
 	<div class="matchbox_comment_buttongroup">
 		<img id="btn_cancel_freeback" class="btn_cancel_freeback" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png" />
 	</div>
+	-->
 	</div>
 </div>
 <!-- 信息页面 -->
@@ -223,7 +216,7 @@
 			<div><textarea id="comment" name="comment" rows="15" style="width:100%;height:200px;"></textarea></div>
 			<div id="matchbox_comment_loading" class="matchbox_comment_loading">
 				<div id='matchbox_comment_loading_circle' style='margin-right: 30px;'>
-					<img src="<?php echo $TEMPLATE_URL; ?>/images/fb.gif" />
+					<img src="<?php echo $TEMPLATE_URL; ?>/images/fb.gif" style="height:10px;"/>
 				</div>
 				<div style='clear: both; float: none;'></div>
 			</div>

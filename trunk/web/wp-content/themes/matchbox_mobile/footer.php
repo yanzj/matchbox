@@ -50,10 +50,12 @@
 		</div>
 		*/?>
 	</div>
+	<!--
 	<div class="mb_favorite_share_bottom">
 		<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png" 
 			onclick="javascript:_hide_favorite();"/>
 	</div>
+	-->
 </div>
 </div>
 <!-- 关于与评价 -->
@@ -79,13 +81,13 @@
 		<a  id="btn_open_business" class="mb_menu_link">商业合作</a>
 	</div>
 	*/?>
+	<!--
 	<div class="matchbox_comment_buttongroup">
-		<!--
-		<button id="btn_cancel_freeback" class="cancel_botton">&nbsp;&nbsp;取&nbsp;&nbsp;消&nbsp;&nbsp;</button>
-		-->
+		
 		
 		<img id="btn_cancel_freeback" class="btn_cancel_freeback" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png" />
 	</div>
+	-->
 </div>
 <!-- 信息页面 -->
 <div id="mb_info_page" class="mb_info_page pop_page" style="display:none;">
