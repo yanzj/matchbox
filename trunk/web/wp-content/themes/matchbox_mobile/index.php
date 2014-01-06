@@ -26,13 +26,11 @@
 		<a><img class="mb_header_title" src="<?php echo $TEMPLATE_URL; ?>/images/title.png"/></a>
 	</div>
 </div>
-<div class="md_ad" style="display:none;">
-	<a href="#" target="_blank">
-		<img src="<?php echo $SITE_URL;?>/wp-content/ad/main.jpg" 
-			style="width:100%;height:100%;" onload="showAD()"/></a>
-	<a class="ad_close">关闭</a>
-</div>
-
+	
+<?php if ( function_exists('matchbox_ad_insert') ) : ?>
+<?php matchbox_ad_insert(); ?>
+<?php endif; ?>
+	
 <div id="main" class="mb_content" data-role="content" data-theme="m">
 		
 <?php 
