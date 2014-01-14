@@ -133,7 +133,7 @@ var _close_pop_all = function() {
 // 显示收藏与分享POP层
 var _show_favorite = function(kind) {
 	_close_pop_all();
-	/*
+
 	if ('f' == kind) {
 		jQuery('#footer_favorite_share_wrap').hide();
 		jQuery('#footer_favorite_favorite_wrap').show();
@@ -144,9 +144,9 @@ var _show_favorite = function(kind) {
 		jQuery('#footer_favorite_favorite_wrap').show();
 		jQuery('#footer_favorite_share_wrap').show();
 	}
-	*/
-	jQuery('#footer_favorite_favorite_wrap').show();
-	jQuery('#footer_favorite_share_wrap').show();
+
+	//jQuery('#footer_favorite_favorite_wrap').show();
+	//jQuery('#footer_favorite_share_wrap').show();
 	jQuery('#footer_favorite_frame').css('margin-top', '34px');
 	jQuery('#footer_favorite_frame').height(jQuery(window).height() - 34);	
 	jQuery('#footer_favorite_frame').slideDown(_fadeTime);	
@@ -343,6 +343,12 @@ jQuery(function(){
 		_show_comment();
 		event.stopPropagation();
 	});
+	jQuery('#footer_freeback_wrap').bind('touchstart', function(event) {
+	 	event.stopPropagation();
+	});
+	jQuery('#footer_freeback_wrap').bind('click', function(event) {
+	 	event.stopPropagation();
+	});
 });
 	
 
@@ -449,9 +455,9 @@ var _load_post = function(idx, surplus, first) {
 		jQuery('#favorite_current_post_id').val(id);
 			
 		// 分享连接
-		var shareUrl = SITE_URL + '/' + url;
+		var shareUrl = SITE_URL + '/?share=' + id;
 		//jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
-		//jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?appkey=appkey&url=' + shareUrl + '&title=' + jQuery('#mb_post_title_' + id).val());
+		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + shareUrl + '&title=' + jQuery('#mb_post_title_' + id).val());
 		//jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 	}
 };

@@ -45,6 +45,11 @@
 		<div id="mySwipe" class="swiper-container">
 			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper">
 	  			<?php 
+				if(isset($_REQUEST['share'])):
+					query_posts('posts_per_page=-1');
+				else:
+					query_posts('p=' . $_REQUEST['share']);
+				endif;
 				query_posts('posts_per_page=-1');
 	  			while ( have_posts() ) : 
 	  				the_post(); 
@@ -110,16 +115,17 @@
 		
 		<div class="mb_favorite_title"><a id="link_list_favorite" class="mb_menu_link" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
 	</div>
-	<div id="footer_favorite_share_wrap" style="display:none;">
-		<?php /*
+	<div id="footer_favorite_share_wrap">
 		<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 		<div class="mb_favorite_sharp_group">
+			<?php /*
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_weixin" href="" title="分享到微信" class="share_icon">
 						<img src="<?php echo $TEMPLATE_URL; ?>/images/weixin32.png"/></a></div>
 				<div class="share_icon_text">微信</div>
 			</div>
+			*/ ?>
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_sina" href="" title="分享到新浪微博" class="share_icon" target="_blank">
@@ -127,7 +133,7 @@
 				<div class="share_icon_text">新浪微博</div>
 			</div>
 		</div>
-		*/ ?>
+		
 	</div>
 	<?php /* --
 	<div class="mb_favorite_share_bottom">
