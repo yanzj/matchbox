@@ -153,7 +153,7 @@ var _show_favorite = function(kind) {
 };
 // 关闭收藏与分享POP层
 var _hide_favorite = function() {
-	jQuery('#footer_favorite_frame').slideUp(_fadeTime);
+	jQuery('#footer_favorite_frame').slideUp();
 };
 // 打开收藏文章
 var _show_favorite_page = function(postid) {
@@ -170,7 +170,7 @@ var _show_favorite_page = function(postid) {
 };
 // 关闭收藏文章
 var _close_favorite_page = function() {
-	jQuery('#mb_favorite_page').slideUp(_fadeTime);
+	jQuery('#mb_favorite_page').slideUp();
 	jQuery('#mb_header_favorite_back').hide();
 	jQuery('#mb_header_left').show();
 };
@@ -200,19 +200,20 @@ var _open_info_page = function(kind) {
 };
 // 关闭信息页面
 var _close_info_page = function() {
-	jQuery('#mb_info_page').slideUp(_fadeTime);
+	jQuery('#mb_info_page').slideUp();
 	jQuery('#mb_header_back').hide();
 	jQuery('#mb_header_right').show();
 };
 // 打开评价表单
 var _show_comment = function() {
+	_hide_freeback();
 	jQuery('#matchbox_comment_loading_circle').hide();
 	jQuery('#matchbox_comment_status').empty();
 	jQuery('#matchbox_submit_comment').show();
 	jQuery('#footer_comment').css('margin-top', '34px');	
 	jQuery('#footer_comment').height(jQuery(window).height() - 34);	
 	jQuery('#footer_comment').slideDown(_fadeTime);
-	_hide_freeback();
+
 };
 var _hide_comment = function() {
 	_show_freeback();
@@ -284,6 +285,7 @@ jQuery(function(){
 		favorite.Add(post_id, post_title);
 		jQuery('#link_add_favorite').hide();
 		jQuery('#link_remove_favorite').show();
+		event.stopPropagation();
 	});
 	// 取消收藏ClickEvent
 	jQuery('#link_remove_favorite').bind('click', function(event) {
@@ -291,6 +293,7 @@ jQuery(function(){
 		favorite.Remove(post_id);
 		jQuery('#link_remove_favorite').hide();
 	  	jQuery('#link_add_favorite').show();
+	  	event.stopPropagation();
 	});
 	// 查看收藏ClickEvent
 	jQuery('#link_list_favorite').bind('click', function(event) {
@@ -301,16 +304,16 @@ jQuery(function(){
 		favorite.Items();
 	});
 	// 收藏与分享取消Clickvent
-	jQuery('#mb_header_favorite_back').bind('click', function(event) {
+	jQuery('#mb_header_favorite_back').bind(_clickEventName, function(event) {
 		  _close_favorite_page();
 	});
 	// 查看收藏取消Clickvent
 	jQuery('#btn_cancel_list_favorite').bind('click', function(event) {
-		  jQuery('#favorite_list').slideUp(_fadeTime);
+		  jQuery('#favorite_list').slideUp();
 		  
 	});
 	// 收藏与分享空白部分Clickvent
-	jQuery('#footer_favorite_frame').bind('click', function(event) {
+	jQuery('#footer_favorite_frame').bind(_clickEventName, function(event) {
 		  _hide_favorite();
 	});
 	jQuery('#footer_freeback').bind(_clickEventName, function(event) {
@@ -318,23 +321,27 @@ jQuery(function(){
 	});
 	// 评价取消Clickvent
 	jQuery('#btn_cancel_freeback').bind('click', function(event) {
-		  jQuery('#footer_freeback').slideUp(_fadeTime);
+		  jQuery('#footer_freeback').slideUp();
 	});
 	/* 信息页面控制 */
 	jQuery('#mb_header_back').bind(_clickEventName, function(event) {
 		_close_info_page();
 	});
-	jQuery('#btn_open_about').bind(_clickEventName, function(event) {
+	jQuery('#btn_open_about').bind('click', function(event) {
 		_open_info_page('about');
 	});
-	jQuery('#btn_open_contribute').bind(_clickEventName, function(event) {
+	jQuery('#btn_open_contribute').bind('click', function(event) {
 		_open_info_page('contribute');
 	});
-	jQuery('#btn_open_business').bind(_clickEventName, function(event) {
+	jQuery('#btn_open_business').bind('click', function(event) {
 		_open_info_page('business');
 	});
-	jQuery('#matchbox_submit_comment').bind(_clickEventName, function(event) {
+	jQuery('#matchbox_submit_comment').bind('click', function(event) {
 		_submit_comment();
+	});
+	jQuery('#btn_open_freeback').bind('click', function(event) {
+		_show_comment();
+		event.stopPropagation();
 	});
 });
 	

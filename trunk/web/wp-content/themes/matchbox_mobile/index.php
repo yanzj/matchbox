@@ -45,6 +45,7 @@
 		<div id="mySwipe" class="swiper-container">
 			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper">
 	  			<?php 
+				query_posts('posts_per_page=-1');
 	  			while ( have_posts() ) : 
 	  				the_post(); 
 					$_pushscripts .= "my_array.push('" . $post->ID . "');"; 
@@ -59,7 +60,7 @@
 						break;
 					endif;
 				?>
-			
+				<div style="display:none"><?php echo $_strdate ?> <?php echo count($_postdates) ?></div>
 				<div id="mathbox_content_<?php echo $post->ID;?>" class="doc_content swiper-slide">
 					<?php 
 						if ($_postscount <= 1): 
@@ -110,7 +111,7 @@
 		<div class="mb_favorite_title"><a id="link_list_favorite" class="mb_menu_link" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
 	</div>
 	<div id="footer_favorite_share_wrap" style="display:none;">
-		<!--
+		<?php /*
 		<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 		<div class="mb_favorite_sharp_group">
 			<div class="share_icon_wrap">
@@ -126,14 +127,14 @@
 				<div class="share_icon_text">新浪微博</div>
 			</div>
 		</div>
-		-->
+		*/ ?>
 	</div>
-	<!--
+	<?php /* --
 	<div class="mb_favorite_share_bottom">
 		<img id="btn_cancel_favorite" class="btn_cancel_favorite" src="<?php echo $TEMPLATE_URL; ?>/images/cancel.png" 
 			onclick="javascript:_hide_favorite();"/>
 	</div>
-	-->
+	--*/ ?>
 </div>
 </div>
 <!-- 关于与评价 -->
@@ -151,7 +152,7 @@
 	</div>
 	-->
 	<div class="matchbox_freeback_title">
-		<a onclick="_show_comment()" class="mb_menu_link">意见反馈</a>
+		<a id="btn_open_freeback" class="mb_menu_link">意见反馈</a>
 	</div>
 	<div class="matchbox_freeback_title">
 		<a  id="btn_open_business" class="mb_menu_link">商业合作</a>
@@ -168,25 +169,55 @@
 	<!-- 关于火柴盒 -->
 	<div id="mb_info_page_about" class="mb_info_page_sub" style="display:none">
 		<p class="title_area">关于火柴盒</p>
-		<span class="text_area">　　是什么使眼睛发潮？为什么会想起你？窗外黑黝黝的屋脊，像几条卧鲸。深深浅浅的灯光，似乎要从万千人生故事中，泄露一点什么消息。好比一本书的封面，引诱你去翻阅。不料记忆所及的那一页，竟是老朋友你。<br/>
+		<span class="text_area">　Shine A Light。《火柴盒》是一个分享打动人心事物的APP。每天用10分钟的细碎时光，点燃内心的一点小光明。<br/><br/>
 
-　　			学生时代你的外号叫蚂蚱。你长得尤其高又非常瘦，不是林黛玉类型的纤细较弱，而是真正的皮包骨头。你有必定要叫女孩子们伤心不已的凸额头，又粗又硬的头发编成结结实实两条辫子，撅在耳后。
+《火柴盒》共有三个栏目。<br/><br/>
+
+1. 某月某日的猜：可能是一阕歌，一帧语录，一部冷门电影，一牍画,一条混不吝的段子......视读者的喜好和主创的心情而定。<br/><br/>
+
+2. 某月某日的诗：在不读诗的时代，我们读诗。在“诗人已死”的时代，我们读诗。艾略特说，诗歌不是感情的放纵，而是感情的逃避。我们不放纵，也不逃避，只是带着感情，静静读诗。 <br/><br/>
+
+3. 某月某日的文：文不在长，有情则灵。小说，散文，童话故事，随笔。可以来一点感悟，也可以来一发残酷。<br/><br/><br/>
+
+ &nbsp;&nbsp;&nbsp;在内容的选择上，我们会让原创和经典并存。所以如果你喜欢，可以给我们投稿，也可以给我们推荐你喜欢的事物。需要提到的是，我们绝对绝对不是心灵鸡汤，所以偶尔会有一些邪性和怀疑道德的内容分享，请淡定。<br/>
+
+  &nbsp;&nbsp;&nbsp;我们偶尔点亮火柴，用火柴独有的磷味和蓝焰，抛光日渐粗犷的人心。<br/><br/>
+
+
+《火柴盒》主创团队——<br/>
+
+主编大人：东方可爱<br/>
+文字编辑：菜菜在路上<br/>
+美术编辑：喵咪郭 刘刚<br/>
+音乐编辑：妹妹溜狗狗 Mavis<br/>
+金牌义工：猫老妞<br/>
+<br/><br/><br/><br/>
 			</span>
 	</div>
 	<!-- 投稿给我们 -->
 	<div id="mb_info_page_contribute" class="mb_info_page_sub" style="display:none">
 		<p class="title_area">投稿给我们</p>
 		<span class="text_area">
-				投稿给我们
-				... ...
+			无论是原创音乐，还是诗歌、小说、散文、段子等文字作品，还是插画、摄影、设计等图形作品，只要是你的得意之作，都可以给我们投稿！<br/><br/>
+			酬稿从优！<br/><br/>
+			投稿邮箱：<br/>
+match201311@qq.com<br/><br/>
+
+邮件标题请注明“原创”，并留下详细联系方式
 		</span>
 	</div>
 	<!-- 商业合作 -->
 	<div id="mb_info_page_business" class="mb_info_page_sub" style="display:none">
 		<p class="title_area">商业合作</p>
 		<span class="text_area">
-				商业合作
-				......
+				我们可以提供以下商业服务——<br/><br/>
+
+火柴盒app广告合作、APP产品定制、手机游戏定制、新媒体解决方案<br/><br/>
+
+
+如有合作需求，请把贵公司信息、详细需求、预算、联系方式等发送至邮箱：<br/>
+
+match2013@qq.com
 		</span>
 	</div>
 </div>
