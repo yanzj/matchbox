@@ -119,14 +119,14 @@
 	<div id="footer_favorite_share_wrap">
 		<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
 		<div class="mb_favorite_sharp_group">
-			<?php /*
+			<?php /*	*/ ?>
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_weixin" href="" title="分享到微信" class="share_icon">
 						<img src="<?php echo $TEMPLATE_URL; ?>/images/weixin32.png"/></a></div>
 				<div class="share_icon_text">微信</div>
 			</div>
-			*/ ?>
+		
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_sina" href="" title="分享到新浪微博" class="share_icon" target="_blank">
@@ -274,6 +274,7 @@ match2013@qq.com
 <script type="text/javascript">
 	var SITE_URL = '<?php echo $SITE_URL; ?>';
 </script>
+<script type="text/javascript" src="<?php echo $TEMPLATE_URL; ?>/share.js"></script>
 <script type="text/javascript" src="<?php echo $TEMPLATE_URL; ?>/index.js"></script>
 <script type="text/javascript">
 	favorite.Init();

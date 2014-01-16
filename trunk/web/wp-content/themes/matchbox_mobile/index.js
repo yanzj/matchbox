@@ -371,7 +371,23 @@ var _closeSplashScreen = function() {
         navigator.splashscreen.hide();
     }
 };
-    
+
+var _weixiShare = function(id) {
+	var title = jQuery('#mb_post_title_' + id).val();
+	var desc = '';
+	var url = SITE_URL + '/?share=' + id;
+	var pic = _findFirstImg(id);
+	console.log('url:%s; title:%s; pic: %s; desc: %s', url, title, pic, desc);
+	send_weixin(title url, desc, pic);
+}
+
+var _findFirstImg = function(id) {
+	var img = jQuery('#mathbox_content_'  + id + ' img:first');
+	if (img)
+		return img.attr('src');
+	return '';
+}
+
 var _load_post = function(idx, surplus, first) {
 	
 	if (myScroll) {
@@ -456,7 +472,7 @@ var _load_post = function(idx, surplus, first) {
 			
 		// 分享连接
 		var shareUrl = SITE_URL + '/?share=' + id;
-		//jQuery('#share_weixin').attr('href', 'javascript:alert(shareUrl + "\n微信扫描二维码分享")');
+		jQuery('#share_weixin').attr('href', 'javascript:_weixiShare(' + id + ')');
 		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + shareUrl + '&title=' + jQuery('#mb_post_title_' + id).val());
 		//jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 	}
