@@ -19,7 +19,7 @@ function onError(response){
     
 }
 
-function sendWebpageContent(url,title,desc,sendType){
+function sendWebpageContent(url,title,desc,png, sendType){
     Weixin.webpageContent(onSuccess,onError,"send",
                                    url,
                                    {
@@ -29,10 +29,11 @@ function sendWebpageContent(url,title,desc,sendType){
                                    scene:sendType || 0  //没有给就是0
                                    });
 }
-function send_weixin(){
+function send_weixin(url,title,desc,png){
+	/*
 		var post_id	= jQuery('#favorite_current_post_id').val();
 		var post_title = jQuery('#mb_post_title_' + post_id).val();
-		
-		sendWebpageContent(post_id, post_title);
+	*/
+		sendWebpageContent(url,title,desc,png, 0);
 }
 /*******************************************************************************/
