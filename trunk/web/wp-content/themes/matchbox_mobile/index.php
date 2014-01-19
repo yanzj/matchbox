@@ -13,6 +13,9 @@
 	<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
 	<meta name="format-detection" content="telephone=no">
 	<link rel='stylesheet' id='twentythirteen-style-css'  href='<?php echo $TEMPLATE_URL; ?>/style.css' type='text/css' media='all' />
+	<style>
+	.hide_pic,.hide_desc {display:none;}
+	</style>
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/jquery/jquery.js'></script>
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/jquery/jquery-migrate.min.js'></script>
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/phonegap/cordova.js'></script>
@@ -47,11 +50,11 @@
 			<div id="mySwipe-wrap" class="swipe-wrap swipe-wraper">
 	  			<?php 
 				if(isset($_REQUEST['share'])):
-					query_posts('posts_per_page=-1');
-				else:
 					query_posts('p=' . $_REQUEST['share']);
+				else:
+					query_posts('posts_per_page=-1');
 				endif;
-				query_posts('posts_per_page=-1');
+			
 	  			while ( have_posts() ) : 
 	  				the_post(); 
 					$_pushscripts .= "my_array.push('" . $post->ID . "');"; 
@@ -267,6 +270,7 @@ match2013@qq.com
 		</div>
 	</div>
 </div>
+
 </body>
 <?php /* <script type="text/javascript" src="<?php echo $TEMPLATE_URL; ?>/js/math.uuid.js"></script> */?>
 <script type="text/javascript" src="<?php echo $TEMPLATE_URL; ?>/js/iscroll.js"></script>

@@ -377,16 +377,31 @@ var _weixiShare = function(id) {
 	var title = jQuery('#mb_post_title_' + id).val();
 	var desc = '';
 	var url = SITE_URL + '/?share=' + id;
-	var pic = _findFirstImg(id);
-	console.log('url:%s; title:%s; pic: %s; desc: %s', url, title, pic, desc);
-	send_weixin(title, url, desc, pic);
+	var detail = _findDetail(id);
+	console.log('send weixin -- url:%s; title:%s; pic: %s; desc: %s', url, title, detail.pic, detail.desc);
+	send_weixin(title, url, detail.desc, detail.pic);
 }
 
-var _findFirstImg = function(id) {
-	var img = jQuery('#mathbox_content_'  + id + ' img:first');
-	if (img)
-		return img.attr('src');
-	return '';
+var _sinaShare = function(id) {
+	var title = jQuery('#mb_post_title_' + id).val();
+	var desc = '';
+	var url = SITE_URL + '/?share=' + id;
+	var detail = _findDetail(id);
+	console.log('send sina -- url:%s; title:%s; pic: %s; desc: %s', url, title, detail.pic, detail.desc);
+	window.showModalDialog('http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + url + '&title=' + title + '。\r\n' + detail.desc + '&pic=' + detail.pic);
+	//send_sina(title, url, detail.desc, detail.pic);
+}
+
+var _findDetail = function(id) {
+	var img = jQuery('#mathbox_content_'  + id + ' .hide_pic').text();
+	var desc = jQuery('#mathbox_content_'  + id + ' .hide_desc').text();
+	if (!img) {
+		img = '';
+	}
+	if (!desc) {
+		desc = '';
+	}
+	return {pic: img, desc: desc};
 }
 
 var _load_post = function(idx, surplus, first) {
@@ -474,7 +489,8 @@ var _load_post = function(idx, surplus, first) {
 		// 分享连接
 		var shareUrl = SITE_URL + '/?share=' + id;
 		jQuery('#share_weixin').attr('href', 'javascript:_weixiShare(' + id + ')');
-		jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + shareUrl + '&title=' + jQuery('#mb_post_title_' + id).val());
+		jQuery('#share_sina').attr('href', 'javascript:_sinaShare(' + id + ')');
+		//jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + shareUrl + '&title=' + jQuery('#mb_post_title_' + id).val());
 		//jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 	}
 };
