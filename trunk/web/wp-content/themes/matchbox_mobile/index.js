@@ -388,7 +388,7 @@ var _sinaShare = function(id) {
 	var url = SITE_URL + '/?share=' + id;
 	var detail = _findDetail(id);
 	console.log('send sina -- url:%s; title:%s; pic: %s; desc: %s', url, title, detail.pic, detail.desc);
-	window.showModalDialog('http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + url + '&title=' + title + '。\r\n' + detail.desc + '&pic=' + detail.pic);
+	window.showModalDialog('http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + url + '&title=' + title + '。' + detail.desc + '&pic=' + detail.pic);
 	//send_sina(title, url, detail.desc, detail.pic);
 }
 
