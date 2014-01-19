@@ -1,3 +1,4 @@
+
 var _clickEventName = 'touchstart';
 var _fadeTime = 500;
 var sUserAgent = navigator.userAgent.toLowerCase(); 
@@ -378,7 +379,7 @@ var _weixiShare = function(id) {
 	var url = SITE_URL + '/?share=' + id;
 	var pic = _findFirstImg(id);
 	console.log('url:%s; title:%s; pic: %s; desc: %s', url, title, pic, desc);
-	send_weixin(title url, desc, pic);
+	send_weixin(title, url, desc, pic);
 }
 
 var _findFirstImg = function(id) {
