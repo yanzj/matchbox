@@ -561,8 +561,9 @@ function adlink_shortcode($attr, $content = null) {
 		return $output;
 	*/
 	
-	return '<div id="mb_ad_link_' . $post_id . '" class="mb_ad_link" ><div class="mb_ad_link_wrap"><a id="mb_ad_link_a_' . $post_id . '" target="_blank" href="' 
-		. do_shortcode( $content ) . '">' . $attr['title'] . '</a></div></div>'; 
+	return '<div id="mb_ad_link_' . $post_id . '" class="mb_ad_link" ><div class="mb_ad_link_wrap"><a id="mb_ad_link_a_' . $post_id 
+		. '" target="_blank" href="javascript:openlink(\'' 
+		. do_shortcode( $content ) . '\');">' . $attr['title'] . '</a></div></div>'; 
 }
 
 remove_filter('the_content','wpautop'  );

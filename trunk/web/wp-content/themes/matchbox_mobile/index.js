@@ -448,6 +448,9 @@ var _load_post = function(idx, surplus, first) {
 		 jQuery('#mb_ad_link_' + id).bind(_clickEventName, function(event) {
 		 	event.stopPropagation();
 		 });
+		 jQuery('#mb_ad_link_' + id).bind('click', function(event) {
+		 	event.stopPropagation();
+		 });
 		 if (first) {
 		 	 _resize_height(content_id);
 		 }
