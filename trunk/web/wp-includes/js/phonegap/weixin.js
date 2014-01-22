@@ -47,3 +47,58 @@ var Weixin = {
 
 module.exports =Weixin;
 });
+
+
+document.addEventListener("deviceready",onDeviceReady,false);
+//微信发送
+send_weixin = function(title, url, desc, pic){
+	
+    var sendType=0 ; //好友
+    onConfirm_wx = function(e){
+		if(e == 2) {
+			sendType =1;
+		}
+		console.log("send..");
+		Weixin.webpageContent(
+			onSuccess,onError,"send",
+             url,
+            {
+            	title:title,
+                description:desc,
+                thumbUrl:pic,
+                scene:sendType
+             });
+		
+		console.log("send 完成");
+	};
+
+	navigator.notification.confirm(
+        '发送到哪里', // message
+         onConfirm_wx,            // callback to invoke with index of button pressed
+        '微信发送',           // title
+        ['好友','朋友圈']         // buttonLabels
+    );
+}
+function onSuccess(){
+   console.log('success');
+};
+
+function onError(response){
+    console.log('error' +response );
+};
+
+
+function onDeviceReady()
+{
+        registerApp();
+    //    setResponse();
+        console.log("device ok");
+}
+
+function registerApp(){
+    Weixin.registerApp(function(){
+                            registed=true;
+                            console.log("reg ok");
+                            navigator.splashscreen.hide();
+                            },onError,"wx9dafc063c6f7f2f5","火柴盒");
+}
