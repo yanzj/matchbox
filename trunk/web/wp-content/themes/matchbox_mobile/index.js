@@ -369,8 +369,9 @@ var circularHtml = '<div style="width:100%;margin:0 auto;text-align:center;"><di
 var _closeSplashScreen = function() {
 		document.addEventListener("deviceready", onDeviceReady, false);	
 		function onDeviceReady() {
-        navigator.splashscreen.hide();
-    }
+			console.log(" close ...");
+        //	navigator.splashscreen.hide();
+    	}
 };
 
 var _weixiShare = function(id) {
@@ -388,8 +389,21 @@ var _sinaShare = function(id) {
 	var url = SITE_URL + '/?share=' + id;
 	var detail = _findDetail(id);
 	console.log('send sina -- url:%s; title:%s; pic: %s; desc: %s', url, title, detail.pic, detail.desc);
-	window.showModalDialog('http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + url + '&title=' + title + '。' + detail.desc + '&pic=' + detail.pic);
+	//window.showModalDialog('http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + url + '&title=' + title + '。' + detail.desc + '&pic=' + detail.pic);
 	//send_sina(title, url, detail.desc, detail.pic);
+	var ref = window.open('http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + url + '&title=' + title + '。' + detail.desc + '&pic=' + detail.pic, '_blank','location=no,closebuttoncaption=退出');
+	/*ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+	ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+    ref.addEventListener('exit', function(event) { 
+     	alert(event.type); 
+    	ref.removeEventListener('loadstart', iabLoadStart);
+        ref.removeEventListener('loadstop', iabLoadStop);
+        ref.removeEventListener('loaderror', iabLoadError);
+        ref.removeEventListener('exit', iabClose);
+    
+    });
+	*/
+
 }
 
 var _findDetail = function(id) {
