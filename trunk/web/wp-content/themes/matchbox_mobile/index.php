@@ -18,7 +18,13 @@
 	</style>
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/jquery/jquery.js'></script>
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/jquery/jquery-migrate.min.js'></script>
+<?php $agent = strtolower($_SERVER['HTTP_USER_AGENT']); $android = (strpos($agent, 'android')) ? true : false;if (!$android) : ?>
 	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/phonegap/cordova.js'></script>
+<?php else: ?>
+	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/android/cordova-2.5.0.js'></script>
+	<script type='text/javascript' src='<?php echo $SITE_URL; ?>/wp-includes/js/android/weixin.js'></script>		
+<?php endif; ?>
+
 </head>
 <body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;margin-bottom:2px;">
 <div id="masthead" class="mb_header">
@@ -108,36 +114,43 @@
 	</div>
 </div>
 <!-- 分享与收藏 -->
+<div id="footer_favorite_frame_mark" style="position:fixed;left:0;top:0;width:100%;height:640px;display:none;z-index:99999;"></div>
 <div id="footer_favorite_frame" class="pop_page" style="display:none;overflow-y:scroll">
 <div id="footer_favorite" style="overflow-y:scroll">
 	<div id="footer_favorite_favorite_wrap">
 		<input type="hidden" id="favorite_current_post_id" value=""/>
 		<div class="mb_favorite_title">
-			<a id="link_add_favorite" href="#" class="mb_menu_link" style="display:none">&nbsp;收&nbsp;藏&nbsp;本&nbsp;文&nbsp;</a>
-			<a id="link_remove_favorite" href="#" class="mb_menu_link" style="display:none">&nbsp;取&nbsp;消&nbsp;收&nbsp;藏&nbsp;</a>
+			<a id="link_add_favorite" href="#" class="mb_menu_link" style="display:none">收藏本文</a>
+			<a id="link_remove_favorite" href="#" class="mb_menu_link" style="display:none">取消收藏</a>
 		</div>
 		
-		<div class="mb_favorite_title"><a id="link_list_favorite" class="mb_menu_link" href="#" >&nbsp;查&nbsp;看&nbsp;收&nbsp;藏&nbsp;</a></div>
+		<div class="mb_favorite_title"><a id="link_list_favorite" class="mb_menu_link" href="#" >查看收藏</a></div>
 	</div>
 	<div id="footer_favorite_share_wrap">
-		<div class="mb_favorite_title_s"><a id="title_share" >&nbsp;分&nbsp;享&nbsp;给&nbsp;朋&nbsp;友&nbsp;</a></div>
-		<div class="mb_favorite_sharp_group">
+		<div class="mb_favorite_title_s"><a id="title_share" ><span style="font-size:16px;">分享给朋友</span></a></div>
+	    <div style="width:100%;margin-top: 5px;" align="center">
+	    <div class="mb_favorite_sharp_group" style="width:90%">
 			<?php /*	*/ ?>
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_weixin" href="" title="分享到微信" class="share_icon">
-						<img src="<?php echo $TEMPLATE_URL; ?>/images/weixin32.png"/></a></div>
-				<div class="share_icon_text">微信</div>
+						<img src="<?php echo $TEMPLATE_URL; ?>/images/weixin32.png" class="share_img" /></a></div>
+				<div class="share_icon_text">微信好友</div>
 			</div>
-		
+			<div class="share_icon_wrap">
+				<div class="share_icon_img">
+					<a id="share_friends" href="" title="分享到朋友圈" class="share_icon">
+						<img src="<?php echo $TEMPLATE_URL; ?>/images/friends32.png" class="share_img"/></a></div>
+				<div class="share_icon_text">微信朋友圈</div>
+			</div>
 			<div class="share_icon_wrap">
 				<div class="share_icon_img">
 					<a id="share_sina" href="" title="分享到新浪微博" class="share_icon" target="_blank">
-						<img src="<?php echo $TEMPLATE_URL; ?>/images/weibo32.png"/></a></div>
+						<img src="<?php echo $TEMPLATE_URL; ?>/images/weibo32.png" class="share_img" /></a></div>
 				<div class="share_icon_text">新浪微博</div>
 			</div>
 		</div>
-		
+		</div>
 	</div>
 	<?php /* --
 	<div class="mb_favorite_share_bottom">
@@ -166,6 +179,9 @@
 	</div>
 	<div class="matchbox_freeback_title">
 		<a  id="btn_open_business" class="mb_menu_link">商业合作</a>
+	</div>
+	<div class="matchbox_freeback_title">
+		<a  id="btn_open_book" class="mb_menu_link">使用指南</a>
 	</div>
 	<!--
 	<div class="matchbox_comment_buttongroup">
@@ -230,6 +246,11 @@ match201311@qq.com<br/><br/>
 match2013@qq.com
 		</span>
 	</div>
+	<div id="mb_info_page_user_book" class="mb_info_page_sub pop_page" style="display:none;">
+	
+		<img src = "<?php echo $TEMPLATE_URL; ?>/images/book.jpg" width="100%">
+	</div>
+
 </div>
 <!-- 评价页面 -->
 <div id="footer_comment" class="pop_page" style="display:none;">
@@ -270,6 +291,8 @@ match2013@qq.com
 		</div>
 	</div>
 </div>
+
+
 
 </body>
 <?php /* <script type="text/javascript" src="<?php echo $TEMPLATE_URL; ?>/js/math.uuid.js"></script> */?>
@@ -348,6 +371,15 @@ match2013@qq.com
 		
 		_load_post(current_post, 5, true);
 		_init_player(my_array[0]);
+		
+		jQuery('#ad_image_' + my_array[0]).toggle(
+		     function () {
+		        jQuery('#mb_ad_link_' + my_array[0]).show();
+		     },
+		     function () {
+		        jQuery('#mb_ad_link_' + my_array[0]).hide();
+		     }
+		 ).bind('click');
 
 	});
 </script>

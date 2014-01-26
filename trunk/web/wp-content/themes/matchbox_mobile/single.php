@@ -25,6 +25,8 @@
 			</div>
 		</div>
 	</div>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/share.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/index.js"></script>
 <script type="text/javascript">
 	jQuery(function() {
 		jQuery('.favorites_link_group').hide();
@@ -48,7 +50,8 @@
 		<a href="<?php echo get_site_url();?>/?matchboxboss=lp"><- 返回</a>
 	</div>
 <?php endif ?>
-	<?php get_footer(); ?>
+</div>
+</body>
 <?php else: ?>
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">

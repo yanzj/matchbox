@@ -1,14 +1,14 @@
 // add for phonegap 
 var appId = 'wx9dafc063c6f7f2f5'; //please modify to your weichat application ID 
-function onBodyLoad()
-{		
-    document.addEventListener("deviceready", onDeviceReady, false);
-}
+
 
 function onDeviceReady()
 {
+	console.log('device ok....ing');
     registerApp();
+    navigator.splashscreen.hide();
 }
+document.addEventListener("deviceready", onDeviceReady, false);
 
 function onSuccess(){
     console.log('success');
@@ -30,10 +30,24 @@ function sendWebpageContent(url,title,desc,png, sendType){
                                    });
 }
 function send_weixin(url,title,desc,png){
-	/*
-		var post_id	= jQuery('#favorite_current_post_id').val();
-		var post_title = jQuery('#mb_post_title_' + post_id).val();
-	*/
-		sendWebpageContent(url,title,desc,png, 0);
+	sendWebpageContent(url,title,desc,png, 0);
 }
+//朋友圈
+function send_friends(url,title,desc,png){
+	sendWebpageContent(url,title,desc,png, 1);
+}
+
+function registerApp(){
+    Weixin.registerApp(function(){
+                            registed=true;
+                            console.log("reg ok");
+                            navigator.splashscreen.hide();
+                            },onError,"wx9dafc063c6f7f2f5","火柴盒");
+}
+
+function openlink(url){
+	//alert("open url " + url);
+	var ref = window.open("http://"+url, '_system', 'location=yes');
+}
+
 /*******************************************************************************/

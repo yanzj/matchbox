@@ -134,7 +134,10 @@ var _close_pop_all = function() {
 // 显示收藏与分享POP层
 var _show_favorite = function(kind) {
 	_close_pop_all();
-
+	kind ="";
+	console.log(kind);
+	
+	jQuery('#footer_favorite_frame_mark').show();
 	if ('f' == kind) {
 		jQuery('#footer_favorite_share_wrap').hide();
 		jQuery('#footer_favorite_favorite_wrap').show();
@@ -150,7 +153,9 @@ var _show_favorite = function(kind) {
 	//jQuery('#footer_favorite_share_wrap').show();
 	jQuery('#footer_favorite_frame').css('margin-top', '34px');
 	jQuery('#footer_favorite_frame').height(jQuery(window).height() - 34);	
-	jQuery('#footer_favorite_frame').slideDown(_fadeTime);	
+	jQuery('#footer_favorite_frame').slideDown(_fadeTime, function() {
+		jQuery('#footer_favorite_frame_mark').hide();
+	});	
 };
 // 关闭收藏与分享POP层
 var _hide_favorite = function() {
@@ -337,6 +342,9 @@ jQuery(function(){
 	jQuery('#btn_open_business').bind('click', function(event) {
 		_open_info_page('business');
 	});
+	jQuery('#btn_open_book').bind('click', function(event) {
+		_open_info_page('user_book');
+	});
 	jQuery('#matchbox_submit_comment').bind('click', function(event) {
 		_submit_comment();
 	});
@@ -350,6 +358,13 @@ jQuery(function(){
 	jQuery('#footer_freeback_wrap').bind('click', function(event) {
 	 	event.stopPropagation();
 	});
+	jQuery('.favorites_link_group').bind('touchstart', function(event) {
+	 	event.stopPropagation();
+	});
+	jQuery('.favorites_link_group').bind('click', function(event) {
+	 	event.stopPropagation();
+	});
+	
 });
 	
 
@@ -367,11 +382,14 @@ var circularHtml = '<div style="width:100%;margin:0 auto;text-align:center;"><di
 			  + '</div></div>';
 
 var _closeSplashScreen = function() {
-		document.addEventListener("deviceready", onDeviceReady, false);	
+//		navigator.splashscreen.hide();
+	/*	document.addEventListener("deviceready", onDeviceReady, false);	
+		console.log("add device phonge ...");
 		function onDeviceReady() {
-			console.log(" close ...");
-        //	navigator.splashscreen.hide();
+			console.log(" device ok close ...");
+        	navigator.splashscreen.hide();
     	}
+    */
 };
 
 var _weixiShare = function(id) {
@@ -382,6 +400,16 @@ var _weixiShare = function(id) {
 	console.log('send weixin -- url:%s; title:%s; pic: %s; desc: %s', url, title, detail.pic, detail.desc);
 	send_weixin(title, url, detail.desc, detail.pic);
 }
+
+var _friendsShare = function(id) {
+	var title = jQuery('#mb_post_title_' + id).val();
+	var desc = '';
+	var url = SITE_URL + '/?share=' + id;
+	var detail = _findDetail(id);
+	console.log('send friends -- url:%s; title:%s; pic: %s; desc: %s', url, title, detail.pic, detail.desc);
+	send_friends(title, url, detail.desc, detail.pic);
+}
+
 
 var _sinaShare = function(id) {
 	var title = jQuery('#mb_post_title_' + id).val();
@@ -506,7 +534,10 @@ var _load_post = function(idx, surplus, first) {
 		// 分享连接
 		var shareUrl = SITE_URL + '/?share=' + id;
 		jQuery('#share_weixin').attr('href', 'javascript:_weixiShare(' + id + ')');
+		jQuery('#share_friends').attr('href', 'javascript:_friendsShare(' + id + ')');
 		jQuery('#share_sina').attr('href', 'javascript:_sinaShare(' + id + ')');
+		
+		
 		//jQuery('#share_sina').attr('href', 'http://v.t.sina.com.cn/share/share.php?appkey=1115756249&url=' + shareUrl + '&title=' + jQuery('#mb_post_title_' + id).val());
 		//jQuery('#share_mail').attr('href', 'mailto:?subject=' + title + '&body=' + shareUrl);
 	}

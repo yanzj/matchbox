@@ -3702,7 +3702,7 @@ audio:not([controls]) {
 	font-size: 18px;
 	margin-top: 0;
 	margin-bottom: 0;
-	line-height: 30px;
+	line-height: 40px;
 	border-bottom: 1px;
 	border-bottom-color: rgba(224, 224, 224, 0.43);
 	border-bottom-style: solid;
@@ -3710,8 +3710,8 @@ audio:not([controls]) {
 }/***********************zdd*********************/
 #footer_favorite .mb_favorite_title_s {
 	text-align: center;
-	font-size: 18px;
-	margin-top: 0;
+	font-size: 12px;
+	margin-top: 2px;
 	margin-bottom: 0;
 	line-height: 35px;
 
@@ -3812,7 +3812,8 @@ height: 0;
 	margin-left: auto;
 	margin-right: auto;
 	display: inline-block;
-	width: 60px;
+	width: 33%;
+	float:left;
 	text-align: center;
 }
 .share_icon_wrap div {
@@ -3948,4 +3949,14 @@ height: 0;
 }
 .swiper-slide {
 	float: left;
+}
+
+.share_img{
+	width:45px;
+}
+
+.mb_ad_link_wrap_zdd{
+	background: url(images/click.png) no-repeat;
+	background-size:auto 100%;
+	background-position-x:center;
 }
