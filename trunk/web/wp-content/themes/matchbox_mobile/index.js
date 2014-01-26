@@ -364,7 +364,9 @@ jQuery(function(){
 	jQuery('.favorites_link_group').bind('click', function(event) {
 	 	event.stopPropagation();
 	});
-	
+	jQuery(window).resize(function() {
+		jQuery('#footer_comment').height(jQuery(window).height() - 34);
+	});
 });
 	
 

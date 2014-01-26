@@ -25,15 +25,15 @@ function sendWebpageContent(url,title,desc,png, sendType){
                                    {
                                    title:title,
                                    description:desc,
-                                   thumbUrl:"",//固定的图片?
+                                   thumbUrl:png,//固定的图片?
                                    scene:sendType || 0  //没有给就是0
                                    });
 }
-function send_weixin(url,title,desc,png){
+function send_weixin(title,url,desc,png){
 	sendWebpageContent(url,title,desc,png, 0);
 }
 //朋友圈
-function send_friends(url,title,desc,png){
+function send_friends(title,url,desc,png){
 	sendWebpageContent(url,title,desc,png, 1);
 }
 
