@@ -1,6 +1,7 @@
 <?php 
 	$SITE_URL = get_site_url();
 	$TEMPLATE_URL = get_template_directory_uri();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,17 +27,19 @@
 <?php endif; ?>
 
 </head>
-<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:36px;margin-bottom:2px;">
+<body screen_capture_injected="true" <?php body_class(); ?> style="margin-top:32px;margin-bottom:2px;">
 <div id="masthead" class="mb_header">
-	<div id="mb_header_left" class="mb_header_left" style="width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_left.png') no-repeat;background-size: 18px auto;height:32px;background-position-y:16px;"></div>
-	<div id="mb_header_right" class="mb_header_right" style="width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right.png') no-repeat;background-size: 18px auto;background-position-x: right;background-position-y: 6px;"></div>
-	<div id="mb_header_back" class="mb_header_right" style="display:none;width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right_back.png') no-repeat;background-size: 16px auto;background-position: 100% 8px;"></div>
-	<div id="mb_header_favorite_back" class="mb_header_left" style="display:none;width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right_back2.png') no-repeat;height:32px;background-position-y: 11px;"></div>
+	<div id="mb_header_left" class="mb_header_left" style="width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_left.png') no-repeat;background-size: 25px auto;height:32px;background-position:7px 16px;"></div>
+	<div id="mb_header_right" class="mb_header_right" style="width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right.png') no-repeat;background-size: 25px auto;background-position: 30px 5px;"></div>
+	<div id="mb_header_back" class="mb_header_right" style="display:none;width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right_back.png') no-repeat;background-size: 18px auto;background-position: 40px 15px;"></div>
+	<div id="mb_header_favorite_back" class="mb_header_left" style="display:none;width:64px;background:url('<?php echo $TEMPLATE_URL;?>/images/fun_right_back2.png') no-repeat;background-size: 18px auto;height:32px;background-position:7px 15px;"></div>
 	<div class="mb_header_center" onclick="_close_pop_all()">
 		<a><img class="mb_header_title" src="<?php echo $TEMPLATE_URL; ?>/images/title.png"/></a>
 	</div>
 </div>
-	
+<div style="width:100%" align="center">
+<div id="board"></div>	
+</div>
 <?php if ( function_exists('matchbox_ad_insert') ) : ?>
 <?php matchbox_ad_insert(); ?>
 <?php endif; ?>
@@ -332,7 +335,9 @@ match2013@qq.com
 			      }
 			    },
 			    onSlideChangeEnd : function () {
-			    	_load_post(mySwiper.activeIndex, 10, true);
+			    	mySwiper.params.onlyExternal = true;
+			    	_load_post(mySwiper.activeIndex, 3, true);
+			    	mySwiper.params.onlyExternal = false;
 			    }
 			 });
 			 
@@ -363,13 +368,48 @@ match2013@qq.com
 				});
 			  }
 
-			<?php echo $_pushscripts; ?>
+			my_array.push('1118');my_array_title.push('歌：Stephanie Says');hashMap.Set('?p=1118', '');
+my_array.push('1114');my_array_title.push('图：无题');
+my_array.push('1110');my_array_title.push('文：雨伞和雨鞋');
+my_array.push('1106');my_array_title.push('歌：关于我爱你');
+my_array.push('1103');my_array_title.push('语：东方可爱 ');
+my_array.push('1099');my_array_title.push('诗：秋来之后');
+my_array.push('1095');my_array_title.push('歌：Five Hundred Miles');
+my_array.push('1091');my_array_title.push('语：陆晓云');
+my_array.push('1085');my_array_title.push('文：想太多小姐和睡不着先生');
+my_array.push('1080');my_array_title.push('歌：Vincent');
+my_array.push('1073');my_array_title.push('诗：Vincent');
+my_array.push('984');my_array_title.push('歌：Sunny Day');
+my_array.push('992');my_array_title.push('语：姜玖');
+my_array.push('1040');my_array_title.push('文：所有的男人都是消耗品');
+my_array.push('974');my_array_title.push('歌：Meet Me By The Water');
+my_array.push('990');my_array_title.push('语：幻幻觉觉');
+my_array.push('1029');my_array_title.push('诗：你没有如期归来');
+my_array.push('970');my_array_title.push('歌：Every Breath You Take');
+my_array.push('996');my_array_title.push('语：日向秀树');
+my_array.push('1043');my_array_title.push('文：我一生都在等你');
+my_array.push('972');my_array_title.push('歌：梵高先生');
+my_array.push('997');my_array_title.push('语：王尔德');
+my_array.push('1014');my_array_title.push('文：不想拥抱我的人');
+my_array.push('980');my_array_title.push('歌：She\'s Got You High');
+my_array.push('988');my_array_title.push('语：东方可爱');
+my_array.push('1037');my_array_title.push('文：看不见的女友');
+my_array.push('982');my_array_title.push('歌：Some Dreams');
+my_array.push('928');my_array_title.push('图：Tang Yau Hoong');
+my_array.push('1035');my_array_title.push('诗：一生都在下雨');
+my_array.push('968');my_array_title.push('歌：Beat It');
+my_array.push('994');my_array_title.push('语：柯南');
+my_array.push('1031');my_array_title.push('文：狐狸的晚餐会');
+my_array.push('978');my_array_title.push('歌：Relief');
+my_array.push('1020');my_array_title.push('诗：我曾经爱过你');
+my_array.push('976');my_array_title.push('歌：Mushaboom');
+
 		}
 
 		jQuery('#mySwipe-wrap').height(jQuery(window).height() - 38);
 		
 		
-		_load_post(current_post, 5, true);
+		_load_post(current_post, 3, true);
 		_init_player(my_array[0]);
 		
 		jQuery('#ad_image_' + my_array[0]).toggle(

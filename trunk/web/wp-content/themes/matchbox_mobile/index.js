@@ -89,7 +89,11 @@ var _init_player = function(id) {
           jQuery("#" + playtoggleId).addClass('playing');
       }).bind('pause ended', function() {
           jQuery("#" + playtoggleId).removeClass('playing');
-      }).bind("canplay", function () {
+      }).bind('error', function(){
+		  //jQuery("#" + playtoggleId).removeClass('playing');
+		  this.pause(); 
+		  this.currentTime = 0;
+	  }).bind("canplay", function () {
       	console.log(this.currentTime + '/' + this.duration);
     	});
 			jQuery("#" + playtoggleId).bind('touchstart', function() {
@@ -476,8 +480,9 @@ var _load_post = function(idx, surplus, first) {
 			jQuery('#' + content_id).html(circularHtml);
 		}
 		//alert('load ' + id);
-		jQuery('#' + content_id).load( url + '&single=true', function() {
-		  hashMap.Set(url, '');
+		hashMap.Set(url, ''); //tei 2/-12 for memory crash
+		jQuery('#' + content_id).load( 'http://zd.miaozhiwei.net/'+ url + '&single=true', function() {
+		  
 		  _init_player(id);
 		 
 		 jQuery('#ad_image_' + id).toggle(

@@ -2904,10 +2904,16 @@ html {
    height:20px;
 }
 #masthead{
-   border-bottom: 1px;
-   border-bottom-color: rgba(224, 224, 224, 1);
-   border-bottom-style: solid;
-   margin: 0px 13px;
+   
+   margin: 0px;
+}
+#board{
+	width:294px;
+
+	height:1px;
+	background-color:rgba(224, 224, 224, 1);
+	text-align:center;
+
 }
 #btn_header_favorite_back{
    height:28px;
@@ -2933,9 +2939,7 @@ html {
 	margin-bottom: 0;
     display:block;
     background-color: #FFFFFF;
-    border-bottom: 1px;
-    border-bottom-color: rgba(224, 224, 224, 0.43);
-    border-bottom-style: solid;
+    
 }/**************************zdd***************************/
 .mb_header  .mb_header .mb_header_right{
 	width:40px; 
